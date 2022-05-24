@@ -1,0 +1,22 @@
+.DS_Store
+*.sw[po]
+tags
+TAGS
+__pycache__
+*.o
+*.log
+.config/configstore
+tempCodeRunnerFile.*
+node_modules
+
+# Fish
+fish_variables*
+
+# iTerm
+.config/iterm2
+
+# Raycast
+.config/raycast
+
+# Karabiner
+.config/karabiner/
