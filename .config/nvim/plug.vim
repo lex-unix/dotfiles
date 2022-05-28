@@ -2,7 +2,7 @@ if has("nvim")
   let g:plug_home = stdpath('data') . '/plugged'
 endif
 
-let g:python_host_prog = expand('/opt/homebrew/opt/python@3.10/bin/python3')
+let g:python_host_prog = expand('/opt/homebrew/bin/python3')
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
