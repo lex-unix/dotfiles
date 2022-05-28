@@ -21,6 +21,11 @@ set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
+### VENV
+# tmux auto activate venv
+if test -n "$VIRTUAL_ENV"
+  source $VIRTUAL_ENV/bin/activate.fish
+end
 # venv prompt
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 # agnoster theme venv colors
