@@ -8,6 +8,7 @@ __pycache__
 .config/configstore
 tempCodeRunnerFile.*
 node_modules
+venv
 
 # Fish
 fish_variables*
