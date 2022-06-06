@@ -10,6 +10,7 @@ alias up "cd .."
 alias python python3
 alias pip pip3
 alias g git
+alias c clear
 
 if type -q exa
   alias ll "exa -l -g --icons"
