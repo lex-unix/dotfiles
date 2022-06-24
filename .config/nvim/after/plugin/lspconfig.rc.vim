@@ -29,9 +29,12 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
   -- formatting
-   if client.name == 'tsserver' then
-    client.resolved_capabilities.document_formatting = false
-   end
+   if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[augroup END]]
+  end
 
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
