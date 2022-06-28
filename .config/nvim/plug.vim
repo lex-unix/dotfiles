@@ -28,6 +28,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'norcalli/nvim-colorizer.lua'
 endif
 
 call plug#end()
