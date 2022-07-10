@@ -76,6 +76,26 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+
+-- Set up rust-analyzer
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      assists = {
+        importGranularity = "module",
+        importPrefix = "self",
+      },
+      cargo = {
+        loadOutDirsFromCheck = true
+      },
+      proMacro = {
+        enable = true
+      },
+    }
+  }
+}
+
 -- Set up tsserver for completion
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
