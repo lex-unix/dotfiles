@@ -76,6 +76,10 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
+-- Set up prismals
+nvim_lsp.prismals.setup {
+  on_attach = on_attach
+}
 
 -- Set up rust-analyzer
 nvim_lsp.rust_analyzer.setup {
