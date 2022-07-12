@@ -12,6 +12,10 @@ venv
 
 # Fish
 fish_variables*
+fish_plugins
+__bass.py 
+bass.fish 
+fisher.fish
 
 # iTerm
 .config/iterm2
@@ -21,3 +25,6 @@ fish_variables*
 
 # Karabiner
 .config/karabiner/
+
+# Planetscale
+planetscale

@@ -22,6 +22,11 @@ set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
+### NVM
+function nvm
+   bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
+end
+
 ### VENV
 # tmux auto activate venv
 if test -n "$VIRTUAL_ENV"
