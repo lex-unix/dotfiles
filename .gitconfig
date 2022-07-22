@@ -7,6 +7,8 @@
 [init]
 	defaultBranch = master
 [alias]
+  ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
   d = diff
   co = checkout
   ci = commit
