@@ -12,10 +12,9 @@ alias pip pip3
 alias g git
 alias c clear
 
-if type -q exa
-  alias ll "exa -l -g --icons"
-  alias lla "ll -a"
-end
+# exa
+alias ll "exa -l -g --icons"
+alias lla "ll -a"
 
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH

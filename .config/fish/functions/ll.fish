@@ -1,3 +1,3 @@
-function ll
-  exa -l -g --icons
-end
+# function ll
+#   exa -l -g --icons
+# end
