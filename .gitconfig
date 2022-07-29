@@ -28,3 +28,5 @@
 [mergetool "nvimdiff"]
   cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
+[ghq]
+  root = ~/.ghq
