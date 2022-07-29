@@ -24,6 +24,15 @@ set -gx PATH /opt/homebrew/bin $PATH
 ### NVM
 set -gx NVIM_DIR ~/.nvm
 
+function __check_rvm --on-variable PWD --description 'Do nvm stuff'
+  status --is-command-substitution; and return
+
+  if test -f .nvmrc; and test -r .nvmrc;
+    nvm use
+  else
+  end
+end
+
 ### VENV
 # tmux auto activate venv
 if test -n "$VIRTUAL_ENV"
