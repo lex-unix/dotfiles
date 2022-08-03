@@ -6,7 +6,7 @@ set -g default_user ___
 
 set -gx TERM xterm-256color
 
-alias up "cd .."
+alias .. "cd .."
 alias python python3
 alias pip pip3
 alias g git
