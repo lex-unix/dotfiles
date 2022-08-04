@@ -3,9 +3,9 @@
   excludesfile = ~/.gitignore
 [user]
   name = Lex Nousagi
-	email = alexmiyin@gmail.com
+  email = alexmiyin@gmail.com
 [init]
-	defaultBranch = master
+  defaultBranch = master
 [alias]
   a = "!git status --short | peco | awk '{print $2}' | xargs git add"
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
