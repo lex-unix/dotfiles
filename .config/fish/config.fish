@@ -21,6 +21,10 @@ set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
+# NodeJS
+set -g NODE_PATH "npm root -g"
+set -gx PATH $NODE_PATH $PATH
+
 # Go
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
