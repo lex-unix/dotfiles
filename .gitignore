@@ -9,6 +9,7 @@ __pycache__
 tempCodeRunnerFile.*
 node_modules
 venv
+gh
 
 # Fish
 fish_variables*
