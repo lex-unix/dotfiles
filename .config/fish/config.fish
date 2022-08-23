@@ -26,6 +26,11 @@ set -gx PRETTIERD_DEFAULT_CONFIG ~/.prettierrc.js
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+# Android Studio
+set -gx ANDROID_SDK_ROOT $HOME/Library/Android/sdk
+set -gx PATH $ANDROID_SDK_ROOT/emulator $PATH
+set -gx PATH $ANDROID_SDK_ROOT/platform-tools $PATH
+
 ### NVM
 set -gx NVIM_DIR ~/.nvm
 
