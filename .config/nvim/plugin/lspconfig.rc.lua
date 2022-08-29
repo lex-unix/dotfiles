@@ -158,17 +158,6 @@ nvim_lsp.diagnosticls.setup {
     filetypes = {
       python = 'flake8',
     },
-    formatters = {
-      autopep8 = {
-        sourceName = 'autopep8',
-        command = 'autopep8',
-        args = { '-' },
-        rootPatterns = { 'requirements.txt', '.git' },
-      },
-    },
-    formatFiletypes = {
-      python = 'autopep8',
-    }
   }
 }
 
