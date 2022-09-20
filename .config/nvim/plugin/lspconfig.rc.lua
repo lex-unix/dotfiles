@@ -85,9 +85,10 @@ nvim_lsp.sumneko_lua.setup {
 nvim_lsp.tailwindcss.setup {}
 
 -- Set up prismals
-nvim_lsp.prismals.setup {
-  on_attach = on_attach
-}
+nvim_lsp.prismals.setup {}
+
+-- Set up astro-ls
+nvim_lsp.astro.setup {}
 
 -- Set up rust-analyzer
 nvim_lsp.rust_analyzer.setup {
