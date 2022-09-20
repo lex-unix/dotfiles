@@ -32,7 +32,7 @@ set -gx PATH $ANDROID_SDK_ROOT/emulator $PATH
 set -gx PATH $ANDROID_SDK_ROOT/platform-tools $PATH
 
 ### NVM
-set -gx NVIM_DIR ~/.nvm
+set -gx NVM_DIR ~/.nvm
 
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   status --is-command-substitution; and return
