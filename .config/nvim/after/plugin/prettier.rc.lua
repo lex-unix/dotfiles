@@ -11,6 +11,7 @@ prettier.setup {
     "typescriptreact",
     "json",
     "scss",
-    "less"
+    "less",
+    "astro"
   }
 }
