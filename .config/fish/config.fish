@@ -20,13 +20,19 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
+set -gx PRETTIERD_DEFAULT_CONFIG ~/.prettierrc.js
 
 # Go
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+# Android Studio
+set -gx ANDROID_SDK_ROOT $HOME/Library/Android/sdk
+set -gx PATH $ANDROID_SDK_ROOT/emulator $PATH
+set -gx PATH $ANDROID_SDK_ROOT/platform-tools $PATH
+
 ### NVM
-set -gx NVIM_DIR ~/.nvm
+set -gx NVM_DIR ~/.nvm
 
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   status --is-command-substitution; and return

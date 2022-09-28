@@ -1,0 +1,25 @@
+[delta "solarized-dark"]
+    commit-decoration-style = bold box ul
+    dark = true
+    file-decoration-style = none
+    file-style = omit
+    navigate = true
+    keep-plus-minus-markers = false
+    
+    hunk-header-decoration-style = "#258ad0" box ul
+    hunk-header-file-style = bold "#FF5E00" 
+    hunk-header-line-number-style = bold "#096909" 
+    hunk-header-style = file line-number syntax
+
+    line-numbers = true
+    line-numbers-left-style = "#258ad0"
+    line-numbers-minus-style = "#80002a"
+    line-numbers-right-style = "#022b45"
+    
+    minus-emph-style = raw "#7B1821" "#37080D"
+    minus-style = "#0087FF" "#37080D"
+
+    plus-emph-style = raw "#ffffff" "#043004" 
+    plus-style = "#ffffff" "#043004"
+
+    syntax-theme = Monokai Extended
