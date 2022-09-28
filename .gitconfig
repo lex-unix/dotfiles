@@ -5,7 +5,7 @@
   name = Lex Nousagi
   email = alexmiyin@gmail.com
 [init]
-  defaultBranch = master
+  defaultBranch = main
 [color]
   status = auto
   diff = auto
