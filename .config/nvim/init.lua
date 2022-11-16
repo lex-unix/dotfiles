@@ -3,7 +3,9 @@ require('lex-unix.highlights')
 require('lex-unix.maps')
 require('lex-unix.plugins')
 
-local has = vim.fn.has
+local has = function(x)
+  return vim.fn.has(x) == 1
+end
 local is_mac = has "macunix"
 local is_win = has "win32"
 
