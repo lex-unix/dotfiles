@@ -20,7 +20,6 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
-set -gx PRETTIERD_DEFAULT_CONFIG ~/.prettierrc.js
 
 # Go
 set -g GOPATH $HOME/go
