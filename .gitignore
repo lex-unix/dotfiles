@@ -5,39 +5,17 @@ TAGS
 __pycache__
 *.o
 *.log
-.config/configstore
 tempCodeRunnerFile.*
 node_modules
-yarn
 venv
-gh
-.config/sanity
+
+# exclude everything from tracking except fish and nvim config files
+.config/*
+!.config/fish
+!.config/nvim
 
 # Fish
-fish_variables*
-fish_plugins
-__bass.py 
-bass.fish 
-__nvm_run.fish
-fisher.fish
-node.fish
-npm.fish
-npx.fish
-nvm.fish
-nvm_alias_command.fish
-nvm_alias_function.fish
-toremove.txt
-yarn.fish
-nvm.fish
-
-# iTerm
-.config/iterm2
-
-# Raycast
-.config/raycast
-
-# Karabiner
-.config/karabiner/
-
-# Planetscale
-planetscale
+fish_*
+.config/fish/completions/
+.config/fish/functions/
+!.config/fish/functions/peco_*
