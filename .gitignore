@@ -17,8 +17,9 @@ venv
 # Fish
 fish_*
 .config/fish/completions/
-.config/fish/functions/
+.config/fish/functions/*
 !.config/fish/functions/peco_*
+!.config/fish/functions/fish_user_key_bindings.fish
 .config/fish/conf.d/*
 !.config/fish/conf.d/tide.fish
 
