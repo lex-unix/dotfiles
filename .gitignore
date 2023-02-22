@@ -19,3 +19,6 @@ fish_*
 .config/fish/completions/
 .config/fish/functions/
 !.config/fish/functions/peco_*
+
+# Packer
+packer_compiled.lua
