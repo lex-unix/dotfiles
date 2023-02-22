@@ -9,8 +9,8 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
-      'svrana/neosolarized.nvim',
-      requires = { 'tjdevries/colorbuddy.nvim' }
+    'svrana/neosolarized.nvim',
+    requires = { 'tjdevries/colorbuddy.nvim' }
   }
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use 'nvim-lua/plenary.nvim' -- Common utilities
@@ -24,23 +24,23 @@ packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
 
   use({
-      'rose-pine/neovim',
-      as = 'rose-pine',
-      config = function()
-        require("rose-pine").setup({
-            disable_background = true,
-            disable_float_background = true,
-            disable_italics = true,
-        })
-        vim.cmd('colorscheme rose-pine')
-      end
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      require("rose-pine").setup({
+        disable_background = true,
+        disable_float_background = true,
+        disable_italics = true,
+      })
+      vim.cmd('colorscheme rose-pine')
+    end
   })
 
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope.nvim'
@@ -50,8 +50,8 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   use 'folke/zen-mode.nvim'
   use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'akinsho/nvim-bufferline.lua'
   -- use 'github/copilot.vim'
