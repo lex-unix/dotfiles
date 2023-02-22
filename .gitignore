@@ -19,6 +19,8 @@ fish_*
 .config/fish/completions/
 .config/fish/functions/
 !.config/fish/functions/peco_*
+.config/fish/conf.d/*
+!.config/fish/conf.d/tide.fish
 
 # Packer
 packer_compiled.lua
