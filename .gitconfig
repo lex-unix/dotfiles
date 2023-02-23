@@ -38,7 +38,7 @@
 [interactive]
   diffFilter = delta --color-only
 [include]
-  path = /Users/lex/dotfiles/theme.gitconfig
+  path = /Users/lex/.theme.gitconfig
 [delta]
   features = solarized-dark
 [diff]
