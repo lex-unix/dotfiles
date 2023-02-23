@@ -9,10 +9,11 @@ tempCodeRunnerFile.*
 node_modules
 venv
 
-# exclude everything from tracking except fish and nvim config files
+# exclude everything from tracking except fish, tmux and neovim config files
 .config/*
 !.config/fish
 !.config/nvim
+!.config/tmux
 
 # Fish
 fish_*
