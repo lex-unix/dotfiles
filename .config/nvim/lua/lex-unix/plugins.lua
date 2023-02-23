@@ -23,6 +23,19 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      require("rose-pine").setup({
+        disable_background = true,
+        disable_float_background = true,
+        disable_italics = true,
+      })
+      vim.cmd('colorscheme rose-pine')
+    end
+  })
+
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
   use {

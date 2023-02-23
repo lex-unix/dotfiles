@@ -12,22 +12,22 @@ bufferline.setup({
   },
   highlights = {
     separator = {
-      fg = '#073642',
-      bg = '#002b36',
+      fg = '#1f1d2e',
+      bg = '#21202e'
     },
     separator_selected = {
-      fg = '#073642',
+      fg = '#1f1d2e'
     },
     background = {
-      fg = '#657b83',
-      bg = '#002b36'
+      fg = '#6e6a86',
+      bg = '#21202e'
     },
     buffer_selected = {
-      fg = '#fdf6e3',
+      fg = '#e0def4',
       bold = true,
     },
     fill = {
-      bg = '#073642'
+      bg = '#1f1d2e'
     }
   },
 })
