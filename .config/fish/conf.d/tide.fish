@@ -26,5 +26,5 @@ set -g tide_character_color_failure eb6f92
 
 set -g tide_status_bg_color_failure eb6f92
 
-set -g tide_cmd_duration_bg_color ebbcba
+set -g tide_cmd_duration_bg_color 9ccfd8
 set -g tide_cmd_duration_threshold 2000
