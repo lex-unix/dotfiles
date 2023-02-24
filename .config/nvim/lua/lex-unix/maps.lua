@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local keymap = vim.keymap
 
 keymap.set('n', 'x', '"_x')
@@ -32,3 +34,6 @@ keymap.set('n', '<C-w><left>', '<C-w><')
 keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
+
+-- Do not loose current pasting item
+vim.keymap.set("x", "<leader>p", [["_dP]])
