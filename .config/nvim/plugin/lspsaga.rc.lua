@@ -4,11 +4,8 @@ if (not status) then return end
 saga.setup({
   ui = {
     title = true,
-    winblend = 10,
+    winblend = 0,
     border = 'rounded',
-    colors = {
-      normal_bg = '#002b36'
-    }
   }
 })
 
