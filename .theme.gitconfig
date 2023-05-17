@@ -4,7 +4,7 @@
     file-decoration-style = none
     file-style = omit
     navigate = true
-    keep-plus-minus-markers = false
+    keep-plus-minus-markers = true
     
     hunk-header-decoration-style = "#258ad0" box ul
     hunk-header-file-style = bold "#FF5E00" 
@@ -13,13 +13,14 @@
 
     line-numbers = true
     line-numbers-left-style = "#258ad0"
-    line-numbers-minus-style = "#80002a"
+    line-numbers-minus-style = "#C670F1"
+    line-numbers-plus-style = "#71F1CA"
     line-numbers-right-style = "#022b45"
     
-    minus-emph-style = raw "#7B1821" "#37080D"
-    minus-style = "#0087FF" "#37080D"
+    minus-emph-style = raw "#E0B3F6" "#2F0444"
+    minus-style = "#E0B3F6" "#2F0444"
 
-    plus-emph-style = raw "#ffffff" "#043004" 
-    plus-style = "#ffffff" "#043004"
+    plus-emph-style = raw "#71F1CA" "#04412F" 
+    plus-style = "#71F1CA" "#04412F"
 
     syntax-theme = Monokai Extended
