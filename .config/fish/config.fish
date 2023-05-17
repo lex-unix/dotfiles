@@ -11,6 +11,7 @@ alias python python3
 alias pip pip3
 alias g git
 alias c clear
+alias cat bat
 
 # exa
 alias ll "exa -l -g --icons"
