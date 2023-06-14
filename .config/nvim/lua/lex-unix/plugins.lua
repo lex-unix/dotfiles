@@ -28,6 +28,8 @@ packer.startup(function(use)
     as = 'rose-pine',
   })
 
+  use "rebelot/kanagawa.nvim"
+
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
   use {
