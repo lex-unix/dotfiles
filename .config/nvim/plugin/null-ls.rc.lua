@@ -23,6 +23,8 @@ null_ls.setup {
     null_ls.builtins.diagnostics.fish,
     null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.gofmt,
+    null_ls.builtins.formatting.terraform_fmt,
+    null_ls.builtins.diagnostics.terraform_validate,
     null_ls.builtins.formatting.rustfmt,
     null_ls.builtins.formatting.clang_format.with({
       extra_args = {
