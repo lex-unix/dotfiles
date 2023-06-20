@@ -1,6 +1,6 @@
-set -g tide_git_bg_color 268bd2
-set -g tide_git_bg_color_unstable f6c177
-set -g tide_git_bg_color_urgent CC0000
+set -g tide_git_bg_color 76946A
+set -g tide_git_bg_color_unstable dca561
+set -g tide_git_bg_color_urgent c34043
 set -g tide_git_branch_color 000000
 set -g tide_git_color_branch 000000
 set -g tide_git_color_conflicted 000000
@@ -21,10 +21,10 @@ set -g tide_git_upstream_color 000000
 
 set -g tide_pwd_bg_color 444444
 
-set -g tide_character_color c4a7e7
-set -g tide_character_color_failure eb6f92
+set -g tide_character_color FF9E3B
+set -g tide_character_color_failure C34043
 
-set -g tide_status_bg_color_failure eb6f92
+set -g tide_status_bg_color_failure E82424
 
-set -g tide_cmd_duration_bg_color 9ccfd8
+set -g tide_cmd_duration_bg_color 7FB4CA
 set -g tide_cmd_duration_threshold 2000
