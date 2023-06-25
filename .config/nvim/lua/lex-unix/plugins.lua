@@ -51,8 +51,10 @@ packer.startup(function(use)
   -- use 'github/copilot.vim'
 
   use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim' -- For git blame & browse
+  -- use 'dinhhuy258/git.nvim' -- For git blame & browse
 
   use 'rcarriga/nvim-notify'
   use 'numToStr/Comment.nvim'
+
+  use 'tpope/vim-fugitive'
 end)
