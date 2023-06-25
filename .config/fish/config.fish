@@ -6,6 +6,8 @@ set -g default_user ___
 
 set -gx TERM xterm-256color
 
+fish_vi_key_bindings
+
 alias .. "cd .."
 alias python python3
 alias pip pip3
