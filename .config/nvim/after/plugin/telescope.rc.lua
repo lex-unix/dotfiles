@@ -43,6 +43,17 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 
+local file_browser_opts = {
+  path = "%:p:h",
+  cwd = telescope_buffer_dir(),
+  respect_gitignore = false,
+  hidden = true,
+  grouped = true,
+  previewer = false,
+  initial_mode = "normal",
+  layout_config = { height = 40 }
+}
+
 vim.keymap.set('n', ';f',
   function()
     builtin.find_files({
@@ -66,14 +77,13 @@ vim.keymap.set('n', ';e', function()
   builtin.diagnostics()
 end)
 vim.keymap.set("n", "sf", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = false,
-    initial_mode = "normal",
-    layout_config = { height = 40 }
-  })
+  telescope.extensions.file_browser.file_browser(file_browser_opts)
 end)
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.argv(0) == "" then
+      telescope.extensions.file_browser.file_browser(file_browser_opts)
+    end
+  end,
+})
