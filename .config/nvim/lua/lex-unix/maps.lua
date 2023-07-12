@@ -36,4 +36,14 @@ keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
 -- Do not loose current pasting item
-vim.keymap.set("x", "<leader>p", [["_dP]])
+keymap.set('x', '<leader>p', [["_dP]])
+
+-- Copy to system clipboard
+keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+keymap.set('n', '<leader>Y', [["+Y]])
+
+-- Delete to void register
+keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
