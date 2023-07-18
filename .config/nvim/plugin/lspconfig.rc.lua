@@ -73,6 +73,12 @@ nvim_lsp.tsserver.setup {
 }
 
 
+-- Set up svelte-language-server
+nvim_lsp.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 -- Set up css_ls for css, scss, less
 nvim_lsp.cssls.setup {
   on_attach = on_attach,
