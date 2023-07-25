@@ -11,6 +11,7 @@ ts.setup {
     disable = { "python" },
   },
   sync_install = false,
+  auto_install = true,
   ensure_installed = {
     "tsx",
     "toml",
