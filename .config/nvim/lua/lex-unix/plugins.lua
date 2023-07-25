@@ -36,7 +36,8 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
-  use 'kyazdani42/nvim-web-devicons' -- File icons
+  use 'nvim-tree/nvim-web-devicons'
+
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
   use 'windwp/nvim-autopairs'
@@ -48,13 +49,11 @@ packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'akinsho/nvim-bufferline.lua'
-  -- use 'github/copilot.vim'
 
+  -- use 'github/copilot.vim'
+  use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
-  -- use 'dinhhuy258/git.nvim' -- For git blame & browse
 
   use 'rcarriga/nvim-notify'
   use 'numToStr/Comment.nvim'
-
-  use 'tpope/vim-fugitive'
 end)
