@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 local keymap = vim.keymap
 
@@ -45,5 +45,5 @@ keymap.set('n', '<leader>Y', [["+Y]])
 -- Delete to void register
 keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
 
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv")

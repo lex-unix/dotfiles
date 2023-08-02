@@ -1,15 +1,15 @@
-local status, saga = pcall(require, "lspsaga")
-if (not status) then return end
+local status, saga = pcall(require, 'lspsaga')
+if not status then return end
 
 saga.setup({
-  ui = {
-    title = true,
-    winblend = 0,
-    border = 'rounded',
-  }
+	ui = {
+		title = true,
+		winblend = 0,
+		border = 'rounded',
+	},
 })
 
-local diagnostic = require("lspsaga.diagnostic")
+local diagnostic = require('lspsaga.diagnostic')
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 vim.keymap.set('n', 'gl', '<Cmd>Lspsaga show_buf_diagnostics<CR>', opts)
@@ -20,4 +20,4 @@ vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
 vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 
 -- code action
-vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+vim.keymap.set({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>')
