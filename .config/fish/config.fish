@@ -6,7 +6,11 @@ set -g default_user ___
 
 set -gx TERM xterm-256color
 
-# fish_vi_key_bindings
+set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
+set -g FZF_LEGACY_KEYBINDINGS 0
+set -gx FZF_DEFAULT_COMMAND "fd --type d --hidden --search-path $HOME/.config --search-path $HOME/dev --exclude .git --exclude node_modules"
+
+fish_vi_key_bindings
 
 alias .. "cd .."
 alias python python3
@@ -55,3 +59,7 @@ set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 # agnoster theme venv colors
 set -q color_virtual_env_bg; or set -g color_virtual_env_bg magenta
 set -q color_virtual_env_str; or set -g color_virtual_env_str black
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
