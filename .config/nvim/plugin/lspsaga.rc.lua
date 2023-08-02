@@ -7,6 +7,9 @@ saga.setup({
 		winblend = 0,
 		border = 'rounded',
 	},
+	lightbulb = {
+		enable = false,
+	},
 })
 
 local diagnostic = require('lspsaga.diagnostic')
