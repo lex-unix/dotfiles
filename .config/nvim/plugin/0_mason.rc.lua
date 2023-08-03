@@ -21,16 +21,6 @@ lspconfig.setup_handlers({
 			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = settings[server_name],
-			handlers = (settings[server_name] or {}).handlers,
-		})
-	end,
-	clangd = function()
-		nvim_lsp.clangd.setup({
-			on_attach = on_attach,
-			capabilities = {
-				capabilities,
-				offsetEncoding = 'utf-8',
-			},
 		})
 	end,
 })

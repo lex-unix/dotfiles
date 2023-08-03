@@ -1,10 +1,4 @@
-local status, nvim_lsp = pcall(require, 'lspconfig')
-if not status then return end
-
 local protocol = require('vim.lsp.protocol')
-
-local on_attach = require('lex-unix.shared').on_attach
-local capabilities = require('lex-unix.shared').capabilities
 
 protocol.CompletionItemKind = {
 	'', -- Text
@@ -33,26 +27,6 @@ protocol.CompletionItemKind = {
 	'󰘧', -- Operator
 	'', -- TypeParameter
 }
-
--- Set up Pyright for completion only
-nvim_lsp.pyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	handlers = {
-		['textDocument/publishDiagnostics'] = function(...) end,
-	},
-	settings = {
-		typeCheckingMode = 'off',
-		python = {
-			analysis = {
-				typeCheckingMode = 'off',
-			},
-		},
-		pyright = {
-			disableDiagnostics = true,
-		},
-	},
-})
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,

@@ -13,18 +13,4 @@ return {
 			},
 		},
 	},
-	rust_analyzer = {
-		['rust-analyzer'] = {
-			assists = {
-				importGranularity = 'module',
-				importPrefix = 'self',
-			},
-			cargo = {
-				loadOutDirsFromCheck = true,
-			},
-			proMacro = {
-				enable = true,
-			},
-		},
-	},
 }
