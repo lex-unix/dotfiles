@@ -13,4 +13,12 @@ return {
 			},
 		},
 	},
+	yamlls = {
+		yaml = {
+			schemas = {
+				['https://json.schemastore.org/prettierrc.json'] = '.prettierrc',
+				['https://json.schemastore.org/eslintrc.json'] = '.eslintrc',
+			},
+		},
+	},
 }
