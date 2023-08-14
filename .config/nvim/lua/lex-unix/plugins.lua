@@ -28,6 +28,10 @@ packer.startup(function(use)
 		as = 'rose-pine',
 	})
 
+	-- debugging
+	use('mfussenegger/nvim-dap')
+	use('rcarriga/nvim-dap-ui')
+	use('leoluz/nvim-dap-go')
 	use('rebelot/kanagawa.nvim')
 
 	use('glepnir/lspsaga.nvim') -- LSP UIs
