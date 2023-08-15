@@ -18,6 +18,10 @@ return {
 			schemas = {
 				['https://json.schemastore.org/prettierrc.json'] = '.prettierrc',
 				['https://json.schemastore.org/eslintrc.json'] = '.eslintrc',
+				['https://json.schemastore.org/clang-format.json'] = '.clang-format',
+			},
+			schemaDownload = {
+				enable = true,
 			},
 		},
 	},
