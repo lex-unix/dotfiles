@@ -48,4 +48,7 @@ vim.filetype.add({
 		['.prettierrc'] = 'yaml',
 		['.eslintrc'] = 'yaml',
 	},
+	extension = {
+		mdx = 'markdown.mdx',
+	},
 })
