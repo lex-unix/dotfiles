@@ -25,4 +25,28 @@ return {
 			},
 		},
 	},
+	jsonls = {
+		json = {
+			schemas = {
+				{
+					description = 'NPM configuration file',
+					fileMatch = { 'package.json' },
+					name = 'package.json',
+					url = 'https://json.schemastore.org/package.json',
+				},
+				{
+					description = 'TypeScript compiler configuration file',
+					fileMatch = { 'tsconfig*.json', 'base.json' },
+					name = 'tsconfig.json',
+					url = 'https://json.schemastore.org/tsconfig.json',
+				},
+				{
+					description = 'TurboRepo, a tool for managing monorepos',
+					fileMatch = { 'turbo.json' },
+					name = 'Turborepo',
+					url = 'https://turbo.build/schema.json',
+				},
+			},
+		},
+	},
 }
