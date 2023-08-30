@@ -23,6 +23,8 @@ packer.startup(function(use)
 	use('williamboman/mason.nvim')
 	use('williamboman/mason-lspconfig.nvim')
 
+	use('b0o/schemastore.nvim')
+
 	use({
 		'rose-pine/neovim',
 		as = 'rose-pine',
@@ -32,6 +34,9 @@ packer.startup(function(use)
 	use('mfussenegger/nvim-dap')
 	use('rcarriga/nvim-dap-ui')
 	use('leoluz/nvim-dap-go')
+
+	use('sainnhe/gruvbox-material')
+	use('sainnhe/everforest')
 	use('rebelot/kanagawa.nvim')
 
 	use('glepnir/lspsaga.nvim') -- LSP UIs
@@ -44,6 +49,10 @@ packer.startup(function(use)
 
 	use('nvim-telescope/telescope.nvim')
 	use('nvim-telescope/telescope-file-browser.nvim')
+	use({
+		'nvim-telescope/telescope-fzf-native.nvim',
+		run = 'make',
+	})
 	use('windwp/nvim-autopairs')
 	use('windwp/nvim-ts-autotag')
 	use('norcalli/nvim-colorizer.lua')
