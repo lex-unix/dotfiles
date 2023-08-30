@@ -18,6 +18,7 @@ alias pip pip3
 alias g git
 alias c clear
 alias cat bat
+alias sed gsed
 
 # exa
 alias ll "exa -l -g --icons"
