@@ -43,7 +43,7 @@ Currrent colorscheme is [gruvbox-material](https://github.com/sainnhe/gruvbox-ma
 
 ## Fish
 
-I use fisher as a plugin manager. Here is my installed plugins:
+I use fisher as a plugin manager. Here are my installed plugins:
 
 - jorgebucaran/fisher
 - edc/bass
