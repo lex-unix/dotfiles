@@ -47,6 +47,9 @@ return {
 					url = 'https://turbo.build/schema.json',
 				},
 			},
+			validate = {
+				enable = true,
+			},
 		},
 	},
 }
