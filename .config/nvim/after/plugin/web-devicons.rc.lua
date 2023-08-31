@@ -9,3 +9,10 @@ icons.setup({
 	-- will get overriden by `get_icons` option
 	default = true,
 })
+
+icons.set_icon({
+	astro = {
+		icon = '',
+		name = 'astro',
+	},
+})
