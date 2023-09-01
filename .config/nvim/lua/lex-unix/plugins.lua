@@ -8,10 +8,6 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
 	use('wbthomason/packer.nvim')
-	use({
-		'svrana/neosolarized.nvim',
-		requires = { 'tjdevries/colorbuddy.nvim' },
-	})
 	use('nvim-lualine/lualine.nvim') -- Statusline
 	use('nvim-lua/plenary.nvim') -- Common utilities
 	use('onsails/lspkind-nvim') -- vscode-like pictograms
@@ -23,8 +19,6 @@ packer.startup(function(use)
 	use('jose-elias-alvarez/null-ls.nvim') -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 	use('williamboman/mason.nvim')
 	use('williamboman/mason-lspconfig.nvim')
-
-	use('b0o/schemastore.nvim')
 
 	use({
 		'rose-pine/neovim',
