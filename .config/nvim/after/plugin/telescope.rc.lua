@@ -52,17 +52,15 @@ local file_browser_opts = {
 	layout_config = { height = 40 },
 }
 
-vim.keymap.set('n', ';f', function()
+vim.keymap.set('n', '<leader>sf', function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = true,
 	})
 end)
-vim.keymap.set('n', ';r', function() builtin.live_grep() end)
-vim.keymap.set('n', '\\\\', function() builtin.buffers() end)
-vim.keymap.set('n', ';t', function() builtin.help_tags() end)
-vim.keymap.set('n', ';;', function() builtin.resume() end)
-vim.keymap.set('n', ';e', function() builtin.diagnostics() end)
+vim.keymap.set('n', '<leader>sg', function() builtin.live_grep() end)
+vim.keymap.set('n', '<leader>sh', function() builtin.help_tags() end)
+vim.keymap.set('n', '<leader>sd', function() builtin.diagnostics() end)
 vim.keymap.set('n', 'sf', function() telescope.extensions.file_browser.file_browser(file_browser_opts) end)
 
 vim.api.nvim_create_autocmd('VimEnter', {
