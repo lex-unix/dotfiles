@@ -51,3 +51,6 @@ keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- Keep cursor in the same place
 keymap.set('n', 'J', 'mzJ`z')
+
+keymap.set('n', 'gh', '<cmd>diffget //2<CR>')
+keymap.set('n', 'gl', '<cmd>diffget //3<CR>')

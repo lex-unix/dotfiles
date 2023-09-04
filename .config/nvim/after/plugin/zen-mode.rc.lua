@@ -7,4 +7,4 @@ zenMode.setup({
 	},
 })
 
-vim.keymap.set('n', '<C-w>o', '<cmd>ZenMode<cr>', { silent = true })
+vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<cr>', { silent = true })
