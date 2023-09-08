@@ -8,7 +8,9 @@ set -gx TERM xterm-256color
 
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
 set -g FZF_LEGACY_KEYBINDINGS 0
-set -gx FZF_DEFAULT_COMMAND "fd --type d --hidden --search-path $HOME/.config --search-path $HOME/dev --exclude .git --exclude node_modules"
+set -gx FZF_DEFAULT_COMMAND "fd --type d --search-path $HOME/dev --exclude .git --exclude venv --exclude '**/target' --exclude node_modules"
+
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 
 fish_vi_key_bindings
 
