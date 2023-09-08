@@ -7,7 +7,9 @@ lualine.setup({
 		theme = 'gruvbox-material',
 		section_separators = { left = '', right = '' },
 		component_separators = { left = '', right = '' },
-		disabled_filetypes = {},
+		disabled_filetypes = {
+			statusline = { 'packer', 'help' },
+		},
 	},
 	sections = {
 		lualine_a = { 'mode' },
@@ -51,5 +53,5 @@ lualine.setup({
 		lualine_z = {},
 	},
 	tabline = {},
-	extensions = { 'fugitive' },
+	extensions = { 'fugitive', 'nvim-dap-ui' },
 })
