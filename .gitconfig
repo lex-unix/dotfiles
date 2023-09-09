@@ -14,7 +14,7 @@
   grep = auto
   ui = auto
 [alias]
-  a = "!git status --short | peco | awk '{print $2}' | xargs git add"
+  a = "!git status --short | fzf --multi | awk '{print $2}' | xargs git add"
   ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
   pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
   pr = remote prune origin
@@ -26,7 +26,7 @@
   bm = branch --merged
   bn = branch --no-merged 
   d = diff
-  df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+  df = "!git hist | fzf | awk '{print $2}' | xargs -I {} git diff {}^ {}"
   hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
   llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
   type = cat-file -t
@@ -38,7 +38,7 @@
 [interactive]
   diffFilter = delta --color-only
 [include]
-  path = /Users/lex/.theme.gitconfig
+  path = ~/.theme.gitconfig
 [delta]
   features = solarized-dark
 [diff]
