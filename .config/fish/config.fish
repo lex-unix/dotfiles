@@ -22,8 +22,8 @@ alias c clear
 alias cat bat
 alias sed gsed
 
-# exa
-alias ll "exa -l -g --icons"
+# eza
+alias ll "eza -l -g --icons"
 alias lla "ll -a"
 
 set -gx PATH bin $PATH
