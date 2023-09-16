@@ -2,7 +2,7 @@
   editor = nvim
   excludesfile = ~/.gitignore
 [user]
-  name = Lex Nousagi
+  name = Lex Miin
   email = alexmiyin@gmail.com
 [init]
   defaultBranch = main
