@@ -12,8 +12,6 @@ set -gx FZF_DEFAULT_COMMAND "fd --type d --search-path $HOME/dev --exclude .git 
 
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 
-fish_vi_key_bindings
-
 alias .. "cd .."
 alias python python3
 alias pip pip3
