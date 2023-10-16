@@ -58,7 +58,7 @@ return {
       telescope.setup({
         defaults = {
           sorting_strategy = 'ascending',
-          file_ignore_patterns = { '.git/', '%.jpeg', '%.jpg', '%.webp', '%.pdf' },
+          file_ignore_patterns = { '.git/', '%.jpeg', '%.jpg', '%.webp', '%.pdf', '%.png' },
           mappings = {
             n = {
               ['q'] = actions.close,
