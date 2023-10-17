@@ -15,4 +15,4 @@
       (#set! injection.language "sql")
       (#offset! @injection.content 0 1 0 -1)))
   (#any-of? @_field "Exec" "GetContext" "ExecContext" "SelectContext" "In" "Select"
-				            "RebindNamed" "Rebind" "QueryRowxContext" "NamedExec" "MustExec" "Get" "Queryx"))
+				            "RebindNamed" "Rebind" "QueryRowxContext" "NamedExec" "MustExec" "Queryx"))
