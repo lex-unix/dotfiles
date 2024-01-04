@@ -14,5 +14,5 @@
     (interpreted_string_literal) @injection.content 
       (#set! injection.language "sql")
       (#offset! @injection.content 0 1 0 -1)))
-  (#any-of? @_field "Exec" "GetContext" "ExecContext" "SelectContext" "In" "Select"
+  (#any-of? @_field "Exec" "GetContext" "ExecContext" "SelectContext" "Select"
 				            "RebindNamed" "Rebind" "QueryRowxContext" "NamedExec" "MustExec" "Queryx"))
