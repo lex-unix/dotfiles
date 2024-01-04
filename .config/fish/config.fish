@@ -17,6 +17,7 @@ alias python python3
 alias pip pip3
 alias g git
 alias c clear
+alias q exit
 alias cat bat
 alias sed gsed
 
