@@ -25,6 +25,8 @@ alias sed gsed
 alias ll "eza -l -g --icons"
 alias lla "ll -a"
 
+set -gx EDITOR nvim
+
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
