@@ -1,6 +1,7 @@
 local on_attach = require('config.shared').on_attach
 local capabilities = require('config.shared').capabilities
 local settings = require('config.server-settings')
+local handlers = require('config.server-handlers')
 
 return {
     {
@@ -26,6 +27,7 @@ return {
                         on_attach = on_attach,
                         capabilities = capabilities,
                         settings = settings[server_name],
+                        handlers = handlers[server_name] or {},
                     })
                 end,
             })

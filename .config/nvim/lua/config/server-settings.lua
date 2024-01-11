@@ -52,4 +52,15 @@ return {
             },
         },
     },
+    pyright = {
+        typeCheckingMode = 'off',
+        python = {
+            analysis = {
+                typeCheckingMode = 'off',
+            },
+        },
+        pyright = {
+            disableDiagnostics = true,
+        },
+    },
 }
