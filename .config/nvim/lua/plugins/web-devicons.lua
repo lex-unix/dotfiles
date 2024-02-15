@@ -13,7 +13,7 @@ return {
 
         icons.set_icon({
             astro = {
-                icon = '',
+                icon = '',
                 name = 'astro',
             },
         })
