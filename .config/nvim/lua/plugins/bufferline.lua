@@ -27,11 +27,11 @@ return {
                     italic = false,
                 },
                 background = {
-                    bg = '#1E2021',
+                    bg = '#171819',
                     fg = '#839496',
                 },
                 fill = {
-                    bg = '#1E2021',
+                    bg = '#171819',
                 },
             },
         })
