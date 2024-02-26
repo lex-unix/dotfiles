@@ -9,7 +9,8 @@ return {
         'hrsh7th/cmp-path',
     },
     {
-        'L3MON4D3/LuaSnip',
+        'saadparwaiz1/cmp_luasnip',
+        dependencies = { 'L3MON4D3/LuaSnip' },
     },
     {
         'hrsh7th/nvim-cmp',
@@ -32,6 +33,7 @@ return {
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
+                    { name = 'luasnip' },
                     { name = 'buffer' },
                     { name = 'path' },
                 }),

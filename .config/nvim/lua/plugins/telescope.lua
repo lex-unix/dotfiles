@@ -37,6 +37,11 @@ return {
                 function() require('telescope.builtin').diagnostics() end,
             },
             {
+                '<leader>ss',
+                '<cmd>Telescope luasnip<CR>',
+                desc = 'Telescope luasnip',
+            },
+            {
                 'sf',
                 function() require('telescope').extensions.file_browser.file_browser(file_browser_opts) end,
             },
@@ -89,6 +94,7 @@ return {
 
             telescope.load_extension('file_browser')
             telescope.load_extension('fzf')
+            telescope.load_extension('luasnip')
         end,
     },
 }
