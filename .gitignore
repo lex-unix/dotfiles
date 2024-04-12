@@ -16,8 +16,7 @@ fish_*
 !.config/fish/functions/peco_*
 !.config/fish/functions/tmux_sessionizer.fish
 !.config/fish/functions/fish_user_key_bindings.fish
+!.config/fish/functions/load_env.fish
 .config/fish/conf.d/*
 !.config/fish/conf.d/tide.fish
 
-# Packer
-packer_compiled.lua
