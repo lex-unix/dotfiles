@@ -66,4 +66,5 @@ return {
             disableDiagnostics = true,
         },
     },
+    mdx_analyzer = {},
 }

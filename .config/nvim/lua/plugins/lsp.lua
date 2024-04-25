@@ -1,7 +1,7 @@
 local on_attach = require('config.shared').on_attach
 local capabilities = require('config.shared').capabilities
-local settings = require('config.server-settings')
-local handlers = require('config.server-handlers')
+local settings = require('config.lsp.settings')
+local handlers = require('config.lsp.handlers')
 
 return {
     {
