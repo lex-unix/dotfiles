@@ -8,6 +8,7 @@ The repository includes configuration files for:
 - fish
 - tmux
 - git
+- kitty
 
 ## Neovim
 
@@ -56,3 +57,8 @@ I use fisher as a plugin manager. Here are my installed plugins:
 
 Git configuration includes [delta](https://github.com/dandavison/delta), a syntax-highlighting
 pager for git and useful aliases i borrowed from [craftzdog](https://github.com/craftzdog).
+
+## Kitty 
+
+The Kitty configuration uses mostly default settings.
+The only changes are the font, color scheme, and enabling the Option key as the Alt key for macOS.
