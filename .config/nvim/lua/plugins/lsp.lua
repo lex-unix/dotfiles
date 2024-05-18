@@ -1,7 +1,4 @@
-local on_attach = require('config.shared').on_attach
-local capabilities = require('config.shared').capabilities
-local settings = require('config.lsp.settings')
-local handlers = require('config.lsp.handlers')
+local configs = require('config.lsp.config')
 
 return {
     {
@@ -23,12 +20,8 @@ return {
 
             lspconfig.setup_handlers({
                 function(server_name)
-                    nvim_lsp[server_name].setup({
-                        on_attach = on_attach,
-                        capabilities = capabilities,
-                        settings = settings[server_name],
-                        handlers = handlers[server_name] or {},
-                    })
+                    local config = configs[server_name] or configs['BASE']
+                    nvim_lsp[server_name].setup(vim.tbl_extend('force', configs['BASE'], config))
                 end,
             })
         end,
