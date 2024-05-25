@@ -93,6 +93,9 @@ return {
         'glepnir/lspsaga.nvim',
         config = function()
             require('lspsaga').setup({
+                diagnostic = {
+                    auto_preview = false,
+                },
                 ui = {
                     title = true,
                     winblend = 0,
