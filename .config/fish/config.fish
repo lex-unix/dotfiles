@@ -4,14 +4,6 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g default_user ___
 
-# set -gx TERM xterm-256color
-
-set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
-set -g FZF_LEGACY_KEYBINDINGS 0
-set -gx FZF_DEFAULT_COMMAND "fd --type d --search-path $HOME/dev --exclude .git --exclude venv --exclude '**/target' --exclude node_modules"
-
-set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
-
 alias .. "cd .."
 alias python python3
 alias pip pip3
@@ -41,6 +33,14 @@ set -gx PATH $GOPATH/bin $PATH
 set -gx ANDROID_SDK_ROOT $HOME/Library/Android/sdk
 set -gx PATH $ANDROID_SDK_ROOT/emulator $PATH
 set -gx PATH $ANDROID_SDK_ROOT/platform-tools $PATH
+
+# fzf
+set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
+set -g FZF_LEGACY_KEYBINDINGS 0
+set -gx FZF_DEFAULT_COMMAND "fd --type d --search-path $HOME/dev --exclude .git --exclude venv --exclude '**/target' --exclude node_modules"
+
+# ripgrep
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 
 ### NVM
 set -gx NVM_DIR ~/.nvm
