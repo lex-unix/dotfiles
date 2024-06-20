@@ -11,11 +11,15 @@ alias g git
 alias c clear
 alias q exit
 alias cat bat
-alias sed gsed
 
 # eza
 alias ll "eza -l -g --icons"
 alias lla "ll -a"
+
+# coreutils
+alias sed gsed
+alias du gdu
+alias stat gstat
 
 set -gx EDITOR nvim
 
