@@ -72,3 +72,7 @@ set -q color_virtual_env_str; or set -g color_virtual_env_str black
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+# starship
+starship init fish | source
+set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
