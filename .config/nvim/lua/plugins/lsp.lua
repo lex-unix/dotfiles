@@ -84,7 +84,7 @@ return {
                 },
                 update_in_insert = true,
                 float = {
-                    source = 'always', -- Or "if_many"
+                    source = true,
                 },
             })
         end,
