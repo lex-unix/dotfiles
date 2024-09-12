@@ -1,7 +1,13 @@
 start-at-login = true
 
 after-startup-command = [
-  'exec-and-forget borders active_color=0xffabb1b4 inactive_color=0xff494d64 width=5.0 hidpi=on blacklist=1Password,CleanMyMac\ X,Raycast,Portal,CleanShot\ X,ClearVPN,Wipr,System\ Settings,Parcel,Portal,Pictogram,TV',
+  '''exec-and-forget borders \
+  active_color=0xffabb1b4 \
+  inactive_color=0xff494d64 \
+  width=5.0 \
+  hidpi=on \
+  blacklist=1Password,CleanMyMac\ X,Raycast,Portal,CleanShot\ X,ClearVPN,Wipr,System\ Settings,Parcel,Portal,Pictogram,TV,Things3
+  ''',
 ]
 
 key-mapping.preset = 'qwerty'
@@ -109,5 +115,15 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.mr-brightside.ParcelOSX'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'pl.maketheweb.cleanshotx'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
 check-further-callbacks = true
 run = 'layout floating'
