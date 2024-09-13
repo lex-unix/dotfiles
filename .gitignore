@@ -11,13 +11,12 @@ venv
 
 # Fish
 fish_*
-.config/fish/completions/
-.config/fish/functions/*
-!.config/fish/functions/peco_*
-!.config/fish/functions/tmux_sessionizer.fish
-!.config/fish/functions/fish_user_key_bindings.fish
-!.config/fish/functions/load_env.fish
-!.config/fish/functions/add_to_path.fish
-.config/fish/conf.d/*
-!.config/fish/conf.d/tide.fish
-
+fish/completions/
+fish/functions/*
+!fish/functions/peco_*
+!fish/functions/tmux_sessionizer.fish
+!fish/functions/fish_user_key_bindings.fish
+!fish/functions/load_env.fish
+!fish/functions/add_to_path.fish
+fish/conf.d/*
+!fish/conf.d/tide.fish

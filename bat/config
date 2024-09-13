@@ -1,0 +1,7 @@
+--theme="gruvbox-material-dark"
+--line-range :300
+--style=numbers,grid,header
+
+# Syntax mappings: map a certain filename pattern to a language.
+--map-syntax "*.astro:TypeScriptReact"
+--map-syntax "*.mdx:Markdown"
