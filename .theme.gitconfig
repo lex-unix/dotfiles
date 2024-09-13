@@ -1,26 +1,65 @@
-[delta "solarized-dark"]
-    commit-decoration-style = bold box ul
+[delta "gruvbox-material"]
     dark = true
-    file-decoration-style = none
-    file-style = omit
-    navigate = true
-    keep-plus-minus-markers = true
-    
-    hunk-header-decoration-style = "#258ad0" box ul
-    hunk-header-file-style = bold "#FF5E00" 
-    hunk-header-line-number-style = bold "#096909" 
-    hunk-header-style = file line-number syntax
-
+    syntax-theme = base16
     line-numbers = true
-    line-numbers-left-style = "#258ad0"
-    line-numbers-minus-style = "#C670F1"
-    line-numbers-plus-style = "#71F1CA"
-    line-numbers-right-style = "#022b45"
-    
-    minus-emph-style = raw "#E0B3F6" "#2F0444"
-    minus-style = "#E0B3F6" "#2F0444"
+    side-by-side = true
+    file-style = brightwhite
+    file-decoration-style = none
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    hunk-header-decoration-style = "#3c3836" box ul
+    plus-style = brightgreen "#2e3b3b"
+    plus-emph-style = "#32361a" green
+    minus-style = brightred "#2e3b3b"
+    minus-emph-style = "#3c1f1e" red
+    line-numbers-minus-style = brightred
+    line-numbers-plus-style = brightgreen
+    line-numbers-left-style = "#3c3836"
+    line-numbers-right-style = "#3c3836"
+    line-numbers-zero-style = "#504945"
+    zero-style = syntax
+    whitespace-error-style = black bold
+    blame-code-style = syntax
+    blame-palette = "#141617" "#1d2021" "#282828" "#3c3836"
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-ours-diff-header-decoration-style = "#3c3836" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#3c3836" box
 
-    plus-emph-style = raw "#71F1CA" "#04412F" 
-    plus-style = "#71F1CA" "#04412F"
-
-    syntax-theme = Monokai Extended
+[delta "mellow-barbet"]
+    dark = true
+    syntax-theme = base16
+    line-numbers = true
+    side-by-side = true
+    file-style = brightwhite
+    file-decoration-style = none
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    hunk-header-decoration-style = "#3c3836" box ul
+    plus-style = brightgreen black
+    plus-emph-style = black green
+    minus-style = brightred black
+    minus-emph-style = black red
+    line-numbers-minus-style = brightred
+    line-numbers-plus-style = brightgreen
+    line-numbers-left-style = "#3c3836"
+    line-numbers-right-style = "#3c3836"
+    line-numbers-zero-style = "#504945"
+    zero-style = syntax
+    whitespace-error-style = black bold
+    blame-code-style = syntax
+    blame-palette = "#141617" "#1d2021" "#282828" "#3c3836"
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-ours-diff-header-decoration-style = "#3c3836" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#3c3836" box

@@ -40,7 +40,7 @@
 [include]
   path = ~/.theme.gitconfig
 [delta]
-  features = solarized-dark
+  features = gruvbox-material
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
