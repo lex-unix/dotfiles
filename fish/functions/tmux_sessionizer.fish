@@ -3,7 +3,7 @@ function tmux_sessionizer
   if test (count $argv) -eq 1
     set selected $argv[1]
   else
-    set selected (fd --type d --max-depth 2 --exclude .git --exclude node_modules --exclude venv --search-path $HOME/dev | fzf --layout reverse --height ~100%)
+    set selected (fd --type d --max-depth 1 --search-path $HOME/dev --search-path $HOME/dev/labs | fzf --layout reverse --height ~100%)
   end
 
 
