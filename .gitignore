@@ -8,15 +8,3 @@ __pycache__
 tempCodeRunnerFile.*
 node_modules
 venv
-
-# Fish
-fish_*
-fish/completions/
-fish/functions/*
-!fish/functions/peco_*
-!fish/functions/tmux_sessionizer.fish
-!fish/functions/fish_user_key_bindings.fish
-!fish/functions/load_env.fish
-!fish/functions/add_to_path.fish
-fish/conf.d/*
-!fish/conf.d/tide.fish
