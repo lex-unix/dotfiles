@@ -22,6 +22,7 @@ return {
                 ['https://json.schemastore.org/prettierrc.json'] = '.prettierrc',
                 ['https://json.schemastore.org/eslintrc.json'] = '.eslintrc',
                 ['https://json.schemastore.org/clang-format.json'] = '.clang-format',
+                ['https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json'] = 'cloudinit.yaml',
             },
             schemaDownload = {
                 enable = true,
