@@ -58,21 +58,8 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   end
 end
 
-### VENV
-# tmux auto activate venv
-if test -n "$VIRTUAL_ENV"
-  source $VIRTUAL_ENV/bin/activate.fish
-end
-# venv prompt
-set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
-# agnoster theme venv colors
-set -q color_virtual_env_bg; or set -g color_virtual_env_bg magenta
-set -q color_virtual_env_str; or set -g color_virtual_env_str black
-
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
-
 # starship
 starship init fish | source
 set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
+
+source $HOME/.config/fish/local.fish
