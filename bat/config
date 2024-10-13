@@ -1,4 +1,4 @@
---theme="gruvbox-material-dark"
+--theme="mellow"
 --line-range :300
 --style=numbers,grid,header
 

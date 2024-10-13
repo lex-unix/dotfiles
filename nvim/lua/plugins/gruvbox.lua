@@ -1,6 +1,6 @@
 return {
     'sainnhe/gruvbox-material',
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
         vim.g.gruvbox_material_background = 'hard'

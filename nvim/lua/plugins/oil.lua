@@ -13,6 +13,7 @@ return {
                     return false
                 end,
             },
+            skip_confirm_for_simple_edits = true,
             keymaps = {
                 ['q'] = 'actions.close',
             },
