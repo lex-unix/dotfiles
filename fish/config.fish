@@ -47,16 +47,16 @@ set -gx FZF_DEFAULT_COMMAND "fd --type d --search-path $HOME/dev --exclude .git 
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
 
 ### NVM
-set -gx NVM_DIR ~/.nvm
-
-function __check_rvm --on-variable PWD --description 'Do nvm stuff'
-  status --is-command-substitution; and return
-
-  if test -f .nvmrc; and test -r .nvmrc;
-    nvm use
-  else
-  end
-end
+# set -gx NVM_DIR ~/.nvm
+#
+# function __check_rvm --on-variable PWD --description 'Do nvm stuff'
+#   status --is-command-substitution; and return
+#
+#   if test -f .nvmrc; and test -r .nvmrc;
+#     nvm use
+#   else
+#   end
+# end
 
 # starship
 starship init fish | source
