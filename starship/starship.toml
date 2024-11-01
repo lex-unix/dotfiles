@@ -17,3 +17,12 @@ detect_files = [
   '!bunfig.toml',
   '!bun.lockb',
 ]
+
+[package]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[python]
+format = 'via [${symbol}${pyenv_prefix}(${version} )\(venv\) ]($style)'
