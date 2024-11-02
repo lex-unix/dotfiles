@@ -3,7 +3,30 @@ function tmux_sessionizer
   if test (count $argv) -eq 1
     set selected $argv[1]
   else
-    set selected (fd --type d --max-depth 1 --search-path $HOME/dev --search-path $HOME/dev/labs | fzf --layout reverse --height ~100%)
+    set selected (
+      fd \
+          --type d \
+          --max-depth 1 \
+          --search-path $HOME/dev \
+          --search-path $HOME/dev/labs \
+      | fzf \
+          --layout=reverse \
+          --height=65% \
+          --border=sharp \
+          --tabstop=1 \
+          --keep-right \
+          --info=hidden \
+          --exit-0 \
+          --cycle \
+          --preview-window=down,70%,sharp \
+          --preview='
+            if test -f {}/README.md
+                bat --decorations=never --color=always {}/README.md
+            else
+                eza --tree --level 1 --icons --color always {}
+            end'
+
+    )
   end
 
 
