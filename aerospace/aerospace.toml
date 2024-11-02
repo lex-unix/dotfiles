@@ -72,7 +72,7 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'com.macpaw.CleanMyMac4'
+if.app-id = 'com.macpaw.CleanMyMac5'
 check-further-callbacks = true
 run = 'layout floating'
 
