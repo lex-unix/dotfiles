@@ -23,6 +23,7 @@ return {
                 ['https://json.schemastore.org/eslintrc.json'] = '.eslintrc',
                 ['https://json.schemastore.org/clang-format.json'] = '.clang-format',
                 ['https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json'] = 'cloudinit.yaml',
+                ['kubernetes'] = 'k8s/*.yaml',
             },
             schemaDownload = {
                 enable = true,
