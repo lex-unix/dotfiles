@@ -25,10 +25,13 @@ function tmux_sessionizer
             else
                 eza --tree --level 1 --icons --color always {}
             end'
-
     )
-  end
 
+    if test $status -ne 0
+      builtin commandline --function cancel-commandline repaint
+      return
+    end
+  end
 
   if test -z $selected
     return
@@ -48,8 +51,10 @@ function tmux_sessionizer
     if not tmux has-session -t $selected_name 2> /dev/null 
       tmux new-session -s $selected_name -c $selected
     else
-        tmux attach-session -t $selected_name
+      tmux attach-session -t $selected_name
     end
+    commandline --function repaint
+    return
   end
 
   # tmux running and active
@@ -57,6 +62,6 @@ function tmux_sessionizer
     tmux new-session -ds $selected_name -c $selected
   end
 
-
   tmux switch-client -t $selected_name
+  commandline --function repaint
 end
