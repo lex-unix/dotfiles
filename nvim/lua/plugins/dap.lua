@@ -1,17 +1,8 @@
 return {
-    'mfussenegger/nvim-dap',
-    dependencies = {
-        'nvim-neotest/nvim-nio',
+    {
         'rcarriga/nvim-dap-ui',
-        'leoluz/nvim-dap-go',
-    },
-    enabled = false,
-    config = function()
-        local dap = require('dap')
-        local dapui = require('dapui')
-
-        -- UI settings
-        dapui.setup({
+        lazy = true,
+        opts = {
             controls = {
                 element = 'repl',
                 enabled = true,
@@ -68,33 +59,64 @@ return {
                 indent = 1,
                 max_type_length = nil,
             },
-        })
-
-        -- start debugging session
-        vim.keymap.set('n', '<leader>ds', function()
-            dap.continue()
-            dapui.toggle({})
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>=', false, true, true), 'n', false)
-        end)
-
-        -- set breakpoints, get variable values, step into/out of functions, etc.
-        -- vim.keymap.set('n', '<leader>dv', require('dap.ui.widgets').hover)
-        -- vim.keymap.set('n', '<leader>dc', dap.continue)
-        -- vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint)
-        -- vim.keymap.set('n', '<leader>dn', dap.step_over)
-        -- vim.keymap.set('n', '<leader>di', dap.step_into)
-        -- vim.keymap.set('n', '<leader>do', dap.step_out)
-        -- vim.keymap.set('n', '<leader>dC', dap.clear_breakpoints)
-
-        -- close debugger and clear breakpoints
-        vim.keymap.set('n', '<leader>de', function()
-            dap.clear_breakpoints()
-            dapui.toggle({})
-            dap.terminate()
-            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>=', false, true, true), 'n', false)
-        end)
-
-        -- configured lanugage specific extensions
-        require('dap-go').setup()
-    end,
+        },
+    },
+    {
+        'mfussenegger/nvim-dap',
+        dependencies = { 'nvim-neotest/nvim-nio', 'leoluz/nvim-dap-go' },
+        keys = {
+            {
+                '<leader>ds',
+                function()
+                    require('dap').continue()
+                    require('dapui').open()
+                    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>=', false, true, true), 'n', false)
+                end,
+                desc = 'Start debugging session',
+            },
+            {
+                '<leader>dv',
+                function() require('dapui').eval() end,
+            },
+            {
+                '<leader>dc',
+                function() require('dap').continue() end,
+            },
+            {
+                '<leader>db',
+                function() require('dap').toggle_breakpoint() end,
+            },
+            {
+                '<leader>dn',
+                function() require('dap').step_over() end,
+            },
+            {
+                '<leader>di',
+                function() require('dap').step_into() end,
+            },
+            {
+                '<leader>do',
+                function() require('dap').step_out() end,
+            },
+            {
+                '<leader>dC',
+                function() require('dap').clear_breakpoints() end,
+            },
+            {
+                '<leader>de',
+                function()
+                    local dap = require('dap')
+                    dap.clear_breakpoints()
+                    require('dapui').toggle({})
+                    dap.terminate()
+                    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>=', false, true, true), 'n', false)
+                end,
+            },
+        },
+    },
+    {
+        'leoluz/nvim-dap-go',
+        lazy = true,
+        opts = {},
+    },
 }
