@@ -5,6 +5,7 @@ return {
         'rcarriga/nvim-dap-ui',
         'leoluz/nvim-dap-go',
     },
+    enabled = false,
     config = function()
         local dap = require('dap')
         local dapui = require('dapui')
@@ -77,13 +78,13 @@ return {
         end)
 
         -- set breakpoints, get variable values, step into/out of functions, etc.
-        vim.keymap.set('n', '<leader>dv', require('dap.ui.widgets').hover)
-        vim.keymap.set('n', '<leader>dc', dap.continue)
-        vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint)
-        vim.keymap.set('n', '<leader>dn', dap.step_over)
-        vim.keymap.set('n', '<leader>di', dap.step_into)
-        vim.keymap.set('n', '<leader>do', dap.step_out)
-        vim.keymap.set('n', '<leader>dC', dap.clear_breakpoints)
+        -- vim.keymap.set('n', '<leader>dv', require('dap.ui.widgets').hover)
+        -- vim.keymap.set('n', '<leader>dc', dap.continue)
+        -- vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint)
+        -- vim.keymap.set('n', '<leader>dn', dap.step_over)
+        -- vim.keymap.set('n', '<leader>di', dap.step_into)
+        -- vim.keymap.set('n', '<leader>do', dap.step_out)
+        -- vim.keymap.set('n', '<leader>dC', dap.clear_breakpoints)
 
         -- close debugger and clear breakpoints
         vim.keymap.set('n', '<leader>de', function()

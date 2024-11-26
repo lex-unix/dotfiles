@@ -2,60 +2,58 @@ return {
     'nvim-lualine/lualine.nvim',
     enabled = true,
     lazy = false,
-    config = function()
-        require('lualine').setup({
-            options = {
-                icons_enabled = true,
-                theme = 'gruvbox-material',
-                section_separators = { left = '', right = '' },
-                component_separators = { left = '', right = '' },
-                disabled_filetypes = {
-                    statusline = { 'packer', 'help', 'undotree' },
+    opts = {
+        options = {
+            icons_enabled = true,
+            theme = 'gruvbox-material',
+            section_separators = { left = '', right = '' },
+            component_separators = { left = '', right = '' },
+            disabled_filetypes = {
+                statusline = { 'packer', 'help', 'undotree' },
+            },
+        },
+        sections = {
+            lualine_a = { 'mode' },
+            lualine_b = { 'branch' },
+            lualine_c = {
+                {
+                    'filename',
+                    file_status = true, -- displays file status (readonly status, modified status)
+                    path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
                 },
             },
-            sections = {
-                lualine_a = { 'mode' },
-                lualine_b = { 'branch' },
-                lualine_c = {
-                    {
-                        'filename',
-                        file_status = true, -- displays file status (readonly status, modified status)
-                        path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+            lualine_x = {
+                {
+                    'diagnostics',
+                    sources = { 'nvim_diagnostic' },
+                    symbols = {
+                        error = ' ',
+                        warn = ' ',
+                        info = ' ',
+                        hint = ' ',
                     },
                 },
-                lualine_x = {
-                    {
-                        'diagnostics',
-                        sources = { 'nvim_diagnostic' },
-                        symbols = {
-                            error = ' ',
-                            warn = ' ',
-                            info = ' ',
-                            hint = ' ',
-                        },
-                    },
-                    'encoding',
-                    'filetype',
-                },
-                lualine_y = { 'progress' },
-                lualine_z = { 'location' },
+                'encoding',
+                'filetype',
             },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = {
-                    {
-                        'filename',
-                        file_status = true, -- displays file status (readonly status, modified status)
-                        path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-                    },
+            lualine_y = { 'progress' },
+            lualine_z = { 'location' },
+        },
+        inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = {
+                {
+                    'filename',
+                    file_status = true, -- displays file status (readonly status, modified status)
+                    path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
                 },
-                lualine_x = { 'location' },
-                lualine_y = {},
-                lualine_z = {},
             },
-            tabline = {},
-            extensions = { 'fugitive', 'nvim-dap-ui' },
-        })
-    end,
+            lualine_x = { 'location' },
+            lualine_y = {},
+            lualine_z = {},
+        },
+        tabline = {},
+        extensions = { 'fugitive', 'nvim-dap-ui' },
+    },
 }
