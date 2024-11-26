@@ -6,13 +6,18 @@ return {
         dependencies = {
             'williamboman/mason-lspconfig.nvim',
         },
-        priority = 10,
+        cmd = 'Mason',
+        config = function() require('mason').setup({}) end,
+    },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        dependencies = {
+            'williamboman/mason.nvim',
+        },
+        event = { 'BufReadPre', 'BufNewFile' },
         config = function()
-            local mason = require('mason')
             local lspconfig = require('mason-lspconfig')
             local nvim_lsp = require('lspconfig')
-
-            mason.setup({})
 
             lspconfig.setup({
                 automatic_installation = true,
@@ -91,33 +96,30 @@ return {
     },
     {
         'glepnir/lspsaga.nvim',
-        config = function()
-            require('lspsaga').setup({
-                diagnostic = {
-                    auto_preview = false,
-                },
-                ui = {
-                    title = true,
-                    winblend = 0,
-                    border = 'rounded',
-                },
-                symbol_in_winbar = {
-                    enable = false,
-                },
-                lightbulb = {
-                    enable = false,
-                },
-            })
-            local opts = { noremap = true, silent = true }
-            vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-            vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
-            vim.keymap.set('n', 'gd', '<Cmd>Lspsaga goto_definition<CR>', opts)
-            vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
-            vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
-            vim.keymap.set('n', 'gf', '<Cmd>Lspsaga finder<CR>', opts)
-
-            -- code action
-            vim.keymap.set({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<CR>')
-        end,
+        keys = {
+            { '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>' },
+            { 'K', '<Cmd>Lspsaga hover_doc<CR>' },
+            { 'gd', '<Cmd>Lspsaga goto_definition<CR>' },
+            { 'gp', '<Cmd>Lspsaga peek_definition<CR>' },
+            { 'gr', '<Cmd>Lspsaga rename<CR>' },
+            { 'gf', '<Cmd>Lspsaga finder<CR>' },
+            { '<leader>ca', '<cmd>Lspsaga code_action<CR>', mode = { 'n', 'v' } },
+        },
+        opts = {
+            diagnostic = {
+                auto_preview = false,
+            },
+            ui = {
+                title = true,
+                winblend = 0,
+                border = 'rounded',
+            },
+            symbol_in_winbar = {
+                enable = false,
+            },
+            lightbulb = {
+                enable = false,
+            },
+        },
     },
 }
