@@ -1,5 +1,8 @@
 return {
     'tpope/vim-fugitive',
+    keys = {
+        { '<leader>gs', vim.cmd.G, desc = 'Open fugitive' },
+    },
     config = function()
         vim.keymap.set('n', '<leader>gs', vim.cmd.G)
         vim.keymap.set(

@@ -2,6 +2,9 @@ return {
     'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
+    keys = {
+        { '<leader>od', '<Cmd>:lua Snacks.dashboard.open()<CR>', desc = 'Open dashboard' },
+    },
     opts = {
         dashboard = {
             enabled = true,

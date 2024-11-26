@@ -3,9 +3,6 @@ local configs = require('config.lsp.config')
 return {
     {
         'williamboman/mason.nvim',
-        dependencies = {
-            'williamboman/mason-lspconfig.nvim',
-        },
         cmd = 'Mason',
         config = function() require('mason').setup({}) end,
     },
@@ -33,6 +30,7 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
+        event = { 'BufReadPre', 'BufNewFile' },
         config = function()
             local protocol = require('vim.lsp.protocol')
 
