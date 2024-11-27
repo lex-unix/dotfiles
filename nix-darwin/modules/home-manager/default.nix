@@ -7,12 +7,10 @@
   home.homeDirectory = "/Users/lex";
 
   home.packages = with pkgs; [
-    tmux
     jq
     fd
     ripgrep
     fzf
-    bat
     btop
     eza
     zoxide
@@ -21,25 +19,15 @@
     jankyborders
   ];
 
-  programs.starship = {
-    enable = true;
-    enableFishIntegration = true;
-    settings = {
-      add_newline = true;
-      username = {
-        show_always = true;
-      };
-      golang = {
-        symbol = " ";
-        style = "bold blue";
-      };
-      package = {
-        disabled = true;
-      };
-      docker_context = {
-        disabled = true;
-      };
-    };
+  xdg.enable = true;
+
+  programs = {
+    starship = import ./starship.nix { inherit pkgs; };
+    bat = import ./bat.nix { inherit pkgs; };
+    fish = import ./fish.nix { inherit pkgs; };
+    zoxide = import ./zoxide.nix { inherit pkgs; };
+    kitty = import ./kitty.nix { inherit pkgs; };
+    tmux = import ./tmux.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;
