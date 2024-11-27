@@ -29,7 +29,8 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.lex.imports = [ ./modules/home-manager ];
+              users.lex = import ./modules/home-manager;
+              backupFileExtension = "before-nix-darwin";
             };
           }
         ];
