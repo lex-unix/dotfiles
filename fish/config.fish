@@ -1,4 +1,4 @@
-set fish_greeting "" 
+set fish_greeting ""
 
 set -g theme_display_user yes
 set -g theme_hide_hostname no
@@ -51,6 +51,5 @@ zoxide init fish | source
 
 # starship
 starship init fish | source
-set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 
 source $HOME/.config/fish/local.fish
