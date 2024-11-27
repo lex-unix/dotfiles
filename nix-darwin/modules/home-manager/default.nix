@@ -28,6 +28,8 @@
     zoxide = import ./zoxide.nix { inherit pkgs; };
     kitty = import ./kitty.nix { inherit pkgs; };
     tmux = import ./tmux.nix { inherit pkgs; };
+    fzf = import ./fzf.nix { inherit pkgs; };
+    git = import ./git.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;

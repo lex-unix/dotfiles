@@ -23,7 +23,6 @@
     # fzf
     set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
     set -g FZF_LEGACY_KEYBINDINGS 0
-    set -gx FZF_DEFAULT_COMMAND "fd --type d --search-path $HOME/dev --exclude .git --exclude venv --exclude '**/target' --exclude node_modules"
 
     # ripgrep
     set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/ripgreprc
