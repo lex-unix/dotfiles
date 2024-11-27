@@ -3,12 +3,19 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     opts = {
         options = {
+            globalstatus = true,
             icons_enabled = true,
             theme = 'gruvbox-material',
             section_separators = { left = '', right = '' },
             component_separators = { left = '', right = '' },
             disabled_filetypes = {
-                statusline = { 'packer', 'help', 'undotree' },
+                statusline = {
+                    'packer',
+                    'help',
+                    'undotree',
+                    'DiffviewFileHistory',
+                    'DiffviewFiles',
+                },
             },
         },
         sections = {
@@ -41,18 +48,13 @@ return {
         inactive_sections = {
             lualine_a = {},
             lualine_b = {},
-            lualine_c = {
-                {
-                    'filename',
-                    file_status = true, -- displays file status (readonly status, modified status)
-                    path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-                },
-            },
+            lualine_c = {},
             lualine_x = { 'location' },
             lualine_y = {},
             lualine_z = {},
         },
         tabline = {},
-        extensions = { 'fugitive', 'nvim-dap-ui' },
+
+        extensions = { 'fugitive', 'nvim-dap-ui', 'oil' },
     },
 }
