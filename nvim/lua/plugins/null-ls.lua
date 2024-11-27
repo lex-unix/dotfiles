@@ -21,6 +21,7 @@ return {
                 null_ls.builtins.diagnostics.fish,
                 null_ls.builtins.formatting.stylua,
                 null_ls.builtins.formatting.terraform_fmt,
+                null_ls.builtins.formatting.nixfmt,
             },
             on_attach = function(client, bufnr)
                 if client.supports_method('textDocument/formatting') then
