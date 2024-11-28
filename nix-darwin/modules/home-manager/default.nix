@@ -38,6 +38,7 @@ in
     git = import ./git.nix { inherit pkgs; };
     ripgrep = import ./ripgrep.nix { inherit pkgs; };
     fd = import ./fd.nix { inherit pkgs; };
+    neovim = import ./neovim.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;
