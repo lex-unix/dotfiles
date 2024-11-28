@@ -28,7 +28,6 @@
   extraConfig = {
     core = {
       editor = "nvim";
-      excludesfile = "~/.gitignore";
     };
     init = {
       defaultBranch = "main";
