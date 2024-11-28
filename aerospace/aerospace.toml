@@ -1,7 +1,7 @@
 start-at-login = true
 
 after-startup-command = [
-  '''exec-and-forget borders \
+    '''exec-and-forget /etc/profiles/per-user/lex/bin/borders \
   active_color=0xffFD87A9 \
   inactive_color=0xff434856 \
   width=5.0 \
