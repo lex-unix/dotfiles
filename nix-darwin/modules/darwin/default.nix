@@ -50,9 +50,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   fonts.packages = [
-    (pkgs.nerdfonts.override {
-      fonts = [ "SourceCodePro" ];
-    })
+    pkgs.nerd-fonts.sauce-code-pro
   ];
 
   system.defaults = {
