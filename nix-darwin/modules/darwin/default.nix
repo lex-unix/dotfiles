@@ -11,6 +11,28 @@
     nixfmt-rfc-style
   ];
 
+  homebrew = {
+    enable = true;
+    brews = [
+      "mas"
+    ];
+    casks = [
+      "raycast"
+      "1password"
+      "karabiner-elements"
+      "spotify"
+      "telegram"
+      "slack"
+      "tableplus"
+      "httpie"
+      "the-unarchiver"
+      "jordanbaird-ice"
+    ];
+    masApps = {
+      "Bear" = 1091189122;
+    };
+  };
+
   environment.shellAliases = {
     nix-rebuild = "darwin-rebuild switch --flake ~/dotfiles/nix-darwin";
   };
@@ -22,10 +44,7 @@
 
   system.stateVersion = 5;
 
-  system.defaults = {
-    finder.FXPreferredViewStyle = "clmv";
-    NSGlobalDomain.AppleShowAllExtensions = true;
-  };
+  security.pam.enableSudoTouchIdAuth = true;
 
   fonts.packages = [
     (pkgs.nerdfonts.override {
@@ -33,13 +52,18 @@
     })
   ];
 
+  system.defaults = {
+    finder.FXPreferredViewStyle = "clmv";
+    NSGlobalDomain.AppleShowAllExtensions = true;
+  };
+
   system.defaults.dock = {
     autohide = true;
     persistent-apps = [
       "/Applications/Firefox.app"
       "/Applications/Spotify.app"
       "/Applications/Bear.app"
-      "/Applications/kitty.app"
+      "${pkgs.kitty}/Applications/kitty.app"
     ];
   };
 
