@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+in
 {
   # Don't touch this, Home Manager can be updated without changing this value
   home.stateVersion = "24.11";
@@ -9,8 +12,6 @@
   home.packages = with pkgs; [
     jq
     fd
-    ripgrep
-    fzf
     btop
     eza
     zoxide
@@ -19,7 +20,10 @@
     jankyborders
   ];
 
-  xdg.enable = true;
+  xdg = {
+    enable = true;
+    configFile.nvim.source = mkOutOfStoreSymlink "/Users/lex/dotfiles/nvim";
+  };
 
   programs = {
     starship = import ./starship.nix { inherit pkgs; };
@@ -30,6 +34,8 @@
     tmux = import ./tmux.nix { inherit pkgs; };
     fzf = import ./fzf.nix { inherit pkgs; };
     git = import ./git.nix { inherit pkgs; };
+    ripgrep = import ./ripgrep.nix { inherit pkgs; };
+    fd = import ./fd.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;
