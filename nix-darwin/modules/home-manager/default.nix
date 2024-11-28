@@ -18,11 +18,13 @@ in
     wget
     coreutils
     jankyborders
+    awscli2
   ];
 
   xdg = {
     enable = true;
     configFile.nvim.source = mkOutOfStoreSymlink "/Users/lex/dotfiles/nvim";
+    configFile."karabiner/karabiner.json".source = mkOutOfStoreSymlink "/Users/lex/dotfiles/karabiner/karabiner.json";
   };
 
   programs = {

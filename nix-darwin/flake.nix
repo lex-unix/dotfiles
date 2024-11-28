@@ -9,6 +9,8 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
   outputs =
@@ -17,6 +19,7 @@
       nix-darwin,
       nixpkgs,
       home-manager,
+      nix-homebrew,
     }:
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
@@ -31,6 +34,15 @@
               useUserPackages = true;
               users.lex = import ./modules/home-manager;
               backupFileExtension = "before-nix-darwin";
+            };
+          }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true;
+              user = "lex";
+              autoMigrate = true;
             };
           }
         ];
