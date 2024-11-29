@@ -65,6 +65,8 @@
       KeyRepeat = 2;
       # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
       InitialKeyRepeat = 25;
+      AppleInterfaceStyle = "Dark";
+      AppleInterfaceStyleSwitchesAutomatically = false;
     };
   };
 

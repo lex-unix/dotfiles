@@ -11,8 +11,6 @@
   disableConfirmationPrompt = true;
 
   extraConfig = ''
-    set-option -g default-command "${pkgs.reattach-to-user-namespace}/bin/reattach-to-user-namespace -l ${pkgs.fish}/bin/fish"
-
     set-option -sa terminal-features ',xterm-kitty:RGB'
     set-option -g automatic-rename on
     set-option -g automatic-rename-format '#{b:pane_current_path}'

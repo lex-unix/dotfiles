@@ -17,10 +17,8 @@ in
 
   home.packages = with pkgs; [
     jq
-    fd
     btop
     eza
-    zoxide
     wget
     coreutils
     jankyborders
