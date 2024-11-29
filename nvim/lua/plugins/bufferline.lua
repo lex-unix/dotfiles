@@ -1,6 +1,5 @@
 return {
     'akinsho/nvim-bufferline.lua',
-    -- event = 'VeryLazy',
     dependencies = 'nvim-tree/nvim-web-devicons',
     version = '*',
     keys = {
@@ -19,19 +18,6 @@ return {
             color_icons = false,
             indicator = {
                 style = 'none',
-            },
-        },
-        highlights = {
-            buffer_selected = {
-                bold = false,
-                italic = false,
-            },
-            background = {
-                bg = '#171819',
-                fg = '#839496',
-            },
-            fill = {
-                bg = '#171819',
             },
         },
     },
