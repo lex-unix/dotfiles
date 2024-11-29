@@ -10,13 +10,14 @@ let
   gruvboxRepo = pkgs.fetchFromGitHub {
     owner = "lex-unix";
     repo = "gruvbox-material-kitty";
-    rev = "4093535c29d4e14bdd8b59fa6042253c3fd75cf0";
-    sha256 = "sha256-C9t8ax4E1Dj0/NN7CS1Z+WKasun6wwqKru+LWClLaCc=";
+    rev = "ca7e17ed8e61c608f6f3ff480336c1232fcd3e23";
+    sha256 = "sha256-CD09hZT/d4LV4eO7L7nqFThkXF5ECBzOzL+fhOVNp98=";
   };
 
   themes = {
     mellow = builtins.readFile "${mellowRepo}/extras/kitty/mellow.conf";
     gruvbox = builtins.readFile "${gruvboxRepo}/colors/gruvbox-material-dark-hard.conf";
+    ayu = builtins.readFile "${gruvboxRepo}/colors/ayu.conf";
   };
 in
 {

@@ -30,5 +30,14 @@
       };
       file = "gruvbox-material-dark.tmTheme";
     };
+    ayu = {
+      src = pkgs.fetchFromGitHub {
+        owner = "Colorsublime";
+        repo = "Colorsublime-Themes";
+        rev = "56b1b09c4d63c61a9fbfdd4eeb517c023497b64c";
+        hash = "sha256-99uKbWJF5iJ/EkRiSCbtl2DZUwgYmrZQuCPhzo1HBgg=";
+      };
+      file = "themes/Chelevra-Ayu.tmTheme";
+    };
   };
 }
