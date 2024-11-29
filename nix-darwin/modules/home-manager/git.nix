@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ userConfig, pkgs, ... }:
 {
   enable = true;
 
@@ -44,7 +44,7 @@
       user = "lex-unix";
     };
     delta = {
-      features = "mellow";
+      features = userConfig.theme;
     };
     diff = {
       tool = "nvimdiff";
@@ -78,7 +78,7 @@
   delta = {
     enable = true;
     options = {
-      gruvbox-material = {
+      gruvbox = {
         dark = true;
         syntax-theme = "base16";
         line-numbers = true;

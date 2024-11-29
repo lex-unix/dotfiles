@@ -21,10 +21,20 @@
       home-manager,
       nix-homebrew,
     }:
+    let
+      userConfig = {
+        theme = "mellow";
+        username = "lex";
+      };
+    in
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+
       darwinConfigurations."Lexs-MBP" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+        specialArgs = {
+          inherit userConfig;
+        };
         modules = [
           ./modules/darwin
           home-manager.darwinModules.home-manager
@@ -32,8 +42,11 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.lex = import ./modules/home-manager;
+              users.${userConfig.username} = import ./modules/home-manager;
               backupFileExtension = "before-nix-darwin";
+              extraSpecialArgs = {
+                inherit userConfig;
+              };
             };
           }
           nix-homebrew.darwinModules.nix-homebrew
@@ -41,7 +54,7 @@
             nix-homebrew = {
               enable = true;
               enableRosetta = true;
-              user = "lex";
+              user = userConfig.username;
               autoMigrate = true;
             };
           }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ userConfig, pkgs, ... }:
 {
   enable = true;
   config = {
@@ -6,7 +6,7 @@
       "*.astro:TypeScriptReact"
       "*.mdx:Markdown"
     ];
-    theme = "mellow";
+    theme = userConfig.theme;
     line-range = ":300";
     style = "numbers,grid,header";
   };
@@ -21,7 +21,7 @@
       };
       file = "extras/bat/mellow.tmTheme";
     };
-    gruvbox-material = {
+    gruvbox = {
       src = pkgs.fetchFromGitHub {
         owner = "molchalin";
         repo = "gruvbox-material-bat";

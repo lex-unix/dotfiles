@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userConfig, ... }:
 {
   environment.shells = with pkgs; [
     fish
@@ -14,6 +14,9 @@
 
   homebrew = {
     enable = true;
+    taps = [
+      "nikitabobko/tap"
+    ];
     brews = [
       "mas"
     ];
@@ -21,6 +24,7 @@
       "raycast"
       "1password"
       "karabiner-elements"
+      "aerospace"
       "spotify"
       "telegram"
       "slack"
@@ -68,8 +72,8 @@
     ];
   };
 
-  users.users.lex = {
-    home = "/Users/lex";
+  users.users.${userConfig.username} = {
+    home = "/Users/${userConfig.username}";
     shell = pkgs.fish;
   };
 
