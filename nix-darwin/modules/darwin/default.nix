@@ -59,7 +59,13 @@
 
   system.defaults = {
     finder.FXPreferredViewStyle = "clmv";
-    NSGlobalDomain.AppleShowAllExtensions = true;
+    NSGlobalDomain = {
+      AppleShowAllExtensions = true;
+      # KeyRepeat:  120, 90, 60, 30, 12, 6, 2
+      KeyRepeat = 2;
+      # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
+      InitialKeyRepeat = 25;
+    };
   };
 
   system.defaults.dock = {
