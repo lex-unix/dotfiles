@@ -3,6 +3,7 @@ return {
     keys = {
         { '<leader>gs', vim.cmd.G, desc = 'Open fugitive' },
     },
+    cmd = 'Git',
     config = function()
         vim.keymap.set('n', '<leader>gs', vim.cmd.G)
         vim.keymap.set(
