@@ -32,12 +32,12 @@
     };
     ayu = {
       src = pkgs.fetchFromGitHub {
-        owner = "Colorsublime";
-        repo = "Colorsublime-Themes";
-        rev = "56b1b09c4d63c61a9fbfdd4eeb517c023497b64c";
-        hash = "sha256-99uKbWJF5iJ/EkRiSCbtl2DZUwgYmrZQuCPhzo1HBgg=";
+        owner = "CheDESIGNER";
+        repo = "ayu";
+        rev = "ef6aa09bb76e694a39f3a9bd8b49691efaecc860";
+        hash = "sha256-kp1IfW4d7RNxJ3nrvIWrovTHNgiyot4s8gF/kOX7U5U=";
       };
-      file = "themes/Chelevra-Ayu.tmTheme";
+      file = "ayu.tmTheme";
     };
   };
 }

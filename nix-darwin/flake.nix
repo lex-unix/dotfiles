@@ -23,7 +23,7 @@
     }:
     let
       userConfig = {
-        theme = "mellow";
+        theme = "ayu";
         username = "lex";
       };
     in

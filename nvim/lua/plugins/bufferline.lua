@@ -2,6 +2,7 @@ return {
     'akinsho/nvim-bufferline.lua',
     dependencies = 'nvim-tree/nvim-web-devicons',
     version = '*',
+    event = { 'TabNew' },
     keys = {
         { '<Tab>', '<Cmd>BufferLineCycleNext<CR>', desc = 'BufferLineCycleNext' },
         { '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'BufferLineCyclePrev' },
