@@ -5,7 +5,7 @@ return {
         options = {
             globalstatus = true,
             icons_enabled = true,
-            theme = 'mellow',
+            theme = 'auto',
             section_separators = { left = '', right = '' },
             component_separators = { left = '', right = '' },
             disabled_filetypes = {
