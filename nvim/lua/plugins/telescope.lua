@@ -21,11 +21,8 @@ return {
             '<leader>sd',
             function() require('telescope.builtin').diagnostics() end,
         },
-        {
-            '<leader>ss',
-            '<cmd>Telescope luasnip<CR>',
-            desc = 'Telescope luasnip',
-        },
+        { '<leader>ss', '<cmd>Telescope luasnip<CR>' },
+        { '<leader>tt', '<cmd>Telescope resume<CR>' },
     },
     config = function()
         local telescope = require('telescope')
