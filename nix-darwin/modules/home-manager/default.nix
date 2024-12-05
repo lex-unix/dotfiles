@@ -17,12 +17,18 @@ in
 
   home.packages = with pkgs; [
     jq
+    gh
+    kubectl
+    zig
+    terraform
     btop
     eza
     wget
     coreutils
     jankyborders
     awscli2
+    _1password-cli
+    ffmpeg
   ];
 
   xdg = {
@@ -43,6 +49,7 @@ in
     ripgrep = import ./ripgrep.nix { inherit pkgs; };
     fd = import ./fd.nix { inherit pkgs; };
     neovim = import ./neovim.nix { inherit pkgs; };
+    go = import ./go.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;

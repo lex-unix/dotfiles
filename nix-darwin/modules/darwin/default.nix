@@ -26,6 +26,8 @@
       "karabiner-elements"
       "aerospace"
       "spotify"
+      "orbstack"
+      "firefox"
       "telegram"
       "slack"
       "tableplus"
@@ -85,6 +87,7 @@
     shell = pkgs.fish;
   };
 
+  nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nix.settings.experimental-features = "nix-command flakes";
 }
