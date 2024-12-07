@@ -4,6 +4,7 @@ return {
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     event = { 'VimEnter */*,.*', 'BufNew */*,.*' },
+    cmd = 'Oil',
     keys = {
         { 'sf', '<cmd>Oil<CR>', desc = 'Open parent directory' },
     },
