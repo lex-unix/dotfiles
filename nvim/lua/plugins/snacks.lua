@@ -3,9 +3,17 @@ return {
     priority = 1000,
     lazy = false,
     keys = {
-        { '<leader>od', '<Cmd>:lua Snacks.dashboard.open()<CR>', desc = 'Open dashboard' },
+        { '<leader>do', '<Cmd>:lua Snacks.dashboard.open()<CR>', desc = 'Open dashboard' },
     },
     opts = {
+        statuscolumn = {
+            enabled = true,
+            left = { 'sign' },
+            folds = {
+                open = true,
+                git_hl = true,
+            },
+        },
         dashboard = {
             enabled = true,
             width = 60,
@@ -28,18 +36,25 @@ return {
                         desc = 'Find File',
                         action = ":lua Snacks.dashboard.pick('files')",
                     },
-                    { icon = ' ', key = 'b', desc = 'File Browser', action = ':Oil' },
                     {
                         icon = ' ',
                         key = 'g',
                         desc = 'Find Text',
                         action = ":lua Snacks.dashboard.pick('live_grep')",
                     },
+                    { icon = ' ', key = 'b', desc = 'File Browser', action = ':Oil' },
                     {
-                        icon = ' ',
-                        key = 'r',
-                        desc = 'Recent Files',
-                        action = ":lua Snacks.dashboard.pick('oldfiles')",
+                        icon = ' ',
+                        key = 's',
+                        desc = 'Git Status',
+                        action = function()
+                            vim.cmd.G()
+                            vim.api.nvim_feedkeys(
+                                vim.api.nvim_replace_termcodes('<C-w>o', false, true, true),
+                                'n',
+                                false
+                            )
+                        end,
                     },
                     {
                         icon = ' ',

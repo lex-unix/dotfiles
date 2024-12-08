@@ -2,20 +2,17 @@ return {
     'tpope/vim-fugitive',
     keys = {
         { '<leader>gs', vim.cmd.G, desc = 'Open fugitive' },
+        {
+            '<leader>gl',
+            '<CMD>Git log --pretty=format:"%h (%cd) [%an] %s %d" --date=relative<CR>',
+            desc = 'Open git log',
+        },
     },
     cmd = 'Git',
     config = function()
-        vim.keymap.set('n', '<leader>gs', vim.cmd.G)
-        vim.keymap.set(
-            'n',
-            '<leader>gl',
-            '<CMD>Git log --pretty=format:"%C(red)%h %C(reset)(%cd) %C(reset)%s %C(yellow)%d %C(reset)" --date=relative<CR>'
-        )
-
         local GitFugitive = vim.api.nvim_create_augroup('GitFugitive', {})
 
-        local autocmd = vim.api.nvim_create_autocmd
-        autocmd('BufWinEnter', {
+        vim.api.nvim_create_autocmd('BufWinEnter', {
             group = GitFugitive,
             pattern = '*',
             callback = function()

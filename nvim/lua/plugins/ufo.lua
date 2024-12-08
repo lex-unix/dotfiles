@@ -3,7 +3,6 @@ return {
     dependencies = {
         'kevinhwang91/promise-async',
     },
-    event = 'BufRead',
     init = function()
         vim.opt.foldcolumn = '0'
         vim.opt.foldlevel = 99
@@ -40,7 +39,9 @@ return {
         end,
     },
     keys = {
-        { 'zR', function() require('ufo').openAllFolds() end },
-        { 'zM', function() require('ufo').closeAllFolds() end },
+        { 'zR', function() require('ufo').openAllFolds() end, desc = 'Open all folds' },
+        { 'zM', function() require('ufo').closeAllFolds() end, desc = 'Close all folds' },
+        { 'zo', '<Cmd>foldopen<CR>', desc = 'Open fold using vim function' },
+        { 'zc', '<Cmd>foldclose<CR>', desc = 'Close fold using vim function' },
     },
 }

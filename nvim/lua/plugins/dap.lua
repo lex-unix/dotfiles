@@ -63,7 +63,7 @@ return {
     },
     {
         'mfussenegger/nvim-dap',
-        dependencies = { 'nvim-neotest/nvim-nio', 'leoluz/nvim-dap-go' },
+        dependencies = { 'nvim-neotest/nvim-nio' },
         keys = {
             {
                 '<leader>ds',
@@ -117,6 +117,7 @@ return {
     {
         'leoluz/nvim-dap-go',
         lazy = true,
+        ft = 'go',
         opts = {},
     },
 }
