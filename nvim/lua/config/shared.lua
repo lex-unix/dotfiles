@@ -20,8 +20,12 @@ local on_attach = function(client, bufnr)
     end
 end
 
--- Set up completion using nvim_cmp with LSP source
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = true,
+    lineFoldingOnly = false,
+}
+-- Set up completion using nvim_cmp with LSP source
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local exports = {}
