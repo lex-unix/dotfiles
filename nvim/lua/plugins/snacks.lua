@@ -6,6 +6,9 @@ return {
         { '<leader>do', '<Cmd>:lua Snacks.dashboard.open()<CR>', desc = 'Open dashboard' },
     },
     opts = {
+        quickfile = {
+            enabled = true,
+        },
         statuscolumn = {
             enabled = true,
             left = { 'sign' },
