@@ -18,10 +18,6 @@ return {
                 '<leader>sh',
                 function() require('telescope.builtin').help_tags() end,
             },
-            {
-                '<leader>sd',
-                function() require('telescope.builtin').diagnostics() end,
-            },
             { '<leader>ss', '<cmd>Telescope luasnip<CR>' },
             { '<leader>tt', '<cmd>Telescope resume<CR>' },
         },
@@ -36,7 +32,19 @@ return {
                     mappings = {
                         n = {
                             ['q'] = actions.close,
+                            ['<C-q>'] = actions.smart_send_to_qflist,
                         },
+                        i = {
+                            ['<C-q>'] = actions.smart_send_to_qflist,
+                        },
+                    },
+                },
+                extensions = {
+                    fzf = {
+                        fuzzy = true,
+                        override_generic_sorter = true,
+                        override_file_sorter = true,
+                        case_mode = 'smart_case',
                     },
                 },
             })
