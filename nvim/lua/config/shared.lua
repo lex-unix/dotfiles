@@ -25,8 +25,8 @@ capabilities.textDocument.foldingRange = {
     dynamicRegistration = true,
     lineFoldingOnly = false,
 }
--- Set up completion using nvim_cmp with LSP source
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- Set up completion using blink.cmp with LSP source
+capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
 local exports = {}
 
