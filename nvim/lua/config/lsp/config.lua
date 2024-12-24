@@ -30,4 +30,7 @@ return {
             },
         },
     },
+    ts_ls = {
+        handlers = handlers['ts_ls'],
+    },
 }
