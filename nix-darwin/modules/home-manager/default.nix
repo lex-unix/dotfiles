@@ -34,7 +34,9 @@ in
   xdg = {
     enable = true;
     configFile.nvim.source = mkOutOfStoreSymlink "${dotfilesPath}/nvim";
-    configFile."karabiner/karabiner.json".source = mkOutOfStoreSymlink "${dotfilesPath}/karabiner/karabiner.json";
+    configFile.ghostty.source = mkOutOfStoreSymlink "${dotfilesPath}/ghostty";
+    configFile."karabiner/karabiner.json".source =
+      mkOutOfStoreSymlink "${dotfilesPath}/karabiner/karabiner.json";
   };
 
   programs = {

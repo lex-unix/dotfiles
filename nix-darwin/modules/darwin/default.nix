@@ -8,7 +8,6 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-    kitty
     nixfmt-rfc-style
   ];
 
@@ -21,6 +20,7 @@
       "mas"
     ];
     casks = [
+      "ghostty"
       "raycast"
       "1password"
       "karabiner-elements"
@@ -78,7 +78,7 @@
       "/Applications/Firefox.app"
       "/Applications/Spotify.app"
       "/Applications/Bear.app"
-      "${pkgs.kitty}/Applications/kitty.app"
+      "/Applications/Ghostty.app"
     ];
   };
 

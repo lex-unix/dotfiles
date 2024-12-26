@@ -21,7 +21,7 @@ let
   };
 in
 {
-  enable = true;
+  enable = false;
 
   shellIntegration = {
     enableFishIntegration = true;
