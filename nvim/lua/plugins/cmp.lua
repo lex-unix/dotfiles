@@ -22,7 +22,13 @@ return {
             nerd_font_variant = 'mono',
         },
         signature = { enabled = true },
-        sources = { cmdline = {} },
+        sources = {
+            cmdline = {},
+            default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
+            providers = {
+                dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+            },
+        },
     },
     opts_extend = { 'sources.default' },
 }
