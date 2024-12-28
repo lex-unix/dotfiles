@@ -1,4 +1,75 @@
 { userConfig, pkgs, ... }:
+let
+  baseDeltaConfig = {
+    dark = true;
+    line-numbers = true;
+    side-by-side = true;
+    file-style = "brightwhite";
+    file-decoration-style = "none";
+    file-added-label = "[+]";
+    file-copied-label = "[==]";
+    file-modified-label = "[*]";
+    file-removed-label = "[-]";
+    file-renamed-label = "[->]";
+    zero-style = "syntax";
+    whitespace-error-style = "black bold";
+    blame-code-style = "syntax";
+    blame-palette = "'#141617' '#1d2021' '#282828' '#3c3836'";
+    merge-conflict-begin-symbol = "~";
+    merge-conflict-end-symbol = "~";
+    merge-conflict-ours-diff-header-style = "yellow bold";
+    merge-conflict-ours-diff-header-decoration-style = "'#3c3836' box";
+    merge-conflict-theirs-diff-header-style = "yellow bold";
+    merge-conflict-theirs-diff-header-decoration-style = "'#3c3836' box";
+  };
+
+  # Theme-specific configurations
+  themeConfigs = {
+    gruvbox = {
+      syntax-theme = "gruvbox";
+      hunk-header-decoration-style = "#3c3836 box ul";
+      plus-style = "brightgreen #2e3b3b";
+      plus-emph-style = "#32361a green";
+      minus-style = "brightred #2e3b3b";
+      minus-emph-style = "#3c1f1e red";
+      line-numbers-minus-style = "brightred";
+      line-numbers-plus-style = "brightgreen";
+      line-numbers-left-style = "#3c3836";
+      line-numbers-right-style = "#3c3836";
+      line-numbers-zero-style = "#504945";
+    };
+
+    mellow = {
+      syntax-theme = "mellow";
+      hunk-header-decoration-style = "'#3c3836' box ul";
+      plus-style = "brightgreen black";
+      plus-emph-style = "black green";
+      minus-style = "brightred black";
+      minus-emph-style = "black red";
+      line-numbers-minus-style = "brightred";
+      line-numbers-plus-style = "brightgreen";
+      line-numbers-left-style = "'#3c3836'";
+      line-numbers-right-style = "'#3c3836'";
+      line-numbers-zero-style = "'#504945'";
+    };
+
+    ayu = {
+      syntax-theme = "ayu";
+      hunk-header-decoration-style = "'#3c3836' box ul";
+      plus-style = "brightgreen #1d2214";
+      plus-emph-style = "black green";
+      minus-style = "brightred #2d2220";
+      minus-emph-style = "black red";
+      line-numbers-minus-style = "brightred";
+      line-numbers-plus-style = "brightgreen";
+      line-numbers-left-style = "'#3c3836'";
+      line-numbers-right-style = "'#3c3836'";
+      line-numbers-zero-style = "'#504945'";
+    };
+  };
+
+  makeThemeConfig = theme: baseDeltaConfig // themeConfigs.${theme};
+in
 {
   enable = true;
 
@@ -78,105 +149,9 @@
   delta = {
     enable = true;
     options = {
-      gruvbox = {
-        dark = true;
-        syntax-theme = "base16";
-        line-numbers = true;
-        side-by-side = true;
-        file-style = "brightwhite";
-        file-decoration-style = "none";
-        file-added-label = "[+]";
-        file-copied-label = "[==]";
-        file-modified-label = "[*]";
-        file-removed-label = "[-]";
-        file-renamed-label = "[->]";
-        hunk-header-decoration-style = "#3c3836 box ul";
-        plus-style = "brightgreen #2e3b3b";
-        plus-emph-style = "#32361a green";
-        minus-style = "brightred #2e3b3b";
-        minus-emph-style = "#3c1f1e red";
-        line-numbers-minus-style = "brightred";
-        line-numbers-plus-style = "brightgreen";
-        line-numbers-left-style = "#3c3836";
-        line-numbers-right-style = "#3c3836";
-        line-numbers-zero-style = "#504945";
-        zero-style = "syntax";
-        whitespace-error-style = "black bold";
-        blame-code-style = "syntax";
-        blame-palette = "#141617 #1d2021 #282828 #3c3836";
-        merge-conflict-begin-symbol = "~";
-        merge-conflict-end-symbol = "~";
-        merge-conflict-ours-diff-header-style = "yellow bold";
-        merge-conflict-ours-diff-header-decoration-style = "#3c3836 box";
-        merge-conflict-theirs-diff-header-style = "yellow bold";
-        merge-conflict-theirs-diff-header-decoration-style = "#3c3836 box";
-      };
-      mellow = {
-        dark = true;
-        syntax-theme = "base16";
-        line-numbers = true;
-        side-by-side = true;
-        file-style = "brightwhite";
-        file-decoration-style = "none";
-        file-added-label = "[+]";
-        file-copied-label = "[==]";
-        file-modified-label = "[*]";
-        file-removed-label = "[-]";
-        file-renamed-label = "[->]";
-        hunk-header-decoration-style = "'#3c3836' box ul";
-        plus-style = "brightgreen black";
-        plus-emph-style = "black green";
-        minus-style = "brightred black";
-        minus-emph-style = "black red";
-        line-numbers-minus-style = "brightred";
-        line-numbers-plus-style = "brightgreen";
-        line-numbers-left-style = "'#3c3836'";
-        line-numbers-right-style = "'#3c3836'";
-        line-numbers-zero-style = "'#504945'";
-        zero-style = "syntax";
-        whitespace-error-style = "black bold";
-        blame-code-style = "syntax";
-        blame-palette = "'#141617' '#1d2021' '#282828' '#3c3836'";
-        merge-conflict-begin-symbol = "~";
-        merge-conflict-end-symbol = "~";
-        merge-conflict-ours-diff-header-style = "yellow bold";
-        merge-conflict-ours-diff-header-decoration-style = "'#3c3836' box";
-        merge-conflict-theirs-diff-header-style = "yellow bold";
-        merge-conflict-theirs-diff-header-decoration-style = "'#3c3836' box";
-      };
-      ayu = {
-        dark = true;
-        syntax-theme = "base16";
-        line-numbers = true;
-        side-by-side = true;
-        file-style = "brightwhite";
-        file-decoration-style = "none";
-        file-added-label = "[+]";
-        file-copied-label = "[==]";
-        file-modified-label = "[*]";
-        file-removed-label = "[-]";
-        file-renamed-label = "[->]";
-        hunk-header-decoration-style = "'#3c3836' box ul";
-        plus-style = "brightgreen #1d2214";
-        plus-emph-style = "black green";
-        minus-style = "brightred #2d2220";
-        minus-emph-style = "black red";
-        line-numbers-minus-style = "brightred";
-        line-numbers-plus-style = "brightgreen";
-        line-numbers-left-style = "'#3c3836'";
-        line-numbers-right-style = "'#3c3836'";
-        line-numbers-zero-style = "'#504945'";
-        zero-style = "syntax";
-        whitespace-error-style = "black bold";
-        blame-code-style = "syntax";
-        blame-palette = "'#141617' '#1d2021' '#282828' '#3c3836'";
-        merge-conflict-begin-symbol = "~";
-        merge-conflict-end-symbol = "~";
-        merge-conflict-ours-diff-header-style = "yellow bold";
-        merge-conflict-ours-diff-header-decoration-style = "'#3c3836' box";
-        merge-conflict-theirs-diff-header-style = "yellow bold";
-        merge-conflict-theirs-diff-header-decoration-style = "'#3c3836' box";
-      };
+      gruvbox = makeThemeConfig "gruvbox";
+      mellow = makeThemeConfig "mellow";
+      ayu = makeThemeConfig "ayu";
     };
   };
 }

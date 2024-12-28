@@ -17,5 +17,9 @@
     docker_context = {
       disabled = true;
     };
+    nix_shell = {
+      format = "via [$symbol]($style)";
+      symbol = " ";
+    };
   };
 }

@@ -52,6 +52,7 @@ in
     fd = import ./fd.nix { inherit pkgs; };
     neovim = import ./neovim.nix { inherit pkgs; };
     go = import ./go.nix { inherit pkgs; };
+    direnv = import ./direnv.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;
