@@ -23,10 +23,5 @@ return {
             '<cmd>Trouble lsp toggle focus=false win.position=right win.size=45<cr>',
             desc = 'LSP Definitions / references / ... (Trouble)',
         },
-        {
-            '<leader>lf',
-            '<cmd>Trouble qflist toggle<cr>',
-            desc = 'Quickfix List (Trouble)',
-        },
     },
 }

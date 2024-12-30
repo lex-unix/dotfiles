@@ -54,3 +54,18 @@ keymap.set('n', 'J', 'mzJ`z')
 
 keymap.set('n', 'gh', '<cmd>diffget //2<CR>')
 keymap.set('n', 'gl', '<cmd>diffget //3<CR>')
+
+-- Quickfix list
+keymap.set('n', '<leader>q', '<cmd>copen<CR>')
+keymap.set('n', ']q', '<cmd>cnext<CR>')
+keymap.set('n', '[q', '<cmd>cprev<CR>')
+
+-- Clear highlights on <esc>
+keymap.set({ 'i', 'n', 's' }, '<esc>', function()
+    vim.cmd('noh')
+    return '<esc>'
+end, { expr = true })
+
+-- Re-enter viusal mode after indenting
+keymap.set('v', '<', '<gv')
+keymap.set('v', '>', '>gv')
