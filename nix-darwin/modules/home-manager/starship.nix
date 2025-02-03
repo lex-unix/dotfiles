@@ -18,8 +18,17 @@
       disabled = true;
     };
     nix_shell = {
-      format = "via [$symbol]($style)";
-      symbol = " ";
+      disabled = true;
     };
+    nodejs = {
+      detect_files = [
+        "!bun.lockb"
+        "!bunfig.toml"
+        "package.json"
+        ".node-version"
+        ".nvmrc"
+      ];
+    };
+
   };
 }

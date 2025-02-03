@@ -2,11 +2,11 @@ start-at-login = true
 
 after-startup-command = [
     '''exec-and-forget /etc/profiles/per-user/lex/bin/borders \
-  active_color=0xff59C2FF \
+  active_color=0xff7DAEA3 \
   inactive_color=0xff434856 \
   width=5.0 \
   hidpi=on \
-  blacklist=1Password,Raycast,Portal,CleanShot\ X,ClearVPN,System\ Settings,Parcel,Portal,Pictogram,TV,SounSource
+  blacklist=1Password,Raycast,Portal,CleanShot\ X,ClearVPN,System\ Settings,Parcel,Portal,Pictogram,TV,SounSource,Klack
   ''',
 ]
 

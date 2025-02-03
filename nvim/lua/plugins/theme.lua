@@ -1,7 +1,7 @@
 return {
     {
         'Shatur/neovim-ayu',
-        enabled = true,
+        enabled = false,
         priority = 1000,
         config = function()
             local colors = require('ayu.colors')
@@ -19,7 +19,7 @@ return {
     },
     {
         'sainnhe/gruvbox-material',
-        enabled = false,
+        enabled = true,
         priority = 1000,
         config = function()
             vim.g.gruvbox_material_background = 'hard'
