@@ -57,6 +57,7 @@ keymap.set('n', 'gl', '<cmd>diffget //3<CR>')
 
 -- Quickfix list
 keymap.set('n', '<leader>q', '<cmd>copen<CR>')
+keymap.set('n', '<leader>Q', '<cmd>cclose<CR>')
 keymap.set('n', ']q', '<cmd>cnext<CR>')
 keymap.set('n', '[q', '<cmd>cprev<CR>')
 

@@ -10,6 +10,7 @@ return {
             ['<C-c>'] = { 'show', 'show_documentation', 'hide', 'fallback' },
             ['<C-k>'] = { 'snippet_forward', 'fallback' },
             ['<C-j>'] = { 'snippet_backward', 'fallback' },
+            ['<C-s>'] = { 'show_signature', 'hide_signature', 'fallback' },
         },
         completion = {
             documentation = {
