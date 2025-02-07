@@ -11,7 +11,7 @@ return {
         view_options = {
             show_hidden = true,
             is_always_hidden = function(name, _)
-                local blacklist = { '.DS_Store', '.git', 'node_modules', '.venv', '.docker' }
+                local blacklist = { '.DS_Store', '.git', 'node_modules', '.venv', '.docker', '__pycache__' }
                 if vim.list_contains(blacklist, name) then return true end
                 return false
             end,

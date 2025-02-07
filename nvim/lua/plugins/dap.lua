@@ -69,6 +69,14 @@ return {
             table.insert(require('dap').configurations.python, {
                 type = 'python',
                 request = 'launch',
+                name = 'Debug Test',
+                module = 'pytest',
+                args = { '${file}' },
+            })
+
+            table.insert(require('dap').configurations.python, {
+                type = 'python',
+                request = 'launch',
                 name = 'Launch module',
                 module = function()
                     local co = coroutine.running()
