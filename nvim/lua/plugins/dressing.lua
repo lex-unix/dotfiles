@@ -10,6 +10,10 @@ return {
         keys = {
             { '<leader>st', '<CMD>TodoTelescope<CR>', desc = 'Search Todos' },
         },
-        opts = {},
+        opts = {
+            highlight = {
+                after = '',
+            },
+        },
     },
 }

@@ -22,9 +22,16 @@ return {
             use_nvim_cmp_as_default = true,
             nerd_font_variant = 'mono',
         },
-        signature = { enabled = true },
+        signature = {
+            enabled = true,
+            trigger = {
+                enabled = false,
+            },
+        },
+        cmdline = {
+            enabled = false,
+        },
         sources = {
-            cmdline = {},
             default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
             providers = {
                 dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
