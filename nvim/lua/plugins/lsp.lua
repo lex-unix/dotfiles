@@ -1,4 +1,4 @@
-local configs = require('config.lsp.config')
+local configs = require('config.lsp')
 
 return {
     {
@@ -16,14 +16,19 @@ return {
             local lspconfig = require('mason-lspconfig')
             local nvim_lsp = require('lspconfig')
 
-            lspconfig.setup({
-                automatic_installation = true,
-            })
+            lspconfig.setup({ automatic_installation = true })
+
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.foldingRange = {
+                dynamicRegistration = true,
+                lineFoldingOnly = false,
+            }
+            capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
             lspconfig.setup_handlers({
                 function(server_name)
-                    local config = configs[server_name] or configs['BASE']
-                    nvim_lsp[server_name].setup(vim.tbl_extend('force', configs['BASE'], config))
+                    local config = configs[server_name] or {}
+                    nvim_lsp[server_name].setup(vim.tbl_extend('force', { capabilities = capabilities }, config))
                 end,
             })
         end,
@@ -39,62 +44,46 @@ return {
             vim.diagnostic.config({
                 underline = true,
                 update_in_insert = false,
-                virtual_text = { spacing = 4, prefix = '●' },
                 severity_sort = true,
-                float = { source = 'if_many' },
+                float = { border = 'round', source = 'if_many' },
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+                        [vim.diagnostic.severity.WARN] = '󰀪 ',
+                        [vim.diagnostic.severity.INFO] = '󰋽 ',
+                        [vim.diagnostic.severity.HINT] = '󰌶 ',
+                    },
+                },
+                virtual_text = {
+                    source = 'if_many',
+                    prefix = '●',
+                    spacing = 2,
+                    format = function(diagnostic)
+                        local diagnostic_message = {
+                            [vim.diagnostic.severity.ERROR] = diagnostic.message,
+                            [vim.diagnostic.severity.WARN] = diagnostic.message,
+                            [vim.diagnostic.severity.INFO] = diagnostic.message,
+                            [vim.diagnostic.severity.HINT] = diagnostic.message,
+                        }
+                        return diagnostic_message[diagnostic.severity]
+                    end,
+                },
             })
-
-            -- Diagnostic symbols in the sign column (gutter)
-            local signs = { Error = '󰅚 ', Warn = ' ', Hint = '󰌶 ', Info = ' ' }
-            for type, icon in pairs(signs) do
-                local hl = 'DiagnosticSign' .. type
-                vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-            end
         end,
     },
     {
         'nvimtools/none-ls.nvim',
+        enabled = false,
         event = 'BufReadPre',
         config = function()
             local null_ls = require('null-ls')
-            local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-
-            local lsp_formatting = function(bufnr)
-                vim.lsp.buf.format({
-                    filter = function(client) return client.name == 'null-ls' end,
-                    bufnr = bufnr,
-                })
-            end
 
             null_ls.setup({
                 sources = {
-                    null_ls.builtins.formatting.prettierd.with({
-                        extra_filetypes = { 'prisma', 'astro', 'svelte' },
-                    }),
                     null_ls.builtins.diagnostics.mypy,
                     null_ls.builtins.diagnostics.fish,
-                    null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.formatting.terraform_fmt,
-                    null_ls.builtins.formatting.nixfmt,
-                    null_ls.builtins.formatting.google_java_format,
                 },
-                on_attach = function(client, bufnr)
-                    if client.supports_method('textDocument/formatting') then
-                        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                        vim.api.nvim_create_autocmd('BufWritePre', {
-                            group = augroup,
-                            buffer = bufnr,
-                            callback = function() lsp_formatting(bufnr) end,
-                        })
-                    end
-                end,
             })
-
-            vim.api.nvim_create_user_command(
-                'DisableLspFormatting',
-                function() vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 }) end,
-                { nargs = 0 }
-            )
         end,
     },
     {
