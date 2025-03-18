@@ -8,6 +8,14 @@
                  (#set! injection.language "sql")
  )))
 
+(assignment_statement
+  left: (expression_list (identifier) @_id (#match? @_id "(sql\|query)"))
+  right: (expression_list
+           (raw_string_literal
+             (raw_string_literal_content) @injection.content
+                 (#set! injection.language "sql")
+ )))
+
 ((call_expression
   (selector_expression
     field: (field_identifier) @_field)
