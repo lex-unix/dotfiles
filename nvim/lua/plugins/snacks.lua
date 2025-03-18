@@ -45,10 +45,10 @@ return {
                         desc = 'Find Text',
                         action = ":lua Snacks.dashboard.pick('live_grep')",
                     },
-                    { icon = ' ', key = 'b', desc = 'File Browser', action = ':Oil' },
+                    { icon = ' ', key = 'F', desc = 'File Browser', action = ':Oil' },
                     {
                         icon = ' ',
-                        key = 's',
+                        key = 'G',
                         desc = 'Git Status',
                         action = function()
                             vim.cmd.G()
