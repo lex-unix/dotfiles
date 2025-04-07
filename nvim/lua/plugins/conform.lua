@@ -29,7 +29,7 @@ return {
         })
     end,
     opts = {
-        notify_on_error = true,
+        notify_on_error = false,
         format_on_save = function(bufnr)
             local disable_filetypes = { c = true, cpp = true }
             local lsp_format_opt
@@ -46,11 +46,14 @@ return {
         formatters_by_ft = {
             lua = { 'stylua' },
             nix = { 'nixfmt' },
-            javascript = { 'prettierd', 'prettier', stop_after_first = true },
-            typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-            astro = { 'prettierd', 'prettier', stop_after_first = true },
-            terraform = { 'terraform_fmt' },
+            sql = { 'sql_formatter' },
             java = { 'google-java-format' },
+            javascript = { 'prettierd' },
+            typescript = { 'prettierd' },
+            typescriptreact = { 'prettierd' },
+            svelte = { 'prettierd' },
+            astro = { 'prettierd' },
+            terraform = { 'terraform_fmt' },
         },
     },
 }
