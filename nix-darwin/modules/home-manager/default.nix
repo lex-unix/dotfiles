@@ -20,7 +20,6 @@ in
     gh
     kubectl
     zig
-    terraform
     btop
     eza
     wget
@@ -29,6 +28,7 @@ in
     awscli2
     _1password-cli
     ffmpeg
+    tldr
   ];
 
   xdg = {
