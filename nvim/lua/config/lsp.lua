@@ -35,6 +35,11 @@ return {
         },
     },
     tailwindcss = {
+        settings = {
+            tailwindCSS = {
+                classFunctions = { 'cva', 'cx' },
+            },
+        },
         init_options = {
             userLanguages = {
                 elixir = 'html-eex',

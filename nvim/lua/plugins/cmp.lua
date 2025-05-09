@@ -24,17 +24,22 @@ return {
         },
         signature = {
             enabled = true,
-            trigger = {
-                enabled = false,
-            },
         },
         cmdline = {
             enabled = false,
         },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
+            per_filetype = {
+                sql = { 'snippets', 'dadbod', 'buffer' },
+            },
             providers = {
                 dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
+                snippets = {
+                    opts = {
+                        search_paths = { vim.fn.stdpath('config') .. '/snippets' },
+                    },
+                },
             },
         },
     },
