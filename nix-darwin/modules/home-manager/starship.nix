@@ -20,15 +20,5 @@
     nix_shell = {
       disabled = true;
     };
-    nodejs = {
-      detect_files = [
-        "!bun.lockb"
-        "!bunfig.toml"
-        "package.json"
-        ".node-version"
-        ".nvmrc"
-      ];
-    };
-
   };
 }

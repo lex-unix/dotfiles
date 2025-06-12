@@ -1,4 +1,11 @@
 return {
+    gopls = {
+        settings = {
+            gopls = {
+                buildFlags = { '-tags=unit,integration' },
+            },
+        },
+    },
     lua_ls = {
         settings = {
             Lua = {

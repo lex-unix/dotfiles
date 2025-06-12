@@ -1,5 +1,7 @@
 return {
-    'norcalli/nvim-colorizer.lua',
+    'brenoprata10/nvim-highlight-colors',
     event = 'BufReadPre',
-    opts = { '*' },
+    opts = {
+        enable_tailwind = true,
+    },
 }

@@ -29,6 +29,7 @@ in
     _1password-cli
     ffmpeg
     tldr
+    uv
   ];
 
   xdg = {

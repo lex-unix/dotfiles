@@ -10,6 +10,9 @@
     set -g theme_hide_hostname no
     set -g default_user ___
 
+    # Go
+    set -gx PATH $GOPATH/bin $PATH
+
     # fzf
     set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
     set -g FZF_LEGACY_KEYBINDINGS 0
@@ -31,6 +34,7 @@
     stat = "gstat";
     python = "python3";
     pip = "pip3";
+    nix-rebuild = "sudo darwin-rebuild switch --flake ~/dotfiles/nix-darwin";
     ".." = "cd ..";
   };
 

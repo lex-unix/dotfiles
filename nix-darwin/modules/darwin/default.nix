@@ -8,6 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     neovim
+    bun
     nixfmt-rfc-style
   ];
 
@@ -49,6 +50,8 @@
   programs.fish.enable = true;
   programs.zsh.enable = true;
 
+  system.primaryUser = userConfig.username;
+
   system.configurationRevision = null;
 
   system.stateVersion = 5;
@@ -77,7 +80,6 @@
     persistent-apps = [
       "/Applications/Firefox.app"
       "/Applications/Spotify.app"
-      "/Applications/Bear.app"
       "/Applications/Ghostty.app"
     ];
   };
