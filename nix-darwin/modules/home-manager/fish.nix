@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ userConfig, pkgs, ... }:
 {
   enable = true;
   package = pkgs.fish;
@@ -9,6 +9,8 @@
     set -g theme_display_user yes
     set -g theme_hide_hostname no
     set -g default_user ___
+
+    set -gx LEX_THEME ${userConfig.theme}
 
     # Go
     set -gx PATH $GOPATH/bin $PATH

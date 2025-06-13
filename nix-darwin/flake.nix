@@ -23,7 +23,7 @@
     }:
     let
       userConfig = {
-        theme = "gruvbox";
+        theme = "dark";
         username = "lex";
       };
     in

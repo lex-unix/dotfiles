@@ -1,25 +1,19 @@
+local utils = require('utils')
+
 return {
+    -- light theme
     {
-        'Shatur/neovim-ayu',
-        enabled = false,
-        priority = 1000,
-        config = function()
-            local colors = require('ayu.colors')
-            colors.generate()
-
-            require('ayu').setup({
-                overrides = {
-                    LineNr = { fg = colors.comment },
-                    BlinkCmpSignatureHelpActiveParameter = { bg = colors.selection_bg },
-                },
-            })
-
-            vim.cmd('colorscheme ayu')
-        end,
+        'projekt0n/github-nvim-theme',
+        name = 'github-theme',
+        enabled = utils.getTermTheme() == 'light',
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        init = function() vim.cmd('colorscheme github_light') end,
     },
+    -- dark theme
     {
         'sainnhe/gruvbox-material',
-        enabled = true,
+        enabled = utils.getTermTheme() == 'dark',
         priority = 1000,
         config = function()
             vim.g.gruvbox_material_background = 'hard'
@@ -40,12 +34,5 @@ return {
             vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none', fg = '#d4be98' })
             vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none', fg = '#d4be98' })
         end,
-    },
-    {
-        'folke/tokyonight.nvim',
-        priority = 1000,
-        enabled = false,
-        opts = {},
-        config = function() vim.cmd([[colorscheme tokyonight-night]]) end,
     },
 }

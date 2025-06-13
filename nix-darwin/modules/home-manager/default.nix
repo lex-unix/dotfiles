@@ -43,7 +43,7 @@ in
   programs = {
     starship = import ./starship.nix { inherit pkgs; };
     bat = import ./bat.nix { inherit pkgs userConfig; };
-    fish = import ./fish.nix { inherit pkgs; };
+    fish = import ./fish.nix { inherit pkgs userConfig; };
     zoxide = import ./zoxide.nix { inherit pkgs; };
     kitty = import ./kitty.nix { inherit pkgs userConfig; };
     tmux = import ./tmux.nix { inherit pkgs; };
