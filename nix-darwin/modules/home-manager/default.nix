@@ -46,7 +46,7 @@ in
     fish = import ./fish.nix { inherit pkgs userConfig; };
     zoxide = import ./zoxide.nix { inherit pkgs; };
     kitty = import ./kitty.nix { inherit pkgs userConfig; };
-    tmux = import ./tmux.nix { inherit pkgs; };
+    tmux = import ./tmux.nix { inherit pkgs userConfig; };
     fzf = import ./fzf.nix { inherit pkgs; };
     git = import ./git.nix { inherit pkgs userConfig; };
     ripgrep = import ./ripgrep.nix { inherit pkgs; };

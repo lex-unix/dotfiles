@@ -21,16 +21,12 @@ let
   themeConfigs = {
     dark = {
       syntax-theme = "gruvbox";
-      hunk-header-decoration-style = "#3c3836 box ul";
-      plus-style = "brightgreen #2e3b3b";
-      plus-emph-style = "#32361a green";
-      minus-style = "brightred #2e3b3b";
-      minus-emph-style = "#3c1f1e red";
+      plus-style = "syntax #323619";
+      plus-emph-style = "white #4C531F";
+      minus-style = "syntax #3C1F1E";
+      minus-emph-style = "white #672A28";
       line-numbers-minus-style = "brightred";
       line-numbers-plus-style = "brightgreen";
-      line-numbers-left-style = "#3c3836";
-      line-numbers-right-style = "#3c3836";
-      line-numbers-zero-style = "#504945";
     };
 
     light = {

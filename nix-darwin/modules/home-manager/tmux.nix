@@ -1,4 +1,19 @@
-{ pkgs, ... }:
+{ pkgs, userConfig, ... }:
+let
+  themes = {
+    dark = {
+      accent = "#E78A4D";
+      muted = "#928375";
+      border = "#504946";
+    };
+    light = {
+      accent = "#0769DA";
+      muted = "#57606A";
+      border = "#CFD7DE";
+    };
+  };
+  palette = themes.${userConfig.theme};
+in
 {
   enable = true;
   baseIndex = 1;
@@ -49,21 +64,21 @@
     set -g status-right-length "100"
     set-option -g status-style bg=default
 
-    set -g message-style "fg=#C1C0D4,bg=default"
-    set -g message-command-style "fg=#C1C0D4,bg=default"
+    set -g message-style "fg=${palette.muted},bg=default"
+    set -g message-command-style "fg=${palette.muted},bg=default"
 
-    set -g pane-border-style "fg=#191724"
-    set -g pane-active-border-style "fg=#C1C0D4"
+    set -g pane-border-style "fg=${palette.border}"
+    set -g pane-active-border-style "fg=${palette.muted}"
 
-    set -g status-left "#[fg=#757581,bg=default] #S"
-    set -g status-right "#[fg=#757581,bg=default] %l:%M %p"
+    set -g status-left "#[fg=${palette.accent},bg=default] #S"
+    set -g status-right "#[fg=${palette.accent},bg=default] %l:%M %p"
 
-    set -g pane-active-border-style bg=default,fg=#2a2a2a
-    set -g pane-border-style fg=#2a2a2a
+    set -g pane-active-border-style bg=default,fg=${palette.border}
+    set -g pane-border-style fg=${palette.border}
 
     setw -g window-status-separator "    "
-    setw -g window-status-style "NONE,fg=#757581,bg=default"
+    setw -g window-status-style "NONE,fg=${palette.muted},bg=default"
     setw -g window-status-format '#I:#{b:pane_current_command}'
-    setw -g window-status-current-format '#[fg=#ACA1CF]#I:#{b:pane_current_command}*'
+    setw -g window-status-current-format '#[fg=${palette.accent}]#I:#{b:pane_current_command}*'
   '';
 }
