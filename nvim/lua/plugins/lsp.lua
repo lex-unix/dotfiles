@@ -1,51 +1,45 @@
-local configs = require('config.lsp')
+local lsp_configs = require('config.lsp')
 
 return {
     {
-        'williamboman/mason.nvim',
-        cmd = 'Mason',
-        config = function() require('mason').setup({}) end,
-    },
-    {
-        'williamboman/mason-lspconfig.nvim',
+        'mason-org/mason-lspconfig.nvim',
         dependencies = {
-            'williamboman/mason.nvim',
+            { 'mason-org/mason.nvim', opts = {}, cmd = 'Mason' },
+            'neovim/nvim-lspconfig',
         },
         event = 'BufReadPre',
-        config = function()
-            local lspconfig = require('mason-lspconfig')
-            local nvim_lsp = require('lspconfig')
-
-            lspconfig.setup({ automatic_installation = true })
-
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.textDocument.foldingRange = {
-                dynamicRegistration = true,
-                lineFoldingOnly = false,
-            }
-            capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
-
-            lspconfig.setup_handlers({
-                function(server_name)
-                    local config = configs[server_name] or {}
-                    nvim_lsp[server_name].setup(vim.tbl_extend('force', { capabilities = capabilities }, config))
-                end,
-            })
-        end,
+        opts = {},
     },
     {
         'neovim/nvim-lspconfig',
         event = 'BufReadPre',
         config = function()
-            vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = 'rounded',
+            vim.api.nvim_create_autocmd('LspAttach', {
+                group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+                callback = function(event)
+                    local map = function(keys, func, desc, mode)
+                        mode = mode or 'n'
+                        vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+                    end
+
+                    map('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, 'Hover')
+                    map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+                    map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+                    map('<leader>e', vim.diagnostic.open_float, 'Diagnostic error message')
+                    map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+                    map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+                    map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+                    map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+                end,
             })
+
+            vim.lsp.inlay_hint.enable(true)
 
             vim.diagnostic.config({
                 underline = true,
                 update_in_insert = false,
                 severity_sort = true,
-                float = { border = 'round', source = 'if_many' },
+                float = { border = 'rounded', source = 'if_many' },
                 signs = {
                     text = {
                         [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -69,6 +63,10 @@ return {
                     end,
                 },
             })
+
+            for server_name, config in pairs(lsp_configs) do
+                vim.lsp.config[server_name] = config
+            end
         end,
     },
     {
@@ -88,6 +86,7 @@ return {
     },
     {
         'glepnir/lspsaga.nvim',
+        enabled = false,
         cmd = 'Lspsaga',
         keys = {
             { '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>' },
@@ -118,6 +117,11 @@ return {
     {
         'dmmulroy/ts-error-translator.nvim',
         event = 'BufReadPre',
+        opts = {},
+    },
+    {
+        'j-hui/fidget.nvim',
+        event = 'VeryLazy',
         opts = {},
     },
 }

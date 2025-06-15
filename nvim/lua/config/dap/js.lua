@@ -2,8 +2,9 @@ local M = {}
 
 function M.setup(dap)
     -- path to js-debug-adapter installed with Mason
-    local package = require('mason-registry').get_package('js-debug-adapter')
-    local debug_adapter_path = package:get_install_path() .. '/js-debug/src/dapDebugServer.js'
+    -- local package = require('mason-registry').get_package('js-debug-adapter')
+    -- local debug_adapter_path = package:get_install_path() .. '/js-debug/src/dapDebugServer.js'
+    local debug_adapter_path = vim.fn.exepath('js-debug-adapter') .. '/js-debug/src/dapDebugServer.js'
 
     local adapter = {
         type = 'server',

@@ -56,6 +56,32 @@ return {
         },
     },
     ts_ls = {
+        settings = {
+            typescript = {
+                inlayHints = {
+                    includeInlayParameterNameHints = 'none',
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = false,
+                    includeInlayVariableTypeHints = false,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = false,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                },
+            },
+            javascript = {
+                inlayHints = {
+                    includeInlayParameterNameHints = 'none',
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayVariableTypeHints = false,
+                    includeInlayFunctionParameterTypeHints = false,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = false,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                },
+            },
+        },
         handlers = {
             ['textDocument/publishDiagnostics'] = function(err, result, ctx)
                 local ok, ts_error_translator = pcall(require, 'ts-error-translator')
