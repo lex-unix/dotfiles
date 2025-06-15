@@ -51,7 +51,7 @@ return {
                         key = 'G',
                         desc = 'Git Status',
                         action = function()
-                            vim.cmd.G()
+                            vim.cmd.Git()
                             vim.api.nvim_feedkeys(
                                 vim.api.nvim_replace_termcodes('<C-w>o', false, true, true),
                                 'n',
