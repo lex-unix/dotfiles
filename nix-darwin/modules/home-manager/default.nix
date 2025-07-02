@@ -30,6 +30,8 @@ in
     ffmpeg
     tldr
     uv
+    just
+    hyperfine
   ];
 
   xdg = {
