@@ -1,0 +1,1 @@
+{"direnv":{"body":["if has nix; then","  use flake","fi","","dotenv_if_exists .env"],"prefix":"direnv"}}
