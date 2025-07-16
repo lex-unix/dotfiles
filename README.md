@@ -2,63 +2,43 @@
 
 ![neovim screenshot](docs/neovim-screenshot.png)
 
-The repository includes configuration files for:
-
-- neovim
-- fish
-- tmux
-- git
-- kitty
+This repository contains configuration for neovim, fish, tmux. Most of the configuration is managed through nix.
 
 ## Neovim
 
-LSP is set up with the following plugins:
+- **LSP**: `nvim-lspconfig`, `mason.nvim`, `mason-lspconfig.nvim`
+- **Completion**: `blink.cmp`
+- **Formatting**: `conform.nvim`
+- **UI**: `telescope.nvim`, `lualine.nvim`, `bufferline.nvim`
+- **DAP**: `nvim-dap`
+- **Syntax**: `treesitter` with custom queries for Go, TypeScript, Markdown
+- **Themes**:
+    - Dark: [gruvbox-material](https://github.com/sainnhe/gruvbox-material)
+    - Light: [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
 
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [mason.nvim](https://github.com/williamboman/mason.nvim)
-- [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-- [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
-- [lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim)
-- [lspkind-nvim](https://github.com/onsails/lspkind.nvim)
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) and [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
+## Fish Shell
 
-Mason is handling all the LSP configurations for Go, Rust, TypeScript, Python, etc.
-Null-ls is mainly used for formatting.
+- Managed via home-manager (`nix-darwin/modules/home-manager/fish.nix`)
+- Plugins:
+    - [`patrickf1/fzf.fish`](https://github.com/patrickf1/fzf.fish)
+- Custom aliases and functions for tmux sessionizing, path management, and more
 
-To install LSP run:
+## Tmux
 
-```sh
-:LspInstall
-```
-
-Config also includes:
-
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) with additional query injections for Go, TypeScript, and Markdown
-- [vim-fugitive](https://github.com/tpope/vim-fugitive)
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-- [nvim-bufferline](https://github.com/akinsho/bufferline.nvim)
-
-Currrent colorscheme is [mellow](https://github.com/mellow-theme/mellow.nvim).
-
-## Fish
-
-I use fisher as a plugin manager. Here are my installed plugins:
-
-- jorgebucaran/fisher
-- edc/bass
-- fabioantunes/fish-nvm
-- ilancosman/tide@v5
-- jethrokuan/z
-- patrickf1/fzf.fish
+- Managed via home-manager (`nix-darwin/modules/home-manager/tmux.nix`)
+- Vi key mode, custom status line, themed colors, and sensible keybindings
 
 ## Git
 
-Git configuration includes [delta](https://github.com/dandavison/delta), a syntax-highlighting
-pager for git and useful aliases i borrowed from [craftzdog](https://github.com/craftzdog).
+- Managed via home-manager (`nix-darwin/modules/home-manager/git.nix`)
+- Uses [delta](https://github.com/dandavison/delta) for diffs, many useful aliases, and `nvim` as the diff/merge tool
 
-## Kitty
+## Ghostty
 
-The Kitty configuration uses mostly default settings.
-The only changes are the font, color scheme, and enabling the Option key as the Alt key for macOS.
+- Config in `ghostty/config`
+- Custom font, padding, theme, and macOS-specific tweaks
+
+## Legacy configuration
+
+The branch `before-nix-darwin` contains my previous dotfiles setup, before migrating to Nix.
+You may find it useful for reference, comparison, or if you want to see how things were managed without Nix.
