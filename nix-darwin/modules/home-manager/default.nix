@@ -20,7 +20,6 @@ in
     gh
     kubectl
     zig
-    btop
     eza
     wget
     coreutils
@@ -32,6 +31,10 @@ in
     uv
     just
     hyperfine
+    bun
+    gnused
+    nmap
+    lazygit
   ];
 
   xdg = {
@@ -56,6 +59,9 @@ in
     neovim = import ./neovim.nix { inherit pkgs; };
     go = import ./go.nix { inherit pkgs; };
     direnv = import ./direnv.nix { inherit pkgs; };
+    jujutsu = import ./jujutsu.nix { inherit pkgs; };
+    yazi = import ./yazi.nix { inherit pkgs; };
+    btop = import ./btop.nix { inherit pkgs; };
   };
 
   programs.home-manager.enable = true;

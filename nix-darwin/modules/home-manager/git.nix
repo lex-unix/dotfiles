@@ -46,7 +46,7 @@ in
   enable = true;
 
   userName = "Lex Miin";
-  userEmail = "alexmiyin@gmail.com";
+  userEmail = "hello@lexunix.me";
 
   aliases = {
     a = "!git status --short | fzf --multi | awk '{print $2}' | xargs git add";
@@ -99,9 +99,6 @@ in
     "mergetool \"nvimdiff\"" = {
       cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"";
       trustExitCode = true;
-    };
-    ghq = {
-      root = "~/.ghq";
     };
   };
 

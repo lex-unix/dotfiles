@@ -7,8 +7,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    neovim
-    bun
     nixfmt-rfc-style
   ];
 
@@ -32,7 +30,7 @@
       "telegram"
       "slack"
       "tableplus"
-      "httpie"
+      "httpie-desktop"
       "the-unarchiver"
       "jordanbaird-ice"
     ];
