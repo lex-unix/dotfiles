@@ -1,7 +1,7 @@
 return {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets' },
-    version = '*',
+    version = '1.*',
     lazy = true,
     event = 'InsertEnter',
     opts = {
@@ -24,9 +24,14 @@ return {
         },
         signature = {
             enabled = true,
-        },
-        cmdline = {
-            enabled = false,
+            trigger = {
+                enabled = false,
+            },
+            window = {
+                border = 'rounded',
+                treesitter_highlighting = true,
+                show_documentation = true,
+            },
         },
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
