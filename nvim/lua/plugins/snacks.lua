@@ -15,6 +15,7 @@ return {
     },
     opts = {
         input = { enabled = true },
+        notifier = { enabled = true },
         picker = {
             sources = {
                 files = {
