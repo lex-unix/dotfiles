@@ -3,9 +3,30 @@ return {
     priority = 1000,
     lazy = false,
     keys = {
-        { '<leader>do', '<Cmd>:lua Snacks.dashboard.open()<CR>', desc = 'Open dashboard' },
+        { '<leader>sf', function() Snacks.picker.files() end, desc = 'Find Files' },
+        { '<leader>sg', function() Snacks.picker.grep() end, desc = 'Grep' },
+        { '<leader>sh', function() Snacks.picker.help() end, desc = 'Help Pages' },
+        { '<leader>ss', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols' },
+        { '<leader>tt', function() Snacks.picker.resume() end, desc = 'Resume' },
+        { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
+        { 'gr', function() Snacks.picker.lsp_references() end, desc = 'Goto References' },
+        { 'gI', function() Snacks.picker.lsp_implementations() end, desc = 'Goto Implementation' },
+        { '<leader>D', function() Snacks.picker.lsp_type_definitions() end, desc = 'Type Definition' },
     },
     opts = {
+        input = { enabled = true },
+        picker = {
+            sources = {
+                files = {
+                    hidden = true,
+                    ignored = false,
+                },
+                grep = {
+                    hidden = true,
+                    ignored = false,
+                },
+            },
+        },
         quickfile = {
             enabled = true,
         },
@@ -24,14 +45,8 @@ return {
             col = nil, -- dashboard position. nil for center
             pane_gap = 4, -- empty columns between vertical panes
             autokeys = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', -- autokey sequence
-            -- These settings are used by some built-in sections
             preset = {
-                -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
-                ---@type fun(cmd:string, opts:table)|nil
                 pick = nil,
-                -- Used by the `keys` section to show keymaps.
-                -- Set your custom keymaps here.
-                -- When using a function, the `items` argument are the default keymaps.
                 keys = {
                     {
                         icon = ' ',
