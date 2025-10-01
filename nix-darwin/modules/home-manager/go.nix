@@ -1,5 +1,5 @@
 { pkgs, ... }:
 {
   enable = true;
-  goPath = "go";
+  env.GOPATH = "go";
 }
