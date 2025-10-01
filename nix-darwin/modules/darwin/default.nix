@@ -33,6 +33,7 @@
       "httpie-desktop"
       "the-unarchiver"
       "jordanbaird-ice"
+      "iina"
     ];
     masApps = {
       "Bear" = 1091189122;
@@ -47,6 +48,7 @@
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
+  programs.bash.enable = true;
 
   system.primaryUser = userConfig.username;
 

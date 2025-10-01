@@ -15,6 +15,12 @@ in
   home.username = userConfig.username;
   home.homeDirectory = "/Users/${userConfig.username}";
 
+  home.shell.enableShellIntegration = true;
+
+  home.sessionVariables = {
+    PAGER = "less -FirSwX";
+  };
+
   home.packages = with pkgs; [
     jq
     gh
@@ -35,6 +41,8 @@ in
     gnused
     nmap
     lazygit
+    nodejs
+    rclone
   ];
 
   xdg = {
