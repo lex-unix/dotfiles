@@ -1,5 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   enable = true;
-  env.GOPATH = "go";
+  env.GOPATH = "${config.home.homeDirectory}/go";
 }

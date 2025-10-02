@@ -65,7 +65,7 @@ in
     ripgrep = import ./ripgrep.nix { inherit pkgs; };
     fd = import ./fd.nix { inherit pkgs; };
     neovim = import ./neovim.nix { inherit pkgs; };
-    go = import ./go.nix { inherit pkgs; };
+    go = import ./go.nix { inherit pkgs config; };
     direnv = import ./direnv.nix { inherit pkgs; };
     jujutsu = import ./jujutsu.nix { inherit pkgs; };
     yazi = import ./yazi.nix { inherit pkgs; };
