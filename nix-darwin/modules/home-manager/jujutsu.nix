@@ -6,6 +6,19 @@
       email = "hello@lexunix.me";
       name = "Lex Miin";
     };
+    aliases = {
+      tug = [
+        "bookmark"
+        "move"
+        "--from"
+        "closest_bookmark(@-)"
+        "--to"
+        "@-"
+      ];
+    };
+    revset-aliases = {
+      "closest_bookmark(to)" = "heads(::to & bookmarks())";
+    };
     diff = {
       tool = "delta";
     };

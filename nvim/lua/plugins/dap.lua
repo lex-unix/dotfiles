@@ -1,15 +1,3 @@
-local function find_python_modules()
-    local modules = {}
-    local cwd = vim.fn.getcwd()
-    local handle = vim.fn.glob(cwd .. '/*/__main__.py', false, true)
-    for _, path in ipairs(handle) do
-        local module = vim.fn.fnamemodify(path, ':h:t')
-        table.insert(modules, module)
-    end
-
-    return modules
-end
-
 return {
     {
         'mfussenegger/nvim-dap',
@@ -60,40 +48,6 @@ return {
         opts = {},
     },
     {
-        'mfussenegger/nvim-dap-python',
-        lazy = true,
-        ft = 'python',
-        config = function()
-            require('dap-python').setup('python3')
-
-            table.insert(require('dap').configurations.python, {
-                type = 'python',
-                request = 'launch',
-                name = 'Debug Test',
-                module = 'pytest',
-                args = { '${file}' },
-            })
-
-            table.insert(require('dap').configurations.python, {
-                type = 'python',
-                request = 'launch',
-                name = 'Launch module',
-                module = function()
-                    local co = coroutine.running()
-                    return coroutine.create(function()
-                        local modules = find_python_modules()
-                        vim.ui.select(modules, {
-                            prompt = 'Select Python module: ',
-                            format_item = function(item) return item end,
-                        }, function(choice)
-                            if choice then coroutine.resume(co, choice) end
-                        end)
-                    end)
-                end,
-            })
-        end,
-    },
-    {
         'rcarriga/nvim-dap-ui',
         dependencies = { 'nvim-neotest/nvim-nio' },
         lazy = true,
@@ -111,12 +65,12 @@ return {
             },
             layouts = {
                 {
-                    elements = { 'scopes' },
+                    elements = { 'watches', 'scopes' },
                     size = 0.3,
                     position = 'right',
                 },
                 {
-                    elements = { 'repl', 'breakpoints' },
+                    elements = { 'stacks', 'breakpoints' },
                     size = 0.3,
                     position = 'bottom',
                 },

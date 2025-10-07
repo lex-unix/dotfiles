@@ -48,36 +48,52 @@ return {
         config = function()
             require('nvim-treesitter.configs').setup({
                 textobjects = {
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            [']m'] = '@function.outer',
+                            [']]'] = '@class.outer',
+                        },
+                        goto_previous_start = {
+                            ['[m'] = '@function.outer',
+                            ['[['] = '@class.outer',
+                        },
+                    },
+                    swap = {
+                        enable = true,
+                        swap_next = {
+                            ['<leader>sn'] = '@parameter.inner',
+                        },
+                        swap_previous = {
+                            ['<leader>sp'] = '@parameter.inner',
+                        },
+                    },
                     select = {
                         enable = true,
-
-                        -- Automatically jump forward to textobj, similar to targets.vim
+                        -- include_surrounding_whitespace = true,
                         lookahead = true,
-
+                        selection_modes = {
+                            ['@function.outer'] = 'V',
+                            ['@function.inner'] = 'V',
+                            ['@class.outer'] = 'V',
+                            ['@class.inner'] = 'V',
+                        },
                         keymaps = {
-                            -- You can use the capture groups defined in textobjects.scm
                             ['af'] = '@function.outer',
                             ['if'] = '@function.inner',
                             ['ac'] = '@class.outer',
                             ['ic'] = '@class.inner',
-                            ['il'] = '@loop.inner',
-                            ['al'] = '@loop.outer',
-                            ['ii'] = '@conditional.inner',
-                            ['ai'] = '@conditional.outer',
+                            ['ia'] = '@parameter.inner',
+                            ['aa'] = '@parameter.outer',
+                            ['i/'] = '@comment.inner',
+                            ['a/'] = '@comment.outer',
+                            ['it'] = '@html_tag.inner',
+                            ['at'] = '@html_tag.outer',
                         },
                     },
                 },
             })
         end,
-    },
-    {
-        'apple/pkl-neovim',
-        lazy = true,
-        ft = 'pkl',
-        build = function()
-            require('pkl-neovim.internal').init()
-            vim.cmd('TSInstall! pkl')
-        end,
-        config = function() require('luasnip.loaders.from_snipmate').lazy_load() end,
     },
 }

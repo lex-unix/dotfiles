@@ -2,7 +2,7 @@ font-family = SauceCodePro Nerd Font Mono
 font-size = 14
 adjust-cell-height = 30%
 
-theme = gruvbox
+theme = dark:gruvbox,light:light
 cursor-style = block
 cursor-style-blink = false
 window-padding-x = 12

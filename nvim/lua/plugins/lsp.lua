@@ -29,7 +29,7 @@ return {
                 end,
             })
 
-            vim.lsp.inlay_hint.enable(true)
+            -- vim.lsp.inlay_hint.enable(true)
 
             vim.diagnostic.config({
                 underline = true,
@@ -75,40 +75,9 @@ return {
             null_ls.setup({
                 sources = {
                     null_ls.builtins.diagnostics.mypy,
-                    null_ls.builtins.diagnostics.fish,
                 },
             })
         end,
-    },
-    {
-        'glepnir/lspsaga.nvim',
-        enabled = false,
-        cmd = 'Lspsaga',
-        keys = {
-            { '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>' },
-            { 'K', '<Cmd>Lspsaga hover_doc<CR>' },
-            { 'gd', '<Cmd>Lspsaga goto_definition<CR>' },
-            { 'gp', '<Cmd>Lspsaga peek_definition<CR>' },
-            { 'gr', '<Cmd>Lspsaga rename<CR>' },
-            { 'gf', '<Cmd>Lspsaga finder<CR>' },
-            { '<leader>ca', '<cmd>Lspsaga code_action<CR>', mode = { 'n', 'v' } },
-        },
-        opts = {
-            diagnostic = {
-                auto_preview = false,
-            },
-            ui = {
-                title = true,
-                winblend = 0,
-                border = 'rounded',
-            },
-            symbol_in_winbar = {
-                enable = false,
-            },
-            lightbulb = {
-                enable = false,
-            },
-        },
     },
     {
         'dmmulroy/ts-error-translator.nvim',
