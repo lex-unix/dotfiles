@@ -15,6 +15,7 @@
         "--to"
         "@-"
       ];
+      d = [ "diff" ];
     };
     revset-aliases = {
       "closest_bookmark(to)" = "heads(::to & bookmarks())";

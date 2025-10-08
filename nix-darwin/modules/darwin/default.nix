@@ -78,7 +78,7 @@
   system.defaults.dock = {
     autohide = true;
     persistent-apps = [
-      "/Applications/Firefox.app"
+      "/Applications/Helium.app"
       "/Applications/Spotify.app"
       "/Applications/Ghostty.app"
     ];

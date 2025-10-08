@@ -2,11 +2,15 @@ return {
     'NickvanDyke/opencode.nvim',
     dependencies = { 'folke/snacks.nvim' },
     keys = {
-        { '<leader>oA', function() require('opencode').ask() end, desc = 'Ask opencode' },
-        { '<leader>oa', function() require('opencode').ask('@cursor: ') end, desc = 'Ask opencode about this' },
+        { '<leader>oA', function() require('opencode').ask(nil, { submit = true }) end, desc = 'Ask opencode' },
         {
             '<leader>oa',
-            function() require('opencode').ask('@selection: ') end,
+            function() require('opencode').ask('@cursor: ', { submit = true }) end,
+            desc = 'Ask opencode about this',
+        },
+        {
+            '<leader>oa',
+            function() require('opencode').ask('@selection: ', { submit = true }) end,
             mode = 'v',
             desc = 'Ask opencode about selection',
         },
@@ -23,10 +27,8 @@ return {
             desc = 'Select opencode prompt',
         },
     },
-    config = function()
-        -- Required for `opts.auto_reload`
+    init = function()
         vim.opt.autoread = true
-
         vim.api.nvim_create_autocmd('User', {
             pattern = 'OpencodeEvent',
             callback = function(args)

@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = [[\]]
 
 local keymap = vim.keymap
 
@@ -17,10 +18,9 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 -- New tab
 keymap.set('n', 'te', ':tabedit')
 -- Split window
-keymap.set('n', 'ss', ':split<Return><C-w>w')
-keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
+keymap.set('n', 'ss', ':split<CR>')
+keymap.set('n', 'sv', ':vsplit<CR>')
 -- Move window
-keymap.set('n', '<Space>', '<C-w>w')
 keymap.set('n', 'sh', '<C-w>h')
 keymap.set('n', 'sk', '<C-w>k')
 keymap.set('n', 'sj', '<C-w>j')
