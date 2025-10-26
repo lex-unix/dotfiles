@@ -1,6 +1,5 @@
 return {
     'akinsho/nvim-bufferline.lua',
-    dependencies = 'nvim-tree/nvim-web-devicons',
     version = '*',
     event = { 'TabNew' },
     keys = {
