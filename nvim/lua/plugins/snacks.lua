@@ -7,6 +7,7 @@ return {
         { '<leader>sg', function() Snacks.picker.grep() end, desc = 'Grep' },
         { '<leader>sh', function() Snacks.picker.help() end, desc = 'Help Pages' },
         { '<leader>ss', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols' },
+        { '<leader>sc', function() Snacks.picker.search_history() end, desc = 'Search command history' },
         { '<leader>tt', function() Snacks.picker.resume() end, desc = 'Resume' },
         { 'gd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
         { 'gr', function() Snacks.picker.lsp_references() end, desc = 'Goto References' },
