@@ -20,24 +20,8 @@
     revset-aliases = {
       "closest_bookmark(to)" = "heads(::to & bookmarks())";
     };
-    diff = {
-      tool = "delta";
-    };
     ui = {
       default-command = "log";
-      pager = "delta";
-      diff-formatter = ":git";
     };
-    "--scope" = [
-      {
-        "--when.commands" = [
-          "diff"
-          "show"
-        ];
-        ui = {
-          pager = "delta";
-        };
-      }
-    ];
   };
 }

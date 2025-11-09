@@ -70,6 +70,7 @@ in
     jujutsu = import ./jujutsu.nix { inherit pkgs; };
     yazi = import ./yazi.nix { inherit pkgs; };
     btop = import ./btop.nix { inherit pkgs; };
+    delta = import ./delta.nix { inherit pkgs userConfig; };
   };
 
   programs.home-manager.enable = true;
