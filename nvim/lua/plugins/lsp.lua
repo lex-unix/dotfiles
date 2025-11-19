@@ -82,7 +82,18 @@ return {
     {
         'dmmulroy/ts-error-translator.nvim',
         event = 'BufReadPre',
-        opts = {},
+        opts = {
+            auto_attach = true,
+            servers = {
+                'astro',
+                'svelte',
+                'ts_ls',
+                'tsserver',
+                'typescript-tools',
+                'volar',
+                'vtsls',
+            },
+        },
     },
     {
         'j-hui/fidget.nvim',
