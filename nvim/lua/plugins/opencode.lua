@@ -5,26 +5,16 @@ return {
         { '<leader>oA', function() require('opencode').ask(nil, { submit = true }) end, desc = 'Ask opencode' },
         {
             '<leader>oa',
-            function() require('opencode').ask('@cursor: ', { submit = true }) end,
+            function() require('opencode').ask('@this: ', { submit = true }) end,
+            mode = { 'n', 'v' },
             desc = 'Ask opencode about this',
         },
-        {
-            '<leader>oa',
-            function() require('opencode').ask('@selection: ', { submit = true }) end,
-            mode = 'v',
-            desc = 'Ask opencode about selection',
-        },
-        { '<leader>on', function() require('opencode').command('session_new') end, desc = 'New opencode session' },
-        {
-            '<leader>oy',
-            function() require('opencode').command('messages_copy') end,
-            desc = 'Copy last opencode response',
-        },
+        { '<leader>on', function() require('opencode').command('session.new') end, desc = 'New opencode session' },
         {
             '<leader>os',
             function() require('opencode').select() end,
             mode = { 'n', 'v' },
-            desc = 'Select opencode prompt',
+            desc = 'Select opencode action (prompt or command)',
         },
     },
     init = function()
