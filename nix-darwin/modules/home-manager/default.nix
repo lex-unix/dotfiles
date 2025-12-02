@@ -71,6 +71,7 @@ in
     yazi = import ./yazi.nix { inherit pkgs; };
     btop = import ./btop.nix { inherit pkgs; };
     delta = import ./delta.nix { inherit pkgs userConfig; };
+    opencode = import ./opencode.nix { inherit pkgs userConfig; };
   };
 
   programs.home-manager.enable = true;

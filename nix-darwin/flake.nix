@@ -11,6 +11,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    opencode.url = "github:sst/opencode";
   };
 
   outputs =
@@ -20,12 +22,19 @@
       nixpkgs,
       home-manager,
       nix-homebrew,
+      opencode,
     }:
     let
       userConfig = {
         theme = "dark";
         username = "lex";
       };
+
+      overlays = [
+        (final: prev: {
+          opencode = opencode.packages.${prev.system}.default;
+        })
+      ];
     in
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
@@ -36,6 +45,8 @@
           inherit userConfig;
         };
         modules = [
+          { nixpkgs.overlays = overlays; }
+
           ./modules/darwin
           home-manager.darwinModules.home-manager
           {
