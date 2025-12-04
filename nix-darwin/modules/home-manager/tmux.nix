@@ -19,9 +19,9 @@ in
   baseIndex = 1;
   keyMode = "vi";
   prefix = "C-t";
-  terminal = "screen-256color";
+  terminal = "xterm-256color";
   shell = "${pkgs.fish}/bin/fish";
-  newSession = true;
+  newSession = false;
   sensibleOnTop = false;
   disableConfirmationPrompt = true;
 
@@ -59,6 +59,8 @@ in
     set -g status on
     set -sg escape-time 0
     set -g status-justify centre
+    set -g focus-events on
+    set -g allow-passthrough on
 
     set -g status-left-length "100"
     set -g status-right-length "100"
