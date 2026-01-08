@@ -22,7 +22,7 @@
       nixpkgs,
       home-manager,
       nix-homebrew,
-      opencode,
+      ...
     }:
     let
       userConfig = {
@@ -32,7 +32,7 @@
 
       overlays = [
         (final: prev: {
-          opencode = opencode.packages.${prev.system}.default;
+          opencode = inputs.opencode.packages.${final.stdenv.hostPlatform.system}.default;
         })
       ];
     in
