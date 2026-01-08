@@ -11,8 +11,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-
-    opencode.url = "github:sst/opencode";
   };
 
   outputs =
@@ -29,15 +27,9 @@
         theme = "dark";
         username = "lex";
       };
-
-      overlays = [
-        (final: prev: {
-          opencode = inputs.opencode.packages.${final.stdenv.hostPlatform.system}.default;
-        })
-      ];
     in
     {
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
 
       darwinConfigurations."Lexs-MBP" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
@@ -45,8 +37,6 @@
           inherit userConfig;
         };
         modules = [
-          { nixpkgs.overlays = overlays; }
-
           ./modules/darwin
           home-manager.darwinModules.home-manager
           {
