@@ -24,4 +24,7 @@ require('lazy').setup('plugins', {
         enabled = true,
         notify = false,
     },
+    dev = {
+        path = '~/dev',
+    },
 })
