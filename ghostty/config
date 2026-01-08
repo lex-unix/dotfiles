@@ -17,3 +17,5 @@ macos-icon = custom-style
 macos-icon-frame = plastic
 macos-icon-ghost-color = white
 macos-icon-screen-color = sky blue
+
+auto-update-channel = tip
