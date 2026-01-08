@@ -28,7 +28,7 @@
     nix-rebuild = "sudo darwin-rebuild switch --flake ~/dotfiles/nix-darwin";
     lgit = "lazygit";
     ".." = "cd ..";
-    oc = "opencode";
+    oc = "opencode attach --dir . http://0.0.0.0:4096";
   };
 
   plugins = [
