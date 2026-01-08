@@ -1,3 +1,15 @@
+---@param bufnr integer
+---@param ... string
+---@return string
+local function first(bufnr, ...)
+    local conform = require('conform')
+    for i = 1, select('#', ...) do
+        local formatter = select(i, ...)
+        if conform.get_formatter_info(formatter, bufnr).available then return formatter end
+    end
+    return select(1, ...)
+end
+
 return {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
@@ -50,13 +62,18 @@ return {
             sql = { 'sql_formatter' },
             mysql = { 'sql_formatter' },
             java = { 'google-java-format' },
-            javascript = { 'prettierd' },
-            typescript = { 'prettierd' },
-            typescriptreact = { 'prettierd' },
+            terraform = { 'terraform_fmt' },
+            markdown = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            javascript = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            typescript = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            typescriptreact = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            html = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
             svelte = { 'prettierd' },
             astro = { 'prettierd' },
-            markdown = { 'prettierd' },
-            terraform = { 'terraform_fmt' },
+            json = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            jsonc = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            yaml = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
+            toml = function(bufnr) return { first(bufnr, 'oxfmt', 'prettierd') } end,
         },
     },
 }
