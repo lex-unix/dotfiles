@@ -25,7 +25,7 @@ return {
         signature = {
             enabled = true,
             trigger = {
-                enabled = false,
+                enabled = true,
             },
             window = {
                 border = 'rounded',
