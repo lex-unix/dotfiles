@@ -1,7 +1,7 @@
-{ userConfig, ... }:
+{ currentTheme, ... }:
 let
   baseDeltaConfig = {
-    dark = userConfig.theme == "dark";
+    dark = currentTheme == "dark";
     line-numbers = true;
     side-by-side = false;
     file-style = "brightwhite";
@@ -43,11 +43,14 @@ let
   makeThemeConfig = theme: baseDeltaConfig // themeConfigs.${theme};
 in
 {
-  enable = true;
-  options = {
-    dark = makeThemeConfig "dark";
-    light = makeThemeConfig "light";
+  programs.delta = {
+    enable = true;
+    options = {
+      features = currentTheme;
+      dark = makeThemeConfig "dark";
+      light = makeThemeConfig "light";
+    };
+    enableGitIntegration = true;
+    enableJujutsuIntegration = true;
   };
-  enableGitIntegration = true;
-  enableJujutsuIntegration = true;
 }

@@ -1,4 +1,9 @@
-{ pkgs, userConfig, ... }:
+{
+  pkgs,
+  currentSystemName,
+  currentTheme,
+  ...
+}:
 {
   environment.shells = with pkgs; [
     fish
@@ -10,47 +15,13 @@
     nixfmt
   ];
 
-  homebrew = {
-    enable = true;
-    taps = [
-      "nikitabobko/tap"
-    ];
-    brews = [
-      "mas"
-    ];
-    casks = [
-      "ghostty"
-      "raycast"
-      "1password"
-      "karabiner-elements"
-      "aerospace"
-      "spotify"
-      "orbstack"
-      "firefox"
-      "telegram"
-      "slack"
-      "tableplus"
-      "httpie-desktop"
-      "the-unarchiver"
-      "jordanbaird-ice"
-      "iina"
-    ];
-    masApps = {
-      "Bear" = 1091189122;
-      "Wipr" = 1320666476;
-      "Parcel" = 639968404;
-    };
-  };
-
   environment.shellAliases = {
-    nix-rebuild = "darwin-rebuild switch --flake ~/dotfiles/nix-darwin";
+    nix-rebuild = "sudo darwin-rebuild switch --flake ~/dotfiles/nix-darwin#${currentSystemName}";
   };
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
   programs.bash.enable = true;
-
-  system.primaryUser = userConfig.username;
 
   system.configurationRevision = null;
 
@@ -70,7 +41,7 @@
       KeyRepeat = 2;
       # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
       InitialKeyRepeat = 25;
-      AppleInterfaceStyle = "Dark";
+      AppleInterfaceStyle = if currentTheme == "dark" then "Dark" else "Light";
       AppleInterfaceStyleSwitchesAutomatically = false;
     };
   };
@@ -84,13 +55,8 @@
     ];
   };
 
-  users.users.${userConfig.username} = {
-    home = "/Users/${userConfig.username}";
-    shell = pkgs.fish;
-  };
-
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
+
   nix = {
     settings = {
       experimental-features = "nix-command flakes";

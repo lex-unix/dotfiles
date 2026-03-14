@@ -12,62 +12,42 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    jj-starship.url = "github:dmmulroy/jj-starship";
   };
 
   outputs =
     inputs@{
-      self,
       nix-darwin,
       nixpkgs,
-      nixpkgs-neovim,
-      home-manager,
-      nix-homebrew,
       ...
     }:
     let
-      system = "aarch64-darwin";
-      userConfig = {
-        theme = "dark";
-        username = "lex";
-      };
+      username = "lex";
+      theme = "dark";
 
-      pkgsNeovim = import nixpkgs-neovim {
-        inherit system;
-        config.allowUnfree = true;
+      overlays = [
+        inputs.jj-starship.overlays.default
+      ];
+
+      mkSystem = import ./lib/mksystem.nix {
+        inherit nixpkgs overlays inputs;
       };
     in
     {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+      formatter.aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.nixfmt;
 
-      darwinConfigurations."Lexs-MBP" = nix-darwin.lib.darwinSystem {
-        inherit system;
-        specialArgs = {
-          inherit userConfig pkgsNeovim;
-        };
-        modules = [
-          ./modules/darwin
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.${userConfig.username} = import ./modules/home-manager;
-              backupFileExtension = "before-nix-darwin";
-              extraSpecialArgs = {
-                inherit userConfig pkgsNeovim;
-              };
-            };
-          }
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = userConfig.username;
-              autoMigrate = true;
-            };
-          }
-        ];
+      darwinConfigurations.macbook-pro-m1 = mkSystem "macbook-pro-m1" {
+        inherit theme;
+        system = "aarch64-darwin";
+        user = username;
+        darwin = true;
+      };
+
+      nixosConfigurations.vm-aarch64 = mkSystem "vm-aarch64" {
+        inherit theme;
+        system = "aarch64-linux";
+        user = username;
       };
     };
 }

@@ -1,0 +1,33 @@
+{
+  currentTheme,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  programs.ghostty = {
+    enable = pkgs.stdenv.isDarwin;
+    settings = {
+      font-family = "SauceCodePro Nerd Font Mono";
+      font-size = 14;
+      adjust-cell-height = "30%";
+
+      theme = currentTheme;
+      cursor-style = "block";
+      cursor-style-blink = false;
+      window-padding-x = 12;
+      window-padding-y = 8;
+      confirm-close-surface = false;
+      mouse-hide-while-typing = true;
+      link-url = true;
+    }
+    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      macos-titlebar-style = "hidden";
+      macos-option-as-alt = "left";
+      macos-icon = "custom-style";
+      macos-icon-frame = "plastic";
+      macos-icon-ghost-color = "white";
+      macos-icon-screen-color = "sky blue";
+    };
+  };
+}
