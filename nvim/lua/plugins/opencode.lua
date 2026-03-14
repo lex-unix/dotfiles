@@ -18,6 +18,14 @@ return {
         },
     },
     init = function()
+        local opencode_cmd = 'opencode --port --continue'
+        vim.g.opencode_opts = {
+            server = {
+                start = function() require('opencode.terminal').open(opencode_cmd) end,
+                stop = function() require('opencode.terminal').close() end,
+                toggle = function() require('opencode.terminal').toggle(opencode_cmd) end,
+            },
+        }
         vim.opt.autoread = true
         vim.api.nvim_create_autocmd('User', {
             pattern = 'OpencodeEvent',
