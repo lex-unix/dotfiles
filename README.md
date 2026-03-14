@@ -2,14 +2,14 @@
 
 ![neovim screenshot](docs/neovim-screenshot.png)
 
-This repository contains configuration for neovim, fish, tmux. Most of the configuration is managed through nix.
+This repository contains configuration for neovim, fish, tmux, and more. Everything is primarily managed through **Nix** and **Home-Manager**.
 
 ## Neovim
 
 - **LSP**: `nvim-lspconfig`, `mason.nvim`, `mason-lspconfig.nvim`
 - **Completion**: `blink.cmp`
 - **Formatting**: `conform.nvim`
-- **UI**: `telescope.nvim`, `lualine.nvim`, `bufferline.nvim`
+- **UI**: `snacks.nvim` (picker), `oil.nvim` (explorer), `lualine.nvim`, `bufferline.nvim`
 - **DAP**: `nvim-dap`
 - **Syntax**: `treesitter` with custom queries for Go, TypeScript, Markdown
 - **Themes**:
@@ -28,15 +28,11 @@ This repository contains configuration for neovim, fish, tmux. Most of the confi
 - Managed via home-manager (`nix-darwin/modules/home-manager/tmux.nix`)
 - Vi key mode, custom status line, themed colors, and sensible keybindings
 
-## Git
+## Version Control
 
-- Managed via home-manager (`nix-darwin/modules/home-manager/git.nix`)
-- Uses [delta](https://github.com/dandavison/delta) for diffs, many useful aliases, and `nvim` as the diff/merge tool
-
-## Ghostty
-
-- Config in `ghostty/config`
-- Custom font, padding, theme, and macOS-specific tweaks
+- **Jujutsu (jj)**: Now used as the primary tool for version control, replacing the standard Git workflow.
+  Uses [delta](https://github.com/dandavison/delta) for diffs.
+- **Git**: Managed via home-manager (`nix-darwin/modules/home-manager/git.nix`) as the backend.
 
 ## Legacy configuration
 
