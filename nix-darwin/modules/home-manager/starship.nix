@@ -20,5 +20,24 @@
     nix_shell = {
       disabled = true;
     };
+    git_branch = {
+      disabled = true;
+    };
+    git_status = {
+      disabled = true;
+    };
+    git_commit = {
+      disabled = true;
+    };
+    custom = {
+      jj = {
+        when = "jj-starship detect";
+        format = "$output ";
+        shell = [
+          "jj-starship"
+          "--no-git-id"
+        ];
+      };
+    };
   };
 }
