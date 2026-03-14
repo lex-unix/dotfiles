@@ -19,6 +19,7 @@
     };
     revset-aliases = {
       "closest_bookmark(to)" = "heads(::to & bookmarks())";
+      "today_mine()" = "mine() & author_date(after:\"yesterday 23:59\")";
     };
     ui = {
       default-command = "log";

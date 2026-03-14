@@ -22,6 +22,7 @@
     g = "git";
     c = "clear";
     q = "exit";
+    j = "jj";
     cat = "bat";
     ll = "eza -l -g --icons";
     lla = "ll -a";
