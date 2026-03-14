@@ -2,6 +2,8 @@
 {
   enable = true;
 
+  signing.format = "openpgp";
+
   settings = {
     user.name = "Lex Miin";
     user.email = "hello@lexunix.me";

@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-neovim.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -18,23 +19,30 @@
       self,
       nix-darwin,
       nixpkgs,
+      nixpkgs-neovim,
       home-manager,
       nix-homebrew,
       ...
     }:
     let
+      system = "aarch64-darwin";
       userConfig = {
         theme = "dark";
         username = "lex";
       };
+
+      pkgsNeovim = import nixpkgs-neovim {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
 
       darwinConfigurations."Lexs-MBP" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+        inherit system;
         specialArgs = {
-          inherit userConfig;
+          inherit userConfig pkgsNeovim;
         };
         modules = [
           ./modules/darwin
@@ -46,7 +54,7 @@
               users.${userConfig.username} = import ./modules/home-manager;
               backupFileExtension = "before-nix-darwin";
               extraSpecialArgs = {
-                inherit userConfig;
+                inherit userConfig pkgsNeovim;
               };
             };
           }

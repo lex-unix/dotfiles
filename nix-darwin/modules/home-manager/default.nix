@@ -1,6 +1,8 @@
 {
   config,
+  lib,
   pkgs,
+  pkgsNeovim,
   userConfig,
   ...
 }:
@@ -48,6 +50,7 @@ in
   xdg = {
     enable = true;
     configFile.nvim.source = mkOutOfStoreSymlink "${dotfilesPath}/nvim";
+    configFile."nvim/init.lua".enable = lib.mkForce false;
     configFile.ghostty.source = mkOutOfStoreSymlink "${dotfilesPath}/ghostty";
     configFile."karabiner/karabiner.json".source =
       mkOutOfStoreSymlink "${dotfilesPath}/karabiner/karabiner.json";
@@ -64,7 +67,7 @@ in
     git = import ./git.nix { inherit pkgs userConfig; };
     ripgrep = import ./ripgrep.nix { inherit pkgs; };
     fd = import ./fd.nix { inherit pkgs; };
-    neovim = import ./neovim.nix { inherit pkgs; };
+    neovim = import ./neovim.nix { inherit pkgsNeovim; };
     go = import ./go.nix { inherit pkgs config; };
     direnv = import ./direnv.nix { inherit pkgs; };
     jujutsu = import ./jujutsu.nix { inherit pkgs; };
