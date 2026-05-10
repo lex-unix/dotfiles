@@ -32,8 +32,21 @@ in
   home.shell.enableShellIntegration = true;
   home.shell.enableNushellIntegration = true;
 
+  home.pointerCursor = lib.mkIf isLinux {
+    name = "Adwaita";
+    package = pkgs.adwaita-icon-theme;
+    size = 24;
+
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   home.sessionVariables = {
     PAGER = "less -FirSwX";
+  }
+  // lib.optionalAttrs isLinux {
+    XCURSOR_SIZE = "24";
+    XCURSOR_THEME = "Adwaita";
   };
 
   home.packages =
@@ -42,7 +55,6 @@ in
       jq
       gh
       kubectl
-      zig
       eza
       wget
       coreutils
@@ -55,7 +67,6 @@ in
       bun
       nodejs
       elixir
-      openssl
       jj-starship
     ]
     ++ lib.optionals isDarwin [
@@ -65,6 +76,8 @@ in
     ++ lib.optionals isLinux [
       firefox
       ghostty
+      _1password-gui
+      swaybg
     ];
 
   imports = [
@@ -86,6 +99,12 @@ in
     ./home-manager/btop.nix
     ./home-manager/delta.nix
     ./home-manager/nushell.nix
+    ./home-manager/fuzzel.nix
+    ./home-manager/waybar.nix
+    ./home-manager/mako.nix
+    ./home-manager/polkit.nix
+    ./home-manager/swaylock.nix
+    ./home-manager/swayidle.nix
   ];
 
   xdg = {
@@ -93,6 +112,7 @@ in
     localBinInPath = true;
     configFile.nvim.source = mkOutOfStoreSymlink "${dotfilesPath}/nvim";
     configFile."nvim/init.lua".enable = lib.mkForce false;
+    configFile.niri.source = lib.mkIf isLinux (mkOutOfStoreSymlink "${dotfilesPath}/niri");
     configFile.ghostty.source = mkOutOfStoreSymlink "${dotfilesPath}/ghostty";
     configFile."karabiner/karabiner.json" = lib.mkIf pkgs.stdenv.isDarwin {
       source = mkOutOfStoreSymlink "${dotfilesPath}/karabiner/karabiner.json";

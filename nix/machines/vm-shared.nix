@@ -45,12 +45,29 @@
     killall
     gtkmm3
     gnumake
+    xwayland-satellite
+    gcc
+    nixfmt
   ];
 
+  programs.niri.enable = true;
+
+  security.polkit.enable = true;
+  security.pam.services.swaylock = { };
+
   services.xserver.enable = true;
-  services.xserver.xkb.layout = "us";
+  services.xserver.xkb = {
+    layout = "us";
+    options = "ctrl:nocaps";
+  };
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = false;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = true;
+  services.openssh.settings.PermitRootLogin = "no";
 
   system.stateVersion = "25.05";
 }

@@ -1,5 +1,5 @@
 {
-  description = "Darwin system configuration";
+  description = "Darwin and NixOS system configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
