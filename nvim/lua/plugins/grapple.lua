@@ -1,6 +1,5 @@
 return {
-    'cbochs/grapple.nvim',
-    dev = true,
+    'lex-unix/grapple.nvim',
     opts = {
         scope = 'git',
     },
