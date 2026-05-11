@@ -13,6 +13,10 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     jj-starship.url = "github:dmmulroy/jj-starship";
+    hunk = {
+      url = "github:modem-dev/hunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -27,6 +31,9 @@
 
       overlays = [
         inputs.jj-starship.overlays.default
+        (final: _prev: {
+          hunk = inputs.hunk.packages.${final.stdenv.hostPlatform.system}.hunk;
+        })
       ];
 
       mkSystem = import ./lib/mksystem.nix {

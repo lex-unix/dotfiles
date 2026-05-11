@@ -51,6 +51,6 @@ in
       light = makeThemeConfig "light";
     };
     enableGitIntegration = true;
-    enableJujutsuIntegration = true;
+    enableJujutsuIntegration = false;
   };
 }

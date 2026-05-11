@@ -24,6 +24,11 @@
       };
       ui = {
         default-command = "log";
+        pager = [
+          "hunk"
+          "pager"
+        ];
+        diff-formatter = ":git";
         diff-instructions = false;
         diff-editor = [
           "nvim"

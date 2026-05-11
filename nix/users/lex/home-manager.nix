@@ -66,6 +66,7 @@ in
       nodejs
       elixir
       jj-starship
+      hunk
     ]
     ++ lib.optionals isDarwin [
       _1password-cli

@@ -55,7 +55,6 @@
   security.polkit.enable = true;
   security.pam.services.swaylock = { };
 
-  services.xserver.enable = false;
   services.xserver.xkb = {
     layout = "us";
     options = "ctrl:nocaps";
