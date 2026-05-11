@@ -13,7 +13,9 @@ return {
         'NicolasGB/jj.nvim',
         keys = {
             { '<leader>jj', '<cmd>J<CR>', desc = 'jj log' },
+            { '<leader>js', '<cmd>J status<CR>', desc = 'jj log' },
         },
+        cmd = 'J',
         opts = {
             diff = {
                 backend = 'diffview',
