@@ -77,6 +77,7 @@ in
       ghostty
       _1password-gui
       swaybg
+      codex
     ];
 
   imports = [

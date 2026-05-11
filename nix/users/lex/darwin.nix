@@ -24,6 +24,7 @@
       "the-unarchiver"
       "jordanbaird-ice"
       "iina"
+      "codex-app"
     ];
     masApps = {
       "Bear" = 1091189122;
