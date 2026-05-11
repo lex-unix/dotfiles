@@ -1,9 +1,23 @@
 return {
-    'yannvanhalewyn/jujutsu.nvim',
-    keys = {
-        { '<leader>jj', '<cmd>JJ<CR>', desc = 'jj log' },
+    {
+        'julienvincent/hunk.nvim',
+        dependencies = {
+            'kevinhwang91/promise-async',
+            'MunifTanjim/nui.nvim',
+            'nvim-mini/mini.icons',
+        },
+        cmd = { 'DiffEditor' },
+        opts = {},
     },
-    opts = {
-        diff_preset = 'diffview',
+    {
+        'NicolasGB/jj.nvim',
+        keys = {
+            { '<leader>jj', '<cmd>J<CR>', desc = 'jj log' },
+        },
+        opts = {
+            diff = {
+                backend = 'diffview',
+            },
+        },
     },
 }

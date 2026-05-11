@@ -24,6 +24,12 @@
       };
       ui = {
         default-command = "log";
+        diff-instructions = false;
+        diff-editor = [
+          "nvim"
+          "-c"
+          "DiffEditor $left $right $output"
+        ];
       };
     };
   };
