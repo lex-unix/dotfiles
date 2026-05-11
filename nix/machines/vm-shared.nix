@@ -61,7 +61,19 @@
     options = "ctrl:nocaps";
   };
   services.displayManager.sddm.enable = false;
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation_timeout_sec = 30;
+      bigclock = "en";
+      clock = "%H:%M";
+      hide_borders = true;
+      hide_key_hints = true;
+      initial_info_text = "nixos";
+      load = true;
+      save = true;
+    };
+  };
   services.desktopManager.plasma6.enable = false;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
