@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  isLinux,
   ...
 }:
 let
@@ -8,7 +9,7 @@ let
   niri = "${pkgs.niri}/bin/niri";
 in
 {
-  services.swayidle = lib.mkIf pkgs.stdenv.isLinux {
+  services.swayidle = lib.mkIf isLinux {
     enable = true;
     extraArgs = [ "-w" ];
 

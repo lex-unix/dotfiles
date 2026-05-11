@@ -1,10 +1,10 @@
 {
   lib,
-  pkgs,
+  isLinux,
   ...
 }:
 {
-  services.mako = lib.mkIf pkgs.stdenv.isLinux {
+  services.mako = lib.mkIf isLinux {
     enable = true;
 
     settings = {

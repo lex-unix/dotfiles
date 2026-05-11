@@ -1,10 +1,10 @@
 {
   lib,
-  pkgs,
+  isLinux,
   ...
 }:
 {
-  programs.waybar = lib.mkIf pkgs.stdenv.isLinux {
+  programs.waybar = lib.mkIf isLinux {
     enable = true;
 
     settings = {

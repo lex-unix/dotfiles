@@ -1,10 +1,10 @@
 {
   lib,
-  pkgs,
+  isLinux,
   ...
 }:
 {
-  services.polkit-gnome = lib.mkIf pkgs.stdenv.isLinux {
+  services.polkit-gnome = lib.mkIf isLinux {
     enable = true;
   };
 }

@@ -1,18 +1,24 @@
 {
   lib,
   pkgs,
+  isLinux,
   ...
 }:
 {
-  programs.swaylock = lib.mkIf pkgs.stdenv.isLinux {
+  programs.swaylock = lib.mkIf isLinux {
     enable = true;
+    package = pkgs.swaylock-effects;
 
     settings = {
       color = "171819";
       font = "SauceCodePro Nerd Font Mono";
-      indicator-idle-visible = false;
+      image = "~/Pictures/wallpaper.png";
+      indicator-idle-visible = true;
       indicator-radius = 120;
-      ring-color = "3c3836";
+      clock = true;
+      timestr = "%R";
+      datestr = "%a, %e of %B";
+      ring-color = "d4be98";
       ring-ver-color = "7daea3";
       ring-wrong-color = "ea6962";
       key-hl-color = "89b482";
@@ -20,6 +26,10 @@
       inside-color = "00000000";
       separator-color = "00000000";
       text-color = "d4be98";
+      inside-ver-color = "00000000";
+      inside-wrong-color = "00000000";
+      text-ver = "";
+      text-wrong = "";
     };
   };
 }

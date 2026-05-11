@@ -10,6 +10,10 @@ cursor {
 
 output "Virtual-1" {
     scale 1.75
+
+    hot-corners {
+        off
+    }
 }
 
 input {
@@ -19,6 +23,9 @@ input {
             options "ctrl:nocaps"
         }
         numlock
+
+        repeat-delay 200
+        repeat-rate 40
     }
 
     mouse {
@@ -30,6 +37,8 @@ input {
     touchpad {
         tap
         natural-scroll
+        accel-profile "flat"
+        accel-speed 1
     }
 }
 
@@ -46,7 +55,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        width 2
+        width 1.5
         active-color "#7daea3"
         inactive-color "#505050"
     }
@@ -54,6 +63,11 @@ layout {
     border {
         off
     }
+}
+
+window-rule {
+    geometry-corner-radius 2
+    clip-to-geometry true
 }
 
 hotkey-overlay {

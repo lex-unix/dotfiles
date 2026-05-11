@@ -1,4 +1,9 @@
-{ pkgs, currentTheme, ... }:
+{
+  pkgs,
+  currentTheme,
+  isDarwin,
+  ...
+}:
 let
   themes = {
     dark = {
@@ -14,12 +19,12 @@ let
   };
   palette = themes.${currentTheme} or themes.dark;
   copyBinding =
-    if pkgs.stdenv.isDarwin then
+    if isDarwin then
       "bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'pbcopy'"
     else
       "bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel";
   openBinding =
-    if pkgs.stdenv.isDarwin then
+    if isDarwin then
       ''bind o run-shell "open #{pane_current_path}"''
     else
       ''bind o display-message "#{pane_current_path}"'';

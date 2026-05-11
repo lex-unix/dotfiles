@@ -2,6 +2,7 @@
   lib,
   pkgs,
   currentTheme,
+  isDarwin,
   ...
 }:
 let
@@ -51,7 +52,7 @@ in
       adjust_line_height = "120%";
       shell = "${pkgs.fish}/bin/fish";
     }
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+    // lib.optionalAttrs isDarwin {
       hide_window_decorations = "titlebar-only";
       macos_option_as_alt = "yes";
     };

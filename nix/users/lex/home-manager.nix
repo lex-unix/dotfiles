@@ -53,7 +53,6 @@ in
     with pkgs;
     [
       jq
-      gh
       kubectl
       eza
       wget
@@ -88,6 +87,7 @@ in
     ./home-manager/kitty.nix
     ./home-manager/tmux.nix
     ./home-manager/fzf.nix
+    ./home-manager/gh.nix
     ./home-manager/git.nix
     ./home-manager/ripgrep.nix
     ./home-manager/fd.nix

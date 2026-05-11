@@ -1,17 +1,10 @@
 {
-  currentSystemName,
   currentTheme,
   lib,
   pkgs,
+  isDarwin,
   ...
 }:
-let
-  rebuildAlias =
-    if pkgs.stdenv.isDarwin then
-      "sudo darwin-rebuild switch --flake ~/dotfiles/nix-darwin#${currentSystemName}"
-    else
-      "sudo nixos-rebuild switch --flake ~/dotfiles/nix-darwin#${currentSystemName}";
-in
 {
   programs.fish = {
     enable = true;
@@ -40,7 +33,6 @@ in
       cat = "bat";
       ll = "eza -l -g --icons";
       lla = "ll -a";
-      nix-rebuild = rebuildAlias;
       ".." = "cd ..";
       oc = "opencode attach --dir . http://0.0.0.0:4096";
     };
@@ -101,7 +93,7 @@ in
         '';
       };
     }
-    // lib.optionalAttrs pkgs.stdenv.isDarwin {
+    // lib.optionalAttrs isDarwin {
       rayci = {
         body = ''
           git diff | pbcopy
