@@ -58,7 +58,6 @@ in
       wget
       coreutils
       awscli2
-      _1password-cli
       tldr
       uv
       just
@@ -69,13 +68,13 @@ in
       jj-starship
     ]
     ++ lib.optionals isDarwin [
+      _1password-cli
       jankyborders
       gnused
     ]
     ++ lib.optionals isLinux [
       firefox
       ghostty
-      _1password-gui
       swaybg
       codex
     ];
