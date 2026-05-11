@@ -55,12 +55,13 @@
   security.polkit.enable = true;
   security.pam.services.swaylock = { };
 
-  services.xserver.enable = true;
+  services.xserver.enable = false;
   services.xserver.xkb = {
     layout = "us";
     options = "ctrl:nocaps";
   };
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = false;
+  services.displayManager.ly.enable = true;
   services.desktopManager.plasma6.enable = false;
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

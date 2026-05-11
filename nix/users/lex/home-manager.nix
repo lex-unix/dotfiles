@@ -112,7 +112,9 @@ in
     localBinInPath = true;
     configFile.nvim.source = mkOutOfStoreSymlink "${dotfilesPath}/nvim";
     configFile."nvim/init.lua".enable = lib.mkForce false;
-    configFile.niri.source = lib.mkIf isLinux (mkOutOfStoreSymlink "${dotfilesPath}/niri");
+    configFile.niri = lib.mkIf isLinux {
+      source = mkOutOfStoreSymlink "${dotfilesPath}/niri";
+    };
     configFile.ghostty.source = mkOutOfStoreSymlink "${dotfilesPath}/ghostty";
     configFile."karabiner/karabiner.json" = lib.mkIf pkgs.stdenv.isDarwin {
       source = mkOutOfStoreSymlink "${dotfilesPath}/karabiner/karabiner.json";
