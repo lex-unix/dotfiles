@@ -22,12 +22,11 @@
       "tableplus"
       "httpie-desktop"
       "the-unarchiver"
-      "jordanbaird-ice"
+      "thaw"
       "iina"
       "codex-app"
     ];
     masApps = {
-      "Bear" = 1091189122;
       "Wipr" = 1320666476;
       "Parcel" = 639968404;
     };

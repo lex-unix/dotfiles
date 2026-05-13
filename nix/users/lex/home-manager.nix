@@ -67,6 +67,7 @@ in
       elixir
       jj-starship
       hunk
+      pitchfork
     ]
     ++ lib.optionals isDarwin [
       _1password-cli

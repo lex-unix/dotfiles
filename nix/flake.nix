@@ -34,6 +34,7 @@
         (final: _prev: {
           hunk = inputs.hunk.packages.${final.stdenv.hostPlatform.system}.hunk;
         })
+        (import ./overlays/pitchfork.nix)
       ];
 
       mkSystem = import ./lib/mksystem.nix {
