@@ -45,6 +45,7 @@ return {
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
         event = 'BufReadPre',
+        branch = 'main',
         config = function()
             require('nvim-treesitter.configs').setup({
                 textobjects = {
