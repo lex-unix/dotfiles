@@ -139,3 +139,33 @@ run = 'layout floating'
 if.app-id = 'com.rogueamoeba.soundsource'
 check-further-callbacks = true
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'dev.kdrag0n.MacVirt'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'io.raindrop.macapp'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.cron.electron'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+check-further-callbacks = true
+run = 'layout floating'
