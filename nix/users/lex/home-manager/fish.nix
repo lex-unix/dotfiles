@@ -2,7 +2,6 @@
   currentTheme,
   lib,
   pkgs,
-  isDarwin,
   ...
 }:
 {
@@ -74,34 +73,6 @@
           end
         '';
       };
-      load_env = {
-        body = ''
-          if test -z "$argv" ; or not test -e $argv[1]
-            echo "Usage: load_env <path to .env file>"
-            return 1
-          end
-
-          for line in (string match -rv '^\s*($|#)' (string trim (cat $argv[1])))
-            set -l key (string trim (string split --max 1 "=" -- $line)[1])
-            set -l value (string trim (string split --max 1 "=" -- $line)[2])
-            set -l value (string replace -ar "[\"']" "" -- $value)
-
-            if test -n "$key" -a -n "$value"
-              set -gx $key $value
-            end
-          end
-        '';
-      };
-    }
-    // lib.optionalAttrs isDarwin {
-      rayci = {
-        body = ''
-          git diff | pbcopy
-          open raycast://ai-commands/git-commit-message
-        '';
-      };
-    }
-    // {
       tmux_sessionizer = {
         body = ''
           set -l selected
@@ -142,32 +113,18 @@
             return
           end
 
-          set selected_name (basename "$selected" | tr . _)
-          set tmux_running (pgrep tmux)
+          set -l selected_name (basename "$selected" | tr . _)
 
-          # tmux is not running
-          if test -z $TMUX; and test -z $tmux_running
-            tmux new-session -s $selected_name -c $selected
-            return
-          end
-
-          # tmux is running but not active
-          if test -z $TMUX; and test -n $tmux_running
-            if not tmux has-session -t $selected_name 2> /dev/null
-              tmux new-session -s $selected_name -c $selected
-            else
-              tmux attach-session -t $selected_name
-            end
-            commandline --function repaint
-            return
-          end
-
-          # tmux running and active
           if not tmux has-session -t $selected_name 2> /dev/null
             tmux new-session -ds $selected_name -c $selected
           end
 
-          tmux switch-client -t $selected_name
+          if test -z $TMUX
+            tmux attach-session -t $selected_name
+          else
+            tmux switch-client -t $selected_name
+          end
+
           commandline --function repaint
         '';
       };

@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.direnv = {
     enable = true;
@@ -8,6 +8,9 @@
       global = {
         hide_env_diff = true;
         load_dotenv = true;
+      };
+      whitelist = {
+        prefix = [ "${config.home.homeDirectory}/dev" ];
       };
     };
   };
