@@ -13,6 +13,10 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     jj-starship.url = "github:dmmulroy/jj-starship";
+    codex-cli-nix = {
+      url = "github:sadjow/codex-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hunk = {
       url = "github:modem-dev/hunk";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +35,7 @@
 
       overlays = [
         inputs.jj-starship.overlays.default
+        inputs.codex-cli-nix.overlays.default
         (final: _prev: {
           hunk = inputs.hunk.packages.${final.stdenv.hostPlatform.system}.hunk;
         })
