@@ -4,6 +4,7 @@
     enable = true;
     taps = [
       "nikitabobko/tap"
+      "slashtable/cask"
     ];
     brews = [
       "mas"
@@ -19,7 +20,7 @@
       "firefox"
       "telegram"
       "slack"
-      "tableplus"
+      "slashtable"
       "httpie-desktop"
       "the-unarchiver"
       "thaw"
