@@ -85,6 +85,7 @@ in {
     ./home-manager/starship.nix
     ./home-manager/bat.nix
     ./home-manager/fish.nix
+    ./home-manager/fnox.nix
     ./home-manager/zoxide.nix
     ./home-manager/kitty.nix
     ./home-manager/tmux.nix
