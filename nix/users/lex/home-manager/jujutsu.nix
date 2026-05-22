@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.jujutsu = {
     enable = true;
     settings = {
@@ -16,7 +15,7 @@
           "--to"
           "@-"
         ];
-        d = [ "diff" ];
+        d = ["diff"];
       };
       revset-aliases = {
         "closest_bookmark(to)" = "heads(::to & bookmarks())";

@@ -1,5 +1,4 @@
-{ currentTheme, ... }:
-let
+{currentTheme, ...}: let
   baseDeltaConfig = {
     dark = currentTheme == "dark";
     line-numbers = true;
@@ -37,12 +36,10 @@ let
       minus-style = "syntax #FEEBE9";
       minus-emph-style = "syntax #FFCECB";
     };
-
   };
 
   makeThemeConfig = theme: baseDeltaConfig // themeConfigs.${theme};
-in
-{
+in {
   programs.delta = {
     enable = true;
     options = {

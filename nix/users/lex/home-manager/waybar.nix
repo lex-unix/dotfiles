@@ -2,8 +2,7 @@
   lib,
   isLinux,
   ...
-}:
-{
+}: {
   programs.waybar = lib.mkIf isLinux {
     enable = true;
 
@@ -18,7 +17,7 @@
           "niri/workspaces"
           "niri/window"
         ];
-        modules-center = [ "clock" ];
+        modules-center = ["clock"];
         modules-right = [
           "pulseaudio"
           "network"

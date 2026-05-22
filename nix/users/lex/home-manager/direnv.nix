@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.direnv = {
     enable = true;
     enableNushellIntegration = true;
@@ -10,7 +9,7 @@
         load_dotenv = true;
       };
       whitelist = {
-        prefix = [ "${config.home.homeDirectory}/dev" ];
+        prefix = ["${config.home.homeDirectory}/dev"];
       };
     };
   };

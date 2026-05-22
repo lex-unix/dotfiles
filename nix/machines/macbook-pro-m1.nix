@@ -1,23 +1,13 @@
 {
   pkgs,
-  currentSystemName,
   currentTheme,
   ...
-}:
-{
+}: {
   environment.shells = with pkgs; [
     fish
     zsh
     bash
   ];
-
-  environment.systemPackages = with pkgs; [
-    nixfmt
-  ];
-
-  environment.shellAliases = {
-    nix-rebuild = "sudo darwin-rebuild switch --flake ~/dotfiles/nix-darwin#${currentSystemName}";
-  };
 
   programs.fish.enable = true;
   programs.zsh.enable = true;
@@ -41,7 +31,10 @@
       KeyRepeat = 2;
       # InitialKeyRepeat: 120, 94, 68, 35, 25, 15
       InitialKeyRepeat = 25;
-      AppleInterfaceStyle = if currentTheme == "dark" then "Dark" else "Light";
+      AppleInterfaceStyle =
+        if currentTheme == "dark"
+        then "Dark"
+        else "Light";
       AppleInterfaceStyleSwitchesAutomatically = false;
     };
   };

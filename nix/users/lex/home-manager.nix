@@ -4,25 +4,24 @@
   currentTheme,
   inputs,
   ...
-}:
-{
+}: {
   config,
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
 
   homeDirectory =
-    if pkgs.stdenv.isDarwin then "/Users/${currentSystemUser}" else "/home/${currentSystemUser}";
+    if pkgs.stdenv.isDarwin
+    then "/Users/${currentSystemUser}"
+    else "/home/${currentSystemUser}";
 
   dotfilesPath = "${homeDirectory}/dotfiles";
 
   inherit (config.lib.file) mkOutOfStoreSymlink;
-in
-{
+in {
   # Don't touch this, Home Manager can be updated without changing this value
   home.stateVersion = "24.11";
 
@@ -41,16 +40,16 @@ in
     x11.enable = true;
   };
 
-  home.sessionVariables = {
-    PAGER = "less -FirSwX";
-  }
-  // lib.optionalAttrs isLinux {
-    XCURSOR_SIZE = "24";
-    XCURSOR_THEME = "Adwaita";
-  };
+  home.sessionVariables =
+    {
+      PAGER = "less -FirSwX";
+    }
+    // lib.optionalAttrs isLinux {
+      XCURSOR_SIZE = "24";
+      XCURSOR_THEME = "Adwaita";
+    };
 
-  home.packages =
-    with pkgs;
+  home.packages = with pkgs;
     [
       jq
       kubectl

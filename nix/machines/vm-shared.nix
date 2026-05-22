@@ -2,8 +2,7 @@
   pkgs,
   currentSystem,
   ...
-}:
-{
+}: {
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
@@ -47,13 +46,12 @@
     gnumake
     xwayland-satellite
     gcc
-    nixfmt
   ];
 
   programs.niri.enable = true;
 
   security.polkit.enable = true;
-  security.pam.services.swaylock = { };
+  security.pam.services.swaylock = {};
 
   services.xserver.xkb = {
     layout = "us";

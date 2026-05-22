@@ -58,7 +58,7 @@ return {
         end,
         formatters_by_ft = {
             lua = { 'stylua' },
-            nix = { 'nixfmt' },
+            nix = { 'alejandra' },
             sql = { 'sql_formatter' },
             mysql = { 'sql_formatter' },
             java = { 'google-java-format' },

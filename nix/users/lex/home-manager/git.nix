@@ -1,5 +1,4 @@
-{ currentTheme, ... }:
-{
+{currentTheme, ...}: {
   programs.git = {
     enable = true;
 

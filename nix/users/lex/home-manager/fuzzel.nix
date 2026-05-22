@@ -2,8 +2,7 @@
   lib,
   isLinux,
   ...
-}:
-{
+}: {
   programs.fuzzel = lib.mkIf isLinux {
     enable = true;
 

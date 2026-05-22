@@ -1,5 +1,4 @@
-{ isLinux, ... }:
-{
+{isLinux, ...}: {
   programs.gh = {
     enable = true;
     gitCredentialHelper = {

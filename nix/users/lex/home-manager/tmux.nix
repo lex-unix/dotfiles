@@ -3,8 +3,7 @@
   currentTheme,
   isDarwin,
   ...
-}:
-let
+}: let
   themes = {
     dark = {
       accent = "#E78A4D";
@@ -19,17 +18,14 @@ let
   };
   palette = themes.${currentTheme} or themes.dark;
   copyBinding =
-    if isDarwin then
-      "bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'pbcopy'"
-    else
-      "bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel";
+    if isDarwin
+    then "bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'pbcopy'"
+    else "bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel";
   openBinding =
-    if isDarwin then
-      ''bind o run-shell "open #{pane_current_path}"''
-    else
-      ''bind o display-message "#{pane_current_path}"'';
-in
-{
+    if isDarwin
+    then ''bind o run-shell "open #{pane_current_path}"''
+    else ''bind o display-message "#{pane_current_path}"'';
+in {
   programs.tmux = {
     enable = true;
     baseIndex = 1;

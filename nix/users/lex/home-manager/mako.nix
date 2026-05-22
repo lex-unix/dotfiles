@@ -2,8 +2,7 @@
   lib,
   isLinux,
   ...
-}:
-{
+}: {
   services.mako = lib.mkIf isLinux {
     enable = true;
 

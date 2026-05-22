@@ -3,15 +3,13 @@
   pkgs,
   isLinux,
   ...
-}:
-let
+}: let
   lock = "${pkgs.swaylock}/bin/swaylock --daemonize";
   niri = "${pkgs.niri}/bin/niri";
-in
-{
+in {
   services.swayidle = lib.mkIf isLinux {
     enable = true;
-    extraArgs = [ "-w" ];
+    extraArgs = ["-w"];
 
     timeouts = [
       {

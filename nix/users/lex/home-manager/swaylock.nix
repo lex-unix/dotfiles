@@ -3,8 +3,7 @@
   pkgs,
   isLinux,
   ...
-}:
-{
+}: {
   programs.swaylock = lib.mkIf isLinux {
     enable = true;
     package = pkgs.swaylock-effects;

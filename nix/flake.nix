@@ -12,54 +12,45 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     jj-starship.url = "github:dmmulroy/jj-starship";
-    codex-cli-nix = {
-      url = "github:sadjow/codex-cli-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hunk = {
-      url = "github:modem-dev/hunk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    codex-cli-nix.url = "github:sadjow/codex-cli-nix";
+    hunk.url = "github:modem-dev/hunk";
   };
 
-  outputs =
-    inputs@{
-      nix-darwin,
-      nixpkgs,
-      ...
-    }:
-    let
-      username = "lex";
-      theme = "dark";
+  outputs = inputs @ {
+    nix-darwin,
+    nixpkgs,
+    ...
+  }: let
+    username = "lex";
+    theme = "dark";
 
-      overlays = [
-        inputs.jj-starship.overlays.default
-        inputs.codex-cli-nix.overlays.default
-        (final: _prev: {
-          hunk = inputs.hunk.packages.${final.stdenv.hostPlatform.system}.hunk;
-        })
-        (import ./overlays/pitchfork.nix)
-      ];
+    overlays = [
+      inputs.jj-starship.overlays.default
+      inputs.codex-cli-nix.overlays.default
+      (final: _prev: {
+        hunk = inputs.hunk.packages.${final.stdenv.hostPlatform.system}.hunk;
+      })
+      (import ./overlays/pitchfork.nix)
+    ];
 
-      mkSystem = import ./lib/mksystem.nix {
-        inherit nixpkgs overlays inputs;
-      };
-    in
-    {
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
-      formatter.aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.nixfmt;
-
-      darwinConfigurations.macbook-pro-m1 = mkSystem "macbook-pro-m1" {
-        inherit theme;
-        system = "aarch64-darwin";
-        user = username;
-        darwin = true;
-      };
-
-      nixosConfigurations.vm-aarch64 = mkSystem "vm-aarch64" {
-        inherit theme;
-        system = "aarch64-linux";
-        user = username;
-      };
+    mkSystem = import ./lib/mksystem.nix {
+      inherit nixpkgs overlays inputs;
     };
+  in {
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+    formatter.aarch64-linux = nixpkgs.legacyPackages.aarch64-linux.alejandra;
+
+    darwinConfigurations.macbook-pro-m1 = mkSystem "macbook-pro-m1" {
+      inherit theme;
+      system = "aarch64-darwin";
+      user = username;
+      darwin = true;
+    };
+
+    nixosConfigurations.vm-aarch64 = mkSystem "vm-aarch64" {
+      inherit theme;
+      system = "aarch64-linux";
+      user = username;
+    };
+  };
 }

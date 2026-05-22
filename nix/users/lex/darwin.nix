@@ -1,5 +1,8 @@
-{ pkgs, currentSystemUser, ... }:
 {
+  pkgs,
+  currentSystemUser,
+  ...
+}: {
   homebrew = {
     enable = true;
     taps = [

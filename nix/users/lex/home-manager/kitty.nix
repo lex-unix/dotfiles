@@ -4,8 +4,7 @@
   currentTheme,
   isDarwin,
   ...
-}:
-let
+}: let
   mellowRepo = pkgs.fetchFromGitHub {
     owner = "mellow-theme";
     repo = "mellow.nvim";
@@ -25,8 +24,7 @@ let
     gruvbox = builtins.readFile "${gruvboxRepo}/colors/gruvbox-material-dark-hard.conf";
     ayu = builtins.readFile "${gruvboxRepo}/colors/ayu.conf";
   };
-in
-{
+in {
   programs.kitty = {
     enable = false;
 
@@ -41,21 +39,22 @@ in
       size = 14.0;
     };
 
-    settings = {
-      cursor_shape = "block";
-      cursor_blink_interval = 0;
-      enable_audio_bell = "no";
-      window_margin_width = 5;
-      window_padding_width = 5;
-      placement_strategy = "center";
-      confirm_os_window_close = 0;
-      adjust_line_height = "120%";
-      shell = "${pkgs.fish}/bin/fish";
-    }
-    // lib.optionalAttrs isDarwin {
-      hide_window_decorations = "titlebar-only";
-      macos_option_as_alt = "yes";
-    };
+    settings =
+      {
+        cursor_shape = "block";
+        cursor_blink_interval = 0;
+        enable_audio_bell = "no";
+        window_margin_width = 5;
+        window_padding_width = 5;
+        placement_strategy = "center";
+        confirm_os_window_close = 0;
+        adjust_line_height = "120%";
+        shell = "${pkgs.fish}/bin/fish";
+      }
+      // lib.optionalAttrs isDarwin {
+        hide_window_decorations = "titlebar-only";
+        macos_option_as_alt = "yes";
+      };
 
     keybindings = {
       "ctrl+shift+n" = "no_op";

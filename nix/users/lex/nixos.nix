@@ -2,8 +2,7 @@
   pkgs,
   currentSystemUser,
   ...
-}:
-{
+}: {
   # Add ~/.local/bin to PATH
   environment.localBinInPath = true;
 
@@ -18,7 +17,7 @@
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ currentSystemUser ];
+    polkitPolicyOwners = [currentSystemUser];
   };
 
   users.users.${currentSystemUser} = {

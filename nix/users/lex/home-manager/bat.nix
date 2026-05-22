@@ -1,5 +1,8 @@
-{ currentTheme, pkgs, ... }:
 {
+  currentTheme,
+  pkgs,
+  ...
+}: {
   programs.bat = {
     enable = true;
     config = {
@@ -7,7 +10,10 @@
         "*.astro:TypeScriptReact"
         "*.mdx:Markdown"
       ];
-      theme = if currentTheme == "light" then "GitHub" else "gruvbox";
+      theme =
+        if currentTheme == "light"
+        then "GitHub"
+        else "gruvbox";
       line-range = ":300";
       style = "numbers,grid,header";
     };
