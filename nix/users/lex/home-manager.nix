@@ -68,6 +68,7 @@ in {
       hunk
       pitchfork
       codex
+      mergiraf
     ]
     ++ lib.optionals isDarwin [
       _1password-cli

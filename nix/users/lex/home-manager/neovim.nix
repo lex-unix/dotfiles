@@ -7,6 +7,6 @@
     withPython3 = true;
     withRuby = false;
     sideloadInitLua = true;
-    extraPackages = [pkgs.tree-sitter];
+    extraPackages = [pkgs.tree-sitter pkgs.ast-grep];
   };
 }
