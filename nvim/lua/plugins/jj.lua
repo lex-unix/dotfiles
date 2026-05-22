@@ -18,7 +18,7 @@ return {
         cmd = 'J',
         opts = {
             diff = {
-                backend = 'diffview',
+                backend = 'codediff',
             },
         },
     },
