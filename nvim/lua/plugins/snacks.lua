@@ -13,8 +13,17 @@ return {
         { 'gr', function() Snacks.picker.lsp_references() end, desc = 'Goto References' },
         { 'gI', function() Snacks.picker.lsp_implementations() end, desc = 'Goto Implementation' },
         { '<leader>D', function() Snacks.picker.lsp_type_definitions() end, desc = 'Type Definition' },
+        { '<leader>to', function() Snacks.terminal() end, desc = 'Toggle Terminal' },
     },
     opts = {
+        terminal = {
+            enabled = true,
+            win = {
+                wo = {
+                    winbar = '',
+                },
+            },
+        },
         input = { enabled = true },
         notifier = { enabled = true },
         picker = {
