@@ -68,6 +68,7 @@ in
       jj-starship
       hunk
       pitchfork
+      codex
     ]
     ++ lib.optionals isDarwin [
       _1password-cli
@@ -78,7 +79,6 @@ in
       firefox
       ghostty
       swaybg
-      codex
     ];
 
   imports = [
