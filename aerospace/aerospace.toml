@@ -169,3 +169,8 @@ run = 'layout floating'
 if.app-id = 'com.apple.iCal'
 check-further-callbacks = true
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.raycast-x.macos'
+check-further-callbacks = true
+run = 'layout floating'
