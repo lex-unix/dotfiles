@@ -113,7 +113,6 @@ in
     enable = true;
     localBinInPath = true;
     configFile.nvim.source = mkOutOfStoreSymlink "${dotfilesPath}/nvim";
-    configFile."nvim/init.lua".enable = lib.mkForce false;
     configFile.niri = lib.mkIf isLinux {
       source = mkOutOfStoreSymlink "${dotfilesPath}/niri";
     };

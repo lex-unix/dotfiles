@@ -7,6 +7,7 @@
     vimAlias = true;
     withPython3 = true;
     withRuby = false;
+    sideloadInitLua = true;
     extraPackages = [ pkgs.tree-sitter ];
   };
 }
