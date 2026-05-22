@@ -97,7 +97,7 @@
                   --preview-window=down,70%,sharp \
                   --preview='
                     if test -f {}/README.md
-                        bat --decorations=never --color=always {}/README.md
+                        ${pkgs.mdcat}/bin/mdcat {}/README.md
                     else
                         eza --tree --level 1 --icons --color always {}
                     end'
