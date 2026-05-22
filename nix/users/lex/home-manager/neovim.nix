@@ -1,11 +1,4 @@
-{ pkgs, inputs, ... }:
-let
-  pkgsNeovim = import inputs.nixpkgs-neovim {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
-  neovimPkg = pkgsNeovim.neovim-unwrapped;
-in
+{ pkgs, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -14,8 +7,6 @@ in
     vimAlias = true;
     withPython3 = true;
     withRuby = false;
-    package =
-      assert builtins.match "0\\.11\\..*" neovimPkg.version != null;
-      neovimPkg;
+    extraPackages = [ pkgs.tree-sitter ];
   };
 }
