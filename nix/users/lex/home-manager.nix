@@ -69,6 +69,7 @@ in {
       pitchfork
       codex
       mergiraf
+      rustup
     ]
     ++ lib.optionals isDarwin [
       _1password-cli
