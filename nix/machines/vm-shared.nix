@@ -75,6 +75,8 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  virtualisation.docker.enable = true;
+
   services.tailscale.enable = true;
 
   services.openssh.enable = true;
