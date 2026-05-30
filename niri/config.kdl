@@ -1,4 +1,3 @@
-spawn-at-startup "swaybg" "-i" "/home/lex/Pictures/wallpaper.png" "-m" "fill"
 spawn-at-startup "waybar"
 
 prefer-no-csd

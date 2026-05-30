@@ -20,6 +20,19 @@
     polkitPolicyOwners = [currentSystemUser];
   };
 
+  systemd.user.services.swaybg = {
+    description = "Wallpaper for Wayland";
+    wantedBy = ["niri.service"];
+    partOf = ["graphical-session.target"];
+    after = ["graphical-session.target"];
+    requisite = ["graphical-session.target"];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.swaybg}/bin/swaybg -m fill -i %h/Pictures/wallpaper.png";
+      Restart = "on-failure";
+    };
+  };
+
   users.users.${currentSystemUser} = {
     isNormalUser = true;
     home = "/home/${currentSystemUser}";
