@@ -19,14 +19,14 @@
           desc = "Enter directory (Oil-like)";
         }
         {
-          on = [ "l" ];
+          on = [ "_" ];
           run = "link";
-          desc = "Symlink yanked files (absolute)";
+          desc = "Create a symbolic link to the yanked files";
         }
         {
           on = [ "L" ];
-          run = "link --relative";
-          desc = "Symlink yanked files (relative)";
+          run = "forward";
+          desc = "Go forwared to next directory";
         }
         {
           on = [ "<Tab>" ];
