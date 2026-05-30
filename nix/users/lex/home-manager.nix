@@ -132,8 +132,18 @@ in {
     configFile.niri = lib.mkIf isLinux {
       source = mkOutOfStoreSymlink "${dotfilesPath}/niri";
     };
-    configFile.ghostty.source = mkOutOfStoreSymlink "${dotfilesPath}/ghostty";
-    configFile."karabiner/karabiner.json" = lib.mkIf pkgs.stdenv.isDarwin {
+    configFile.ghostty = {
+      source = ../../../ghostty;
+      recursive = true;
+    };
+    configFile."ghostty/linux/config" = lib.mkIf isLinux {
+      text = ''
+        font-size = 12
+        keybind = performable:ctrl+c=copy_to_clipboard
+        keybind = performable:ctrl+v=paste_from_clipboard
+      '';
+    };
+    configFile."karabiner/karabiner.json" = lib.mkIf isDarwin {
       source = mkOutOfStoreSymlink "${dotfilesPath}/karabiner/karabiner.json";
     };
   };

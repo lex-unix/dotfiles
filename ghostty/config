@@ -19,3 +19,5 @@ macos-icon-ghost-color = white
 macos-icon-screen-color = sky blue
 
 auto-update-channel = tip
+
+config-file = ?linux/config
