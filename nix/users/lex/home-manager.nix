@@ -43,11 +43,25 @@ in {
   home.sessionVariables =
     {
       PAGER = "less -FirSwX";
+      LEX_THEME = currentTheme;
     }
     // lib.optionalAttrs isLinux {
       XCURSOR_SIZE = "24";
       XCURSOR_THEME = "Adwaita";
     };
+
+  home.shellAliases = {
+    g = "git";
+    c = "clear";
+    q = "exit";
+    j = "jj";
+    h = "hunk";
+    cat = "bat";
+    ll = "eza -l -g --icons";
+    lla = "ll -a";
+    ".." = "cd ..";
+    oc = "opencode attach --dir . http://0.0.0.0:4096";
+  };
 
   home.packages = with pkgs;
     [

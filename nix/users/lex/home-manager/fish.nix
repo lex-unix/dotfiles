@@ -1,17 +1,10 @@
-{
-  currentTheme,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
     package = pkgs.fish;
 
     interactiveShellInit = ''
       set fish_greeting ""
-
-      set -gx LEX_THEME ${currentTheme}
 
       # Go
       set -gx PATH $GOPATH/bin $PATH
@@ -20,20 +13,10 @@
       set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
       set -g FZF_LEGACY_KEYBINDINGS 0
 
-      source $HOME/.config/fish/local.fish
+      if test -e "$HOME/.config/fish/local.fish"
+        source "$HOME/.config/fish/local.fish"
+      end
     '';
-
-    shellAliases = {
-      g = "git";
-      c = "clear";
-      q = "exit";
-      j = "jj";
-      cat = "bat";
-      ll = "eza -l -g --icons";
-      lla = "ll -a";
-      ".." = "cd ..";
-      oc = "opencode attach --dir . http://0.0.0.0:4096";
-    };
 
     plugins = [
       {
