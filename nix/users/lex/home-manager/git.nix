@@ -42,7 +42,7 @@
         ui = "auto";
       };
       github = {
-        user = "lex-unix";
+        user = "lexmiin";
       };
       diff = {
         tool = "nvimdiff";

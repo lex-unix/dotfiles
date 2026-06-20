@@ -16,6 +16,7 @@
           "@-"
         ];
         d = ["diff"];
+        retrunk = ["rebase" "--onto" "trunk()"];
       };
       revset-aliases = {
         "closest_bookmark(to)" = "heads(::to & bookmarks())";
