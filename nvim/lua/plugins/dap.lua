@@ -16,6 +16,7 @@ return {
         config = function()
             local dap = require('dap')
             require('config.dap.js').setup(dap)
+            require('config.dap.rust').setup(dap)
 
             local icons = {
                 Stopped = { '󰁕 ', 'DiagnosticWarn', 'DapStoppedLine' },

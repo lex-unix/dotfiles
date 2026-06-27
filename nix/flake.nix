@@ -14,6 +14,7 @@
     jj-starship.url = "github:dmmulroy/jj-starship";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     hunk.url = "github:modem-dev/hunk";
+    fnox-nix.url = "github:lexmiin/fnox-nix";
   };
 
   outputs = inputs @ {
@@ -27,11 +28,11 @@
     overlays = [
       inputs.jj-starship.overlays.default
       inputs.codex-cli-nix.overlays.default
+      inputs.fnox-nix.overlays.default
       (final: _prev: {
         hunk = inputs.hunk.packages.${final.stdenv.hostPlatform.system}.hunk;
       })
       (import ./overlays/pitchfork.nix)
-      (import ./overlays/fnox.nix)
     ];
 
     mkSystem = import ./lib/mksystem.nix {

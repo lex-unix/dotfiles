@@ -40,7 +40,7 @@ final: prev: {
 
     meta = {
       description = "Daemons with DX";
-      homepage = "https://github.com/endevco/pitchfork";
+      homepage = "https://github.com/jdx/pitchfork";
       license = prev.lib.licenses.mit;
       mainProgram = "pitchfork";
     };
