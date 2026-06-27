@@ -1,9 +1,23 @@
+local function pad_dashboard_header(lines)
+    local width = 0
+
+    for _, line in ipairs(lines) do
+        width = math.max(width, vim.fn.strdisplaywidth(line))
+    end
+
+    for i, line in ipairs(lines) do
+        lines[i] = line .. string.rep(' ', width - vim.fn.strdisplaywidth(line))
+    end
+
+    return table.concat(lines, '\n')
+end
+
 return {
     'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
     keys = {
-        { '<leader>sf', function() Snacks.picker.files() end, desc = 'Find Files' },
+        { '<leader>sf', function() Snacks.picker.files({ exclude = { '.agents/**' } }) end, desc = 'Find Files' },
         { '<leader>sg', function() Snacks.picker.grep() end, desc = 'Grep' },
         { '<leader>sh', function() Snacks.picker.help() end, desc = 'Help Pages' },
         { '<leader>ss', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols' },
@@ -63,7 +77,7 @@ return {
                         icon = ' ',
                         key = 'f',
                         desc = 'Find File',
-                        action = ":lua Snacks.dashboard.pick('files')",
+                        action = ":lua Snacks.picker.files({exclude = {'.agents/**' }})",
                     },
                     {
                         icon = ' ',
@@ -72,19 +86,6 @@ return {
                         action = ":lua Snacks.dashboard.pick('live_grep')",
                     },
                     { icon = ' ', key = 'F', desc = 'File Browser', action = ':Oil' },
-                    {
-                        icon = ' ',
-                        key = 'G',
-                        desc = 'Git Status',
-                        action = function()
-                            vim.cmd.Git()
-                            vim.api.nvim_feedkeys(
-                                vim.api.nvim_replace_termcodes('<C-w>o', false, true, true),
-                                'n',
-                                false
-                            )
-                        end,
-                    },
                     {
                         icon = ' ',
                         key = 'c',
@@ -102,16 +103,16 @@ return {
                     { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
                 },
                 -- Used by the `header` section
-                header = [[
-                                                                   
-      ████ ██████           █████      ██                    
-     ███████████             █████                            
-     █████████ ███████████████████ ███   ███████████  
-    █████████  ███    █████████████ █████ ██████████████  
-   █████████ ██████████ █████████ █████ █████ ████ █████  
- ███████████ ███    ███ █████████ █████ █████ ████ █████ 
-██████  █████████████████████ ████ █████ █████ ████ ██████
-]],
+                header = pad_dashboard_header({
+                    '                                             ',
+                    '      ████ ██████           █████      ██',
+                    '     ███████████             █████ ',
+                    '     █████████ ███████████████████ ███   ███████████',
+                    '    █████████  ███    █████████████ █████ ██████████████',
+                    '   █████████ ██████████ █████████ █████ █████ ████ █████',
+                    ' ███████████ ███    ███ █████████ █████ █████ ████ █████',
+                    '██████  █████████████████████ ████ █████ █████ ████ ██████',
+                }),
             },
             -- item field formatters
             formats = {

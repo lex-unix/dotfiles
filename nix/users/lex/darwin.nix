@@ -38,6 +38,8 @@
 
   system.primaryUser = currentSystemUser;
 
+  services.tailscale.enable = true;
+
   users.users.${currentSystemUser} = {
     home = "/Users/${currentSystemUser}";
     shell = pkgs.fish;
